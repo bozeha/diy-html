@@ -6,8 +6,15 @@ $upload_array = array();
 if (isset($_POST['guide_title'])) 
 {
     $upload_array ['guide_title'] = $_POST['guide_title'];
-    $upload_array ['guide_key'] = str_replace(' ','_',strtolower($_POST['guide_title']));
 }
+if (isset($_POST['guide_title_en']))
+{
+$upload_array ['guide_title_en'] = $_POST['guide_title_en'];
+    $upload_array ['guide_key'] = str_replace(' ','_',strtolower($_POST['guide_title_en']));
+
+} 
+
+
 if (isset($_POST['guide_sub_title'])) 
 {
        $upload_array ['guide_sub_title'] = $_POST['guide_sub_title'];

@@ -11,6 +11,10 @@
   <div class="container">
 <form action="content/new_sub.php" method="post" enctype="multipart/form-data">
   <div class="form-group">
+    <label for="exampleInputEmail1">Guide English Title</label>
+    <input type="text" class="form-control" name="guide_title_en" id="guide_title_en">
+  </div>
+  <div class="form-group">
     <label for="exampleInputEmail1">Guide Title</label>
     <input type="text" class="form-control" name="guide_title" id="guide_title">
   </div>
