@@ -71,7 +71,26 @@ $connection->close();
 
 ?>
 
+<div class="form-group">
+    <label for="exampleInputEmail1">step</label>
+    <input type="text" class="form-control" name="step[]" id="guide_title_en">
+  </div>
 
+  
+
+<div class="form-group">
+    <label for="exampleInputEmail1">step</label>
+    <input type="text" class="form-control" name="step[]" id="guide_title_en">
+  </div>
+
+  
+
+<div class="form-group">
+    <label for="exampleInputEmail1">step</label>
+    <input type="text" class="form-control" name="step[]" id="guide_title_en">
+  </div>
+
+  
 
   <div class="form-group">
     <label for="exampleInputFile">File input</label>

@@ -66,6 +66,17 @@ if ($conn->query($sql) === TRUE) {
 }
 */
 
+$step = $_POST['step'];
+
+
+foreach( $step as $key => $n ) {
+echo $step[$key];
+}
+
+
+
+
+
 
 $target_dir = "../images/guides/".$upload_array ['guide_key']."/" ;
 mkdir($target_dir, 0777);
