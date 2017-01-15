@@ -3,6 +3,10 @@ include '../settings/connect.php';
 
 $upload_array = array();
 
+if (isset($_POST['subject_number'])) 
+{
+    $upload_array ['subject'] = $_POST['subject_number'];
+}
 if (isset($_POST['guide_title'])) 
 {
     $upload_array ['guide_title'] = $_POST['guide_title'];
@@ -54,17 +58,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }*/
 
- /*
 
-$sql = "INSERT INTO guides (subject, user, guide key, guide title, guide subtitle, guide text json,guide images json, guide videos json)
-VALUES ('John', 'Doe', 'john@example.com')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-*/
 
 $step = $_POST['step'];
 
@@ -74,6 +68,8 @@ echo $step[$key];
 }
 
 
+
+// **************** start upload files to server folder 
 
 
 
@@ -132,9 +128,22 @@ if ($uploadOk == 0) {
     }
 
 
+ // **************** end upload files
+
+$sql = "INSERT INTO guides (subject, user, guide key, guide title, guide title en, guide subtitle, guide accessories array, guide text array,guide images array, guide videos array)
+VALUES ('John', 'Doe', 'john@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 
-/*
-*/
+
+
+
+
+
 $conn->close();
 ?>
