@@ -17,6 +17,10 @@
 
 
 <form action="content/new_sub.php" method="post" enctype="multipart/form-data">
+<input type="hidden" id="subject_number" name="subject_number" />
+<input type="hidden" id="user_number" name="user_number" />
+
+
   <div class="form-group">
     <label for="exampleInputEmail1">Guide English Title</label>
     <input type="text" class="form-control" name="guide_title_en" id="guide_title_en">

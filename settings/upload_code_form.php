@@ -11,7 +11,7 @@ $sql = "SELECT id, firstname, lastname, nickname FROM users";
 $result = $connection->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "<div class='form-group'><label for='exampleSelect1'>User nick</label>    <select class='form-control'' name='nick_name'>";
+    echo "<div class='form-group'><label for='exampleSelect1'>User nick</label>    <select class='form-control' id='nick_name' name='nick_name'>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo " <option data-user-id='".$row["id"]."'data-firstname='".$row["firstname"]."'data-lastname='".$row["lastname"]."' >".$row["nickname"]."</option>";
@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     echo "<div class='form-group'><label for='exampleSelect1'>Subject</label>    <select class='form-control' id='subject_name' name='subject_name'>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo " <option data-user-id='".$row["id"]."'>".$row["title"]."</option>";
+        echo " <option subject-user-id='".$row["id"]."'>".$row["title"]."</option>";
     }
     echo "</select></div>";
 } else {
