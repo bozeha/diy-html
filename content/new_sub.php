@@ -3,9 +3,14 @@ include '../settings/connect.php';
 
 $upload_array = array();
 
+
 if (isset($_POST['subject_number'])) 
 {
     $upload_array ['subject'] = $_POST['subject_number'];
+}
+if (isset($_POST['user_number'])) 
+{
+    $upload_array ['user'] = $_POST['user_number'];
 }
 if (isset($_POST['guide_title'])) 
 {
@@ -23,13 +28,6 @@ if (isset($_POST['guide_sub_title']))
 {
        $upload_array ['guide_sub_title'] = $_POST['guide_sub_title'];
 }
-if (isset($_POST['nick_name'])) 
-{
-    $upload_array ['nick_name'] = $_POST['nick_name'];
-}
-
-
-
 
 
 // Create connection
@@ -61,10 +59,11 @@ if ($conn->query($sql) === TRUE) {
 
 
 $step = $_POST['step'];
-
-
+//$upload_array['steps']={};
+//$upload_array['files']={};
 foreach( $step as $key => $n ) {
-echo $step[$key];
+//echo $step[$key];
+$upload_array['steps'][$key] = $step ;
 }
 
 
@@ -75,13 +74,13 @@ echo $step[$key];
 
 
 $target_dir = "../images/guides/".$upload_array ['guide_key']."/" ;
-mkdir($target_dir, 0777);
-echo $target_dir;
+if (!file_exists ($target_dir)){mkdir($target_dir, 0777);}
 
 foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
 {
     
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$key]);
+$upload_array['files'][$key] = $target_file;
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
