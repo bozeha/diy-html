@@ -20,6 +20,7 @@
 <form action="content/new_sub.php" method="post" enctype="multipart/form-data">
 <input type="hidden" id="subject_number" name="subject_number" />
 <input type="hidden" id="user_number" name="user_number" />
+<input type="hidden" id="access_array" name="access_array[]" />
 
 
   <div class="form-group">
@@ -44,7 +45,7 @@ include '/settings/upload_code_form.php';
 <div class="add_another_step">
 <div class="form-group">
     <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
-    <input type="text" class="form-control" name="step[]" id="guide_title_en">
+    <input type="text" class="form-control one_of_steps" name="step[]" >
   </div>
 
 

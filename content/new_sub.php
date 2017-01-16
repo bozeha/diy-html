@@ -17,6 +17,7 @@ if (isset($_POST['user_number']))
 if (isset($_POST['guide_title']))
 {
     $upload_array ['guide_title'] = $_POST['guide_title'];
+    echo $upload_array ['guide_title'];
 }
 if (isset($_POST['guide_title_en']))
 {
@@ -36,11 +37,11 @@ if (isset($_POST['step']))
     }   
 }
 
-if (isset($_POST['image']))
+if (isset($_POST['access_array']))
 {
-    $image = $_POST['image'];
-    foreach( $image as $key => $n ) {
-        $upload_array['image'][$key] = $image ;
+    $access_array = $_POST['access_array'];
+    foreach( $access_array as $key => $n ) {
+        $upload_array['access_array'][$key] = $access_array ;
     }   
 }
 
@@ -48,6 +49,7 @@ if (isset($_POST['image']))
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 //Check connection
+mysqli_set_charset( $conn, 'utf8');
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -138,7 +140,7 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
 
 
 $sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array)
-VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."', '".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['accessories'])."','".json_encode($upload_array['steps'])."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."')";
+VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."', '".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'])."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

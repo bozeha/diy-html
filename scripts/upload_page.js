@@ -30,7 +30,7 @@ $('.accessories').click(function(){
  $.each($('.access_select'),function(index){
      upload_array['access'][index] = $(this).attr('data-user-id');
 })
-
+$('#access_array').val(upload_array['access']);
 })
 
 
@@ -38,6 +38,7 @@ $('.button_p').click(function(){
     $('.add_another_step').first().clone().appendTo( ".start_steps" );
     upload_array['step_number']++;
     $('.step_lable').last().html(upload_array['step_number']+" שלב");
+    $('.one_of_steps').last().val('');
 })
 
 
