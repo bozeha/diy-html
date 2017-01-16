@@ -29,8 +29,6 @@ if ($result->num_rows > 0) {
 // end accessories
 
 
-
-
 //users
 
 $sql = "SELECT id, firstname, lastname, nickname FROM users";
@@ -47,15 +45,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-
-
-
 //end users
-
-
-
-
-
 
 
 $sql = "SELECT id, title FROM subjects";

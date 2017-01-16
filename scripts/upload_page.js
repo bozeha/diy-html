@@ -26,11 +26,19 @@ $('#user_number').val(upload_array['user_number']);
 
 $('.accessories').click(function(){
  $(this).hasClass('access_select')?$(this).removeClass('access_select'):$(this).addClass('access_select');
+ upload_array['access'] = []
+ $.each($('.access_select'),function(index){
+     upload_array['access'][index] = $(this).attr('data-user-id');
+})
 
 })
 
 
-$('.button_p').click(function(){$('.add_another_step').first().clone().appendTo( ".start_steps" );})
+$('.button_p').click(function(){
+    $('.add_another_step').first().clone().appendTo( ".start_steps" );
+    upload_array['step_number']++;
+    $('.step_lable').last().html(upload_array['step_number']+" שלב");
+})
 
 
 

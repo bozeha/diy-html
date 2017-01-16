@@ -43,7 +43,7 @@ include '/settings/upload_code_form.php';
 
 <div class="add_another_step">
 <div class="form-group">
-    <label for="exampleInputEmail1">שלב</label>
+    <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
     <input type="text" class="form-control" name="step[]" id="guide_title_en">
   </div>
 
