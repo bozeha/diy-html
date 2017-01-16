@@ -2,6 +2,8 @@
 include '../settings/connect.php';
 
 $upload_array = array();
+$upload_array['accessories'][0]= '0';
+$upload_array['videos'][0]= '0';
 
 
 if (isset($_POST['subject_number'])) 
@@ -129,8 +131,9 @@ if ($uploadOk == 0) {
 
  // **************** end upload files
 
-$sql = "INSERT INTO guides (subject, user, guide key, guide title, guide title en, guide subtitle, guide accessories array, guide text array,guide images array, guide videos array)
-VALUES ('John', 'Doe', 'john@example.com')";
+
+$sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array)
+VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."', '".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['accessories'])."','".json_encode($upload_array['steps'])."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
