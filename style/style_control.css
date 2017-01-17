@@ -1,3 +1,11 @@
+
+body{
+    text-align:right;
+}
+input 
+{
+    text-align:right;
+}
 .access_select
 {
     border:2px solid #2A6497 ;
@@ -52,4 +60,8 @@ label{
 {
         direction: rtl;
     float: right;
+}
+.button_access
+{
+    color:black;
 }
