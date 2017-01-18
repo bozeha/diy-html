@@ -27,6 +27,10 @@
           <input type="text" class="form-control" name="guide_title" id="guide_title" required>
         </div>
         <div class="form-group">
+          <label for="exampleInputEmail1">תמונה ראשית למדריך</label>
+          <input type="file" name="fileToUpload[]" id="fileToUpload" required>
+        </div>
+        <div class="form-group">
           <label for="exampleInputEmail1">תת כותרת למדריך</label>
           <input type="text" class="form-control" name="guide_sub_title" id="guide_sub_title" required>
         </div>

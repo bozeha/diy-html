@@ -25,7 +25,6 @@ if (isset($_POST['access_disc']))
 
 $target_dir = "../images/accessories/" ;
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-echo "ttttttt".$target_file."ttttttt";
 $upload_array_access['file'] = "images/accessories/". basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

@@ -17,6 +17,7 @@ if (isset($_POST['user_number']))
 if (isset($_POST['guide_title']))
 {
     $upload_array ['guide_title'] = $_POST['guide_title'];
+   $upload_array ['guide_title']=  str_replace('\'','&#39;',$upload_array ['guide_title']);
     echo $upload_array ['guide_title'];
 }
 if (isset($_POST['guide_title_en']))
@@ -27,6 +28,7 @@ if (isset($_POST['guide_title_en']))
 if (isset($_POST['guide_sub_title']))
 {
     $upload_array ['guide_sub_title'] = $_POST['guide_sub_title'];
+    $upload_array ['guide_sub_title']=  str_replace('\'','&#39;',$upload_array ['guide_sub_title']);
 }
 
 if (isset($_POST['step']))
@@ -59,6 +61,9 @@ if ($conn->connect_error) {
 
 
 
+
+
+
 // **************** start upload files to server folder
 
 
@@ -71,7 +76,9 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
 {
     
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$key]);
-    $upload_array['files'][$key] = $target_file;
+
+    $upload_array['files'][$key] = str_replace('../','',$target_file);
+    
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     // Check if image file is a actual image or fake image
@@ -122,7 +129,7 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
 
 
 $sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array)
-VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."', '".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."')";
+VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
