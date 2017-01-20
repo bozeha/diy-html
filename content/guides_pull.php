@@ -27,7 +27,6 @@ if ($result->num_rows > 0) {
         $guides_array['guide_images_array'][$loop] = $row["guide_images_array"];
         $xxx =  json_decode($guides_array['guide_images_array'][$loop],TRUE);
         $guides_array['guide_images_array'][$loop]=$xxx[0];
-        //echo  $guides_array['guide_images_array'][$loop];
         $loop++;
     }
 } else {

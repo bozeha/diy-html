@@ -78,6 +78,7 @@ label {
 
 .guide-box img {
     max-width: 250px !important;
+     cursor: pointer;
 }
 
 .step_number {

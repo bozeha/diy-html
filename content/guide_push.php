@@ -4,6 +4,7 @@ include '../settings/connect.php';
 $upload_array = array();
 $upload_array['accessories'][0]= '0';
 $upload_array['videos'][0]= '0';
+$temp_file_name= 0;
 
 
 if (isset($_POST['subject_number']))
@@ -17,7 +18,7 @@ if (isset($_POST['user_number']))
 if (isset($_POST['guide_title']))
 {
     $upload_array ['guide_title'] = $_POST['guide_title'];
-   $upload_array ['guide_title']=  str_replace('\'','&#39;',$upload_array ['guide_title']);
+    $upload_array ['guide_title']=  str_replace('\'','&#39;',$upload_array ['guide_title']);
     echo $upload_array ['guide_title'];
 }
 if (isset($_POST['guide_title_en']))
@@ -35,11 +36,11 @@ if (isset($_POST['step']))
 {
     
     $step = $_POST['step'];
-    foreach( $step as $key => $n ) { 
+    foreach( $step as $key => $n ) {
         $upload_array['steps'][$key] = $n ;
         
-    }   
-
+    }
+    
 }
 
 if (isset($_POST['access_array']))
@@ -47,7 +48,14 @@ if (isset($_POST['access_array']))
     $access_array = $_POST['access_array'];
     foreach( $access_array as $key => $n ) {
         $upload_array['access_array'][$key] = $access_array ;
-    }   
+    }
+}
+if (isset($_POST['type_of_steps']))
+{
+    $type_of_steps = $_POST['type_of_steps'];
+    foreach( $type_of_steps as $key => $n ) {
+        $upload_array['type_of_steps'][$key] = $type_of_steps ;
+    }
 }
 
 
@@ -74,13 +82,20 @@ if (!file_exists ($target_dir)){mkdir($target_dir, 0777);}
 
 foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
 {
-    
+    /// this two first steps  are to get file extantion for example jpg or png
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"][$key]);
-
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    /////
+    
+    //create the real file name
+    $target_file = $target_dir.$upload_array['guide_key']."_".$temp_file_name.".".$imageFileType ;
+    
+    //create the file path
     $upload_array['files'][$key] = str_replace('../','',$target_file);
     
+    if(!$imageFileType)$upload_array['files'][$key]='';
+    
     $uploadOk = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"][$key]);
@@ -121,15 +136,22 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
     }
     
     
-    
+    $temp_file_name ++;
 }
 
 
 // **************** end upload files
 
 
-$sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array)
-VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."')";
+
+// fix array
+$temp_array = explode(",",$upload_array['type_of_steps'][0][0]);
+$upload_array['type_of_steps'] =$temp_array;
+// fix array
+
+
+$sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array)
+VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."','".json_encode($upload_array['type_of_steps'])."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
