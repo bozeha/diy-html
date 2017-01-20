@@ -11,3 +11,4 @@
  
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  <link href="style.css" rel="stylesheet">
+ <script src='scripts/main_scripts.js'></script>

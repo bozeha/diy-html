@@ -112,7 +112,7 @@ $conn->close();
     <title>Document</title>
   </head>
 <body>
-    <a href='../new_access.php'><button class="btn-lg button_p">next one</button></a>
+    <a href='../new-access.php'><button class="btn-lg button_p">next one</button></a>
 <a href='../index.php'><button class="btn-lg button_p">home</button></a>
      
 

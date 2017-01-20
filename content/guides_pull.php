@@ -42,7 +42,7 @@ for($loop2=0;$loop2!=$loop;$loop2++) {
         echo "<div class='col-md-4'><img src='".$guides_array['guide_images_array'][$loop2]."' class='img-responsive' style='min-height:275px'>";
         echo "<h3 style='background:#eee;margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h3>";
         echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
-        echo "<a href='list_of_guides?subject=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריכים</button></a></div>";
+        echo "<a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a></div>";
     }
     
     
