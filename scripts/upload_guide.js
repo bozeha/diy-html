@@ -37,19 +37,32 @@ $(document).ready(function () {
     $('#access_array').val(upload_array['access']);
   })
 
-upload_array['type_of_steps'][0] = "text_and_img";// the first tet and image are already in the page 
+  //upload_array['type_of_steps'][0] = "text_and_img";// the first tet and image are already in the page 
   $('.button_p').click(function () {
-    temp_loop++;
     $('.add_another_step').first().clone().appendTo(".start_steps");
-    upload_array['step_number']++;
-    $('.step_lable').last().html(upload_array['step_number'] + " שלב");
-    $('.one_of_steps').last().val('');
+    $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
+    $('form .one_of_steps').last().val('');
 
 
     upload_array['type_of_steps'][temp_loop] = "text_and_img";
     $('#type_of_steps').val(upload_array['type_of_steps']);
+    upload_array['step_number']++;
+    temp_loop++;
   })
 
 
+  $('.button_only_t').click(function () {
+    $('.add_another_textarea').last().clone().appendTo(".start_steps");
+    $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
+    
+    var temp_loop2= temp_loop+1;
+    $('form textarea').last().attr('id','editor'+temp_loop2);
+    CKEDITOR.replace('editor'+temp_loop2);
+    $('form .add_another_textarea').last().val('');
+    upload_array['type_of_steps'][temp_loop] = "textarea";
+    $('#type_of_steps').val(upload_array['type_of_steps']);
+    upload_array['step_number']++;
+    temp_loop++;
 
+  })
 })

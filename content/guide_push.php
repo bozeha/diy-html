@@ -7,6 +7,7 @@ $upload_array['videos'][0]= '0';
 $temp_file_name= 0;
 
 
+
 if (isset($_POST['subject_number']))
 {
     $upload_array ['subject'] = $_POST['subject_number'];
@@ -34,10 +35,21 @@ if (isset($_POST['guide_sub_title']))
 
 if (isset($_POST['step']))
 {
-    
     $step = $_POST['step'];
     foreach( $step as $key => $n ) {
         $upload_array['steps'][$key] = $n ;
+        
+    }
+    
+}
+else $upload_array['steps']= [];
+
+if (isset($_POST['editor1']))
+{
+    
+    $step = $_POST['editor1'];
+    foreach( $step as $key => $n ) {
+        $upload_array['guide_textarea_array'][$key] = $n ;
         
     }
     
@@ -150,8 +162,8 @@ $upload_array['type_of_steps'] =$temp_array;
 // fix array
 
 
-$sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array)
-VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."','".json_encode($upload_array['type_of_steps'])."')";
+$sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array,guide_textarea_array )
+VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."','".json_encode($upload_array['type_of_steps'])."','".json_encode($upload_array['guide_textarea_array'])."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

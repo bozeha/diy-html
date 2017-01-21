@@ -4,6 +4,9 @@
 <head>
   <?php include '/settings/head.php'; ?>
     <script src='scripts/upload_guide.js'></script>
+    <!-- script for text area editor  -->
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="ckeditor/config.js"></script>
     <title>Document</title>
 </head>
 
@@ -41,20 +44,8 @@
 include '/settings/connect.php';
 include '/settings/upload_code_form.php';
 ?>
-          
-          <div class="add_another_step">
-            <div class="form-group">
-              <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
-              <input type="text" class="form-control one_of_steps" name="step[]">
-            </div>
 
 
-            <div class="form-group">
-              <label for="exampleInputFile">הוסף תמונה</label>
-              <input type="file" name="fileToUpload[]" id="fileToUpload">
-              <!--small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small-->
-            </div>
-          </div>
           <span class='start_steps'>
 
 
@@ -62,15 +53,36 @@ include '/settings/upload_code_form.php';
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <button class="btn-lg button_only_i">צור שלב של רק תמונה</button>
-      <button class="btn-lg button_only_t">צור שלב של רק טקסט</button>
+      <button class="btn-lg button_only_t">קטע טקסט</button>
       <button class="btn-lg button_p">צור שלב של טקסט ותמונה</button>
     </div>
 
 
 
-    <script>
-	initSample();
-</script>
+
+
+    <div style='display:none'>
+      <div class="add_another_step">
+        <div class="form-group">
+          <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
+          <input type="text" class="form-control one_of_steps" name="step[]">
+        </div>
+
+
+        <div class="form-group">
+          <label for="exampleInputFile">הוסף תמונה</label>
+          <input type="file" name="fileToUpload[]" id="fileToUpload">
+          <!--small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small-->
+        </div>
+      </div>
+
+      <div class="add_another_textarea">
+      <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
+        <textarea name="editor1[]" id="editor1" rows="10" cols="80">
+
+        </textarea>
+      </div>
+    </div>
 </body>
 
 </html>
