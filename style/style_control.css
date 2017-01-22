@@ -1,6 +1,8 @@
 body {
     text-align: right;
     background-color: #f6f1ea !important;
+    padding:100px 0px;
+    
 }
 
 input {
@@ -78,7 +80,7 @@ label {
 
 .guide-box img {
     max-width: 250px !important;
-     cursor: pointer;
+    cursor: pointer;
 }
 
 .step_number {
@@ -104,23 +106,21 @@ label {
     position: absolute;
     right: 0px;
 }
-.top_main_guide
-{
-    margin-top:60px;
+
+.top_main_guide {
+    margin-top: 60px;
 }
-.top_main_guide_img
-{
-height: 250px;
+
+.top_main_guide_img {
+    height: 250px;
     background-size: cover;
     background-repeat: no-repeat;
-
 }
-#resize_div
-{
+
+#resize_div {
     z-index: 500;
     background-repeat: no-repeat;
     background-position: 50%;
     position: fixed;
-        background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
 }
-    

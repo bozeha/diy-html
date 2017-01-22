@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body style='padding-top:100px'>
+<body>
 
   <?php include '/settings/top_menu.php'; ?>
     <div class="container">
@@ -52,9 +52,9 @@ include '/settings/upload_code_form.php';
 </span>
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <button class="btn-lg button_only_i">צור שלב של רק תמונה</button>
-      <button class="btn-lg button_only_t">קטע טקסט</button>
-      <button class="btn-lg button_p">צור שלב של טקסט ותמונה</button>
+      <button class="btn-lg button_youtube">צור שלב של סרטון יוטיוב</button>
+      <button class="btn-lg button_textarea">קטע טקסט</button>
+      <button class="btn-lg button_text_and_img">צור שלב של טקסט ותמונה</button>
     </div>
 
 
@@ -77,11 +77,36 @@ include '/settings/upload_code_form.php';
       </div>
 
       <div class="add_another_textarea">
-      <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
+        <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <textarea name="editor1[]" id="editor1" rows="10" cols="80">
-
         </textarea>
       </div>
+
+
+      <div class="add_guide_videos_array">
+        <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
+        <div class="form-group">
+          <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
+          <input type="text" class="form-control guide_videos_array" name="guide_videos_array[]">
+
+
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+              <input type="checkbox" checked autocomplete="off"> Checkbox 1 (pre-checked)
+            </label>
+            <label class="btn btn-primary">
+              <input type="checkbox" autocomplete="off"> Checkbox 2
+            </label>
+            <label class="btn btn-primary">
+              <input type="checkbox" autocomplete="off"> Checkbox 3
+            </label>
+          </div>
+          Radio 1 (preselected) Radio 2 Radio 3
+
+        </div>
+      </div>
+
+
     </div>
 </body>
 
