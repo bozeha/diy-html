@@ -75,12 +75,30 @@ $(document).ready(function () {
     $('#type_of_steps').val(upload_array['type_of_steps']);
     upload_array['step_number']++;
     temp_loop++;
-
-    var str = $('form .add_guide_videos_array input').last().val();
-    str = str.replace(/.*=/,"");
-    console.log(str);
-    
+      disable_next(true);
 
   })
-
 })
+
+
+function youtube_options() {
+
+  var str = $('form .add_guide_videos_array input.guide_videos_array').last().val();
+  str = str.replace(/.*=/, "");
+  console.log(str);
+  str = $('form #auto').last().is(':checked') ? str + "?autoplay=1" : str + "?autoplay=0";
+  str = $('form #loop').last().is(':checked') ? str + "&loop=1" : str + "&loop=0";
+  str = $('form #controler').last().is(':checked') ? str + "&controls=1" : str + "&controls=0";
+  str = $('form #rel').last().is(':checked') ? str + "&rel=1" : str + "&rel=0";
+  $('form .add_guide_videos_array input#guide_videos_array_finel').last().val(str);
+  $('form .add_guide_videos_array input.guide_videos_array').last().attr('readonly', true);
+  $('form .add_guide_videos_array input.guide_videos_array').last().css('background-color','#D3D3D3');
+  disable_next(false);
+}
+
+function disable_next(current_step)
+{
+current_step?$('#gray-div').css('display','block'):$('#gray-div').css('display','none');
+
+
+}

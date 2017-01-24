@@ -49,6 +49,7 @@
 
 
         <?php include '/content/guide_pull.php'; ?>
+        
 
 
 

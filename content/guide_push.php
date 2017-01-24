@@ -66,6 +66,14 @@ if (isset($_POST['type_of_steps']))
     }
 }
 
+if (isset($_POST['guide_videos_array']))
+{
+    $guide_videos_array = $_POST['guide_videos_array'];
+    foreach( $guide_videos_array as $key => $n ) {
+        $upload_array['guide_videos_array'][$key] = $guide_videos_array ;
+    }
+}
+else $upload_array['guide_videos_array']=[];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -159,7 +167,7 @@ $upload_array['type_of_steps'] =$temp_array;
 
 
 $sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array,guide_textarea_array )
-VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['videos'])."','".json_encode($upload_array['type_of_steps'])."','".base64_encode(json_encode($upload_array['guide_textarea_array']))."')";
+VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['guide_videos_array'][0])."','".json_encode($upload_array['type_of_steps'])."','".base64_encode(json_encode($upload_array['guide_textarea_array']))."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";

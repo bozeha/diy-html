@@ -50,11 +50,22 @@ include '/settings/upload_code_form.php';
 
 
 </span>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="row youtube_buttons">
+            <div id="gray-div">
+              </div>
+            <div class='col-xs-6 pull-right'>
+              <button type="button" class="btn-lg button_youtube">צור שלב של סרטון יוטיוב</button>
+              <button type="button" class="btn-lg button_textarea">קטע טקסט</button>
+              <button type="button" class="btn-lg button_text_and_img">צור שלב של טקסט ותמונה</button>
+            </div>
+
+            <div class='col-xs-6'>
+              <button type="submit" class="btn btn-primary pull-right">אשר ושמור מדריך</button>
+            </div>
+            
+          </div>
       </form>
-      <button class="btn-lg button_youtube">צור שלב של סרטון יוטיוב</button>
-      <button class="btn-lg button_textarea">קטע טקסט</button>
-      <button class="btn-lg button_text_and_img">צור שלב של טקסט ותמונה</button>
+
     </div>
 
 
@@ -86,22 +97,57 @@ include '/settings/upload_code_form.php';
       <div class="add_guide_videos_array">
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <div class="form-group">
-          <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
-          <input type="text" class="form-control guide_videos_array" name="guide_videos_array[]">
-
-
-          <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary active">
-              <input type="checkbox" checked autocomplete="off"> Checkbox 1 (pre-checked)
-            </label>
-            <label class="btn btn-primary">
-              <input type="checkbox" autocomplete="off"> Checkbox 2
-            </label>
-            <label class="btn btn-primary">
-              <input type="checkbox" autocomplete="off"> Checkbox 3
-            </label>
+          <div class="row">
+            <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
+            <input type="text" class="col-xs-6 pull-right guide_videos_array" name="guide_videos_array_temp">
+            <button type="button" class="col-xs-2 btn-md btn btn-primary pull-right" onclick='youtube_options()'>אשר</button>
           </div>
-          Radio 1 (preselected) Radio 2 Radio 3
+
+          <div class="btn-group row" data-toggle="buttons">
+
+            <table id='youtube_table'>
+              <tr>
+                <td>
+                  הפעלת הסרטון אוטומתי
+                </td>
+                <td>
+                  הפעלת את הסרטון בלולאה
+                </td>
+                <td>
+                  אפשרות שליטה על הסרטון
+                </td>
+                <td>
+                  הצג סרטונים קשורים בסוף הקטע
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label class="btn btn-primary col-xs-3 youtube_btn">
+                    <input type="checkbox" id='auto' autocomplete="off">
+                  </label>
+                </td>
+                <td>
+                  <label class="btn btn-primary col-xs-3 youtube_btn">
+                    <input type="checkbox" id='loop' autocomplete="off">
+                  </label>
+                </td>
+                <td>
+                  <label class="btn btn-primary col-xs-3 youtube_btn">
+                    <input type="checkbox" id='controler' autocomplete="off">
+                  </label>
+                </td>
+                <td>
+                  <label class="btn btn-primary col-xs-3 youtube_btn">
+                    <input type="checkbox" id='rel' autocomplete="off">
+                  </label>
+                </td>
+              </tr>
+              <input type="hidden" id="guide_videos_array_finel" name="guide_videos_array[]" />
+
+            </table>
+          </div>
+
 
         </div>
       </div>

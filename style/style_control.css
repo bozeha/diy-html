@@ -1,8 +1,7 @@
 body {
     text-align: right;
     background-color: #f6f1ea !important;
-    padding:100px 0px;
-    
+    padding: 100px 0px;
 }
 
 input {
@@ -124,3 +123,30 @@ label {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.9);
 }
+
+table#youtube_table td {
+    text-align: Center;
+    padding: 10px;
+    max-width: 90px;
+}
+
+.youtube_btn {
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    float: none !important;
+}
+
+#gray-div {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 99;
+    display: none;
+}
+.youtube_buttons
+{
+        position: relative;
+}
+
