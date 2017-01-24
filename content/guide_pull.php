@@ -27,6 +27,7 @@ if ($result->num_rows > 0) {
         $guide_array['guide_subtitle'] = $row["guide_subtitle"];
         
         $guide_array['guide_accessories_array'] = $row["guide_accessories_array"];
+        $guide_array['guide_accessories_array'] = str_replace(",","\",\"",$guide_array['guide_accessories_array']);
         $string2json =  json_decode($guide_array['guide_accessories_array'],TRUE);
         $guide_array['guide_accessories_array']=$string2json;
         
@@ -62,10 +63,20 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-/*if($guide_array['guide_accessories_array'])
-{ echo "11"+$guide_array['guide_accessories_array'][0];}*/
-
-
+// start pull accessores 
+//$access_loop =0;
+$sql = "SELECT id,access_name ,access_disc ,access_img FROM  accessories ";
+$result = $connection->query($sql);
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo $row["id"]."--";
+        $guide_array_access['id'][$row["id"]] = $row["id"];
+        $guide_array_access['access_name'][$row["id"]] = $row["access_name"];
+        $guide_array_access['access_disc'][$row["id"]] = $row["access_disc"];
+        $guide_array_access['access_img'][$row["id"]] = $row["access_img"];
+        //$access_loop++;
+    }
+}
 
 
 
@@ -85,7 +96,29 @@ echo "</div></div>";
 
 echo "<div class'row pull_access_div' style='display:inline-block' >";
 echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
-include '/content/pull_access.php'; 
+
+
+
+//////////////////
+
+//$access_loop--;
+echo "<div class='access_div'>";
+//for(;$access_loop!=-1;$access_loop--)
+foreach($guide_array['guide_accessories_array'][0] as $key=>$value)
+{
+
+        $current_access = $guide_array['guide_accessories_array'][0][$key];
+    echo "<div class='pull-right' ><span  class='pull-right col-xs-12' data-access-id='".$guide_array_access['id'][$current_access]."'>";
+    echo $guide_array_access['access_name'][$current_access]."</span>";
+    echo "<img width='100px' height='100px' src='".$guide_array_access['access_img'][$current_access]."'/></div>";
+     $guide_array_access['access_disc'][$current_access];
+}
+
+echo "</div>";
+
+
+/////////////////
+/*include '/content/pull_access.php'; */
 echo "</div>";
 
 
