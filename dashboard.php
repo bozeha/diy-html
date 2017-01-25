@@ -1,3 +1,14 @@
+<?php
+
+if(isset($_GET['dash'])) {
+    $current_dash = $_GET['dash'];
+    $current_dash = $current_dash.".php";
+} else {
+    $current_dash = "new-guide-form.php";
+}
+
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -56,21 +67,21 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="index.php">
+                    <a href="dashboard.php?dash=new-guide-form">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>הוספת מדריך</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="dashboard.php?dash=new-access">
+                        <i class="pe-7s-note2"></i>
+                        <p>הוספת מיצרך</p>
                     </a>
                 </li>
                 <li>
                     <a href="user.html">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="table.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
                     </a>
                 </li>
                 <li>
@@ -117,7 +128,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    <a class="navbar-brand" href="#">הוספת מדריך</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -197,9 +208,8 @@
                                 <h4 class="title">Striped Table with Hover</h4>
                                 <p class="category">Here is a subtitle for this table</p>
                             </div>
-                            <div class="content table-responsive table-full-width">
-                               <?php include 'new-guide-form.php';?>
-
+                            <div id='main_php_div' class="content table-responsive table-full-width">
+                               <?php include $current_dash;?>
                             </div>
                         </div>
                     </div>

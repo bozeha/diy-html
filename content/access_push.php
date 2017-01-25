@@ -85,9 +85,9 @@ $sql = "INSERT INTO accessories (access_key, access_name, access_disc, access_im
 VALUES ('".$upload_array_access['access_title_en']."','". $upload_array_access['access_title']."', '".$upload_array_access['access_disc']."','".$upload_array_access['file']."')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    $current_message= "מוצר עלה בהצלחה";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    $current_message =  "Error: " . $sql . "<br>" . $conn->error;
 }
 
 
@@ -97,12 +97,18 @@ if ($conn->query($sql) === TRUE) {
 
 
 $conn->close();
+
+header("Location: ../dashboard.php?dash=new-access&mess=".$current_message); /* Redirect browser */
+exit();
+//echo "Location: ../dashboard.php?dash=new-access?dash=new-access&mess=".$current_message."000";
+
+
 ?>
 
 
 
 
-
+<!--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,4 +123,4 @@ $conn->close();
      
 
 </body>
-</html>
+</html>-->

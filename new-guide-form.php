@@ -97,7 +97,7 @@ include '/settings/upload_code_form.php';
 
 
       <div class="add_guide_videos_array">
-        <button class="btn btn-danger" onclick="$(this).parent().remove()">x</button>
+        <button class="btn btn-danger" onclick="$(this).parent().remove();disable_next(false)">x</button>
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <div class="form-group">
           <div class="row">

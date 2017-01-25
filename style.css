@@ -1,47 +1,36 @@
+@font-face {
+    font-family: openlight;
+    src: url('style/openlight.ttf');
+}
 
 @font-face {
-    font-family:openlight;
-	src: url('style/openlight.ttf');
-     
+    font-family: open;
+    src: url('style/open.ttf');
 }
-
-@font-face {    
-    font-family:open;
-	src: url('style/open.ttf');
-     
-}
-
 
 @font-face {
-    font-family:museo;
-	src: url('style/museo.otf');
-     
+    font-family: museo;
+    src: url('style/museo.otf');
 }
 
-.row p a{
-
-color:#fff
-
-
-
+.row p a {
+    color: #fff
 }
 
 body {
-
-font-family:museo;
-
+    font-family: museo;
 }
 
-
-
-#section2  a {
-
-color:#29d846;
-
-
-
+#section2 a {
+    color: #29d846;
 }
-.add_another_step
-{
-    padding-bottom:20px;
+
+.add_another_step {
+    padding-bottom: 20px;
+}
+
+.add_guide_videos_array, .add_another_textarea, .add_another_step {
+    border: 1px solid blue;
+    padding: 30px;
+    border-radius: 5px;
 }

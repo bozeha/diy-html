@@ -11,6 +11,12 @@
 <body  style='padding-top:100px'>
     <?php include '/settings/top_menu.php'; ?>
   <div class="container">
+
+    <?php
+if(isset($_GET['mess'])) {
+  echo "<h3>".$current_mess = $_GET['mess']."</h3>";
+}
+?>
 <h1 class="display-3">מצרכים</h1>
 
 
