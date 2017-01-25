@@ -1,20 +1,20 @@
 
 @font-face {
     font-family:openlight;
-	src: url('openlight.ttf');
+	src: url('style/openlight.ttf');
      
 }
 
-@font-face {
+@font-face {    
     font-family:open;
-	src: url('open.ttf');
+	src: url('style/open.ttf');
      
 }
 
 
 @font-face {
     font-family:museo;
-	src: url('museo.otf');
+	src: url('style/museo.otf');
      
 }
 
@@ -41,4 +41,7 @@ color:#29d846;
 
 
 }
-
+.add_another_step
+{
+    padding-bottom:20px;
+}

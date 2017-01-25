@@ -74,6 +74,7 @@ include '/settings/upload_code_form.php';
 
     <div style='display:none'>
       <div class="add_another_step">
+<button class="btn btn-danger" onclick="$(this).parent().remove()">x</button>
         <div class="form-group">
           <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
           <input type="text" class="form-control one_of_steps" name="step[]">
@@ -88,6 +89,7 @@ include '/settings/upload_code_form.php';
       </div>
 
       <div class="add_another_textarea">
+        <button type='button' class="btn btn-danger" onclick="$(this).parent().remove()">x</button>
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <textarea name="editor1[]" id="editor1" rows="10" cols="80">
         </textarea>
@@ -95,6 +97,7 @@ include '/settings/upload_code_form.php';
 
 
       <div class="add_guide_videos_array">
+        <button class="btn btn-danger" onclick="$(this).parent().remove()">x</button>
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <div class="form-group">
           <div class="row">
