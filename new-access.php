@@ -14,7 +14,7 @@
 
     <?php
 if(isset($_GET['mess'])) {
-  echo "<h3>".$current_mess = $_GET['mess']."</h3>";
+  echo "<h3 class='text-primary'>".$current_mess = $_GET['mess']."</h3>";
 }
 ?>
 <h1 class="display-3">מצרכים</h1>

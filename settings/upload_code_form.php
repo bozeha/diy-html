@@ -33,7 +33,7 @@ echo <<<BOT
 
 <div class='row'>
             <lable>במידה וחסר מוצר ניתן להוסיף</lable>
-            <a href='new_access.php'>
+            <a href='dashboard.php?dash=new-access'>
               <button type="button" class="btn-lg button_access">מצרך נוסף</button>
             </a>
           </div>

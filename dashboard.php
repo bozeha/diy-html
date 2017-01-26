@@ -15,6 +15,7 @@ if(isset($_GET['dash'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/dashboard.js"></script>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -66,13 +67,13 @@ if(isset($_GET['dash'])) {
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li class="active" id='li-guide-form'>
                     <a href="dashboard.php?dash=new-guide-form">
                         <i class="pe-7s-graph"></i>
                         <p>הוספת מדריך</p>
                     </a>
                 </li>
-                <li>
+                <li id='li-new-access'>
                     <a href="dashboard.php?dash=new-access">
                         <i class="pe-7s-note2"></i>
                         <p>הוספת מיצרך</p>
@@ -84,10 +85,10 @@ if(isset($_GET['dash'])) {
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li>
-                    <a href="typography.html">
+                <li id='li-manage-guides'>
+                    <a href="dashboard.php?dash=manage-guides">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
+                        <p>ניהול מדריכים</p>
                     </a>
                 </li>
                 <li>
