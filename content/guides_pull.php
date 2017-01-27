@@ -51,6 +51,11 @@ for($loop2=0;$loop2!=$loop;$loop2++) {
         echo "<a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a></div>";
         //echo "</div>";
     }
+    echo "<script>var array_to_delet = [];var temp_loop = 0;function elements_to_remove() { $('.selected-guide').each(function (key, value) { ($(this).attr('data-guide-selected') == 'false') ? console.log('false') : array_to_delet[temp_loop] = $(this).attr('data-guide-id'); temp_loop++ });}</script>";
+
+    echo "<button onclick='elements_to_remove()'>מחק את המדריכים המסומנים</button>";
+
+
 }
 else
 {

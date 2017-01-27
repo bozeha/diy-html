@@ -32,5 +32,12 @@ function markForDelete(current_guide) {
         $(current_guide).html('בטל סימון');
     }
 
+    var array_to_delet = [];
+    var temp_loop = 0;
 
+    function elements_to_remove() {
+
+        $('.selected-guide').each(function (key, value) { ($(this).attr('data-guide-selected') == 'false') ? console.log('false') : array_to_delet[temp_loop] = $(this).attr('data-guide-id'); temp_loop++ });
+
+    }
 }
