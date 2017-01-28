@@ -42,7 +42,9 @@
 
         <?php
 include '/settings/connect.php';
-include '/settings/upload_code_form.php';
+include '/settings/pull_access.php';
+include '/settings/pull_users.php';
+include '/settings/pull_subjects.php';
 ?>
 
 

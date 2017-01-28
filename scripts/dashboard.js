@@ -13,6 +13,10 @@ $(document).ready(function () {
         $('#li-manage-guides').addClass('active');
 
     }
+    else if (url.search(/manage-access/i) > -1) {
+        $('#li-manage-access').addClass('active');
+
+    }
 });
 function markForDelete(current_guide) {
     console.log($(current_guide).parent());
@@ -32,12 +36,29 @@ function markForDelete(current_guide) {
         $(current_guide).html('בטל סימון');
     }
 
+}
+
+function elements_to_remove(object_type) {
     var array_to_delet = [];
     var temp_loop = 0;
-
-    function elements_to_remove() {
-
-        $('.selected-guide').each(function (key, value) { ($(this).attr('data-guide-selected') == 'false') ? console.log('false') : array_to_delet[temp_loop] = $(this).attr('data-guide-id'); temp_loop++ });
+    if (object_type== 'guides')
+    {
+    $('.selected-guide').each(function (key, value) { ($(this).attr('data-guide-selected') == 'false') ? console.log('false') : array_to_delet.push($(this).attr('data-guide-id'));});
+    }
+    else if(object_type== 'accessories')
+    {
+        $('.accessories').each(function (key, value) { ($(this).attr('data-select-access') == 'false') ? console.log('false') : array_to_delet.push($(this).attr('data-user-id'));});
 
     }
+    //console.log(array_to_delet);
+
+    $.post("content/remov_element.php",
+    {
+        object_type: object_type,
+        id_numbers: array_to_delet
+    },
+    function(data, status){
+        console.log("\nStatus: " + status);
+    });
+
 }

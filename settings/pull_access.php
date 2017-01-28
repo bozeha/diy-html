@@ -1,4 +1,8 @@
+
 <?php
+include '/settings/top_menu.php';
+include 'settings/connect.php';
+
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 
 mysqli_query($connection, "set names 'utf8'");
@@ -19,7 +23,7 @@ if ($result->num_rows > 0) {
     echo "<div class='access_cont'  ><label for='exampleSelect1'>כלים ומוצרים שחייב כדי ליצור את המוצר</label>    <div  id='access' name='access'>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo " <div class='accessories' data-user-id='".$row["id"]."'data-disc='".$row["access_disc"]."'><label>".$row["access_name"]."</label><img style='float:left;width:100px;height:100px' src='".$row["access_img"]."'/></div>";
+        echo " <div class='accessories' data-select-access='false' data-user-id='".$row["id"]."'data-disc='".$row["access_disc"]."'><label>".$row["access_name"]."</label><img style='float:left;width:100px;height:100px' src='".$row["access_img"]."'/></div>";
     }
     echo "</div></div>";
 } else {
@@ -42,7 +46,7 @@ BOT;
 
 
 //users
-
+/*
 $sql = "SELECT id, firstname, lastname, nickname FROM users";
 $result = $connection->query($sql);
 
@@ -56,10 +60,10 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
+*/
 //end users
 
-
+/*
 $sql = "SELECT id, title FROM subjects";
 $result = $connection->query($sql);
 
@@ -74,7 +78,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-
+*/
 
 
 $connection->close();

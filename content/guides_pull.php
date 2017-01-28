@@ -41,33 +41,31 @@ $loop2 = 0;
 
 if ($current_subject=='all')
 {
-
-for($loop2=0;$loop2!=$loop;$loop2++) {
+    
+    for($loop2=0;$loop2!=$loop;$loop2++) {
         
-        //echo "<div class='row'>";
-        echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-4 selected-guide'><button onclick='markForDelete(this)'>סמן מדריך</button><img src='".$guides_array['guide_images_array'][$loop2]."' class='img-responsive  pull-left' style='max-height:100px'>";
+        echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-12 selected-guide'><button onclick='markForDelete(this)'>סמן מדריך</button><img src='".$guides_array['guide_images_array'][$loop2]."' class='img-responsive  pull-left' style='max-height:100px'>";
         echo "<h3 style='background:#eee;margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h3>";
         echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
         echo "<a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a></div>";
-        //echo "</div>";
     }
-    echo "<script>var array_to_delet = [];var temp_loop = 0;function elements_to_remove() { $('.selected-guide').each(function (key, value) { ($(this).attr('data-guide-selected') == 'false') ? console.log('false') : array_to_delet[temp_loop] = $(this).attr('data-guide-id'); temp_loop++ });}</script>";
-
-    echo "<button onclick='elements_to_remove()'>מחק את המדריכים המסומנים</button>";
-
-
+    
+    
+    echo "<button onclick=elements_to_remove('guides')>מחק את המדריכים המסומנים</button>";
+    
+    
 }
 else
 {
-for($loop2=0;$loop2!=$loop;$loop2++) {
+    for($loop2=0;$loop2!=$loop;$loop2++) {
         
         echo "<div class='col-md-4'><img src='".$guides_array['guide_images_array'][$loop2]."' class='img-responsive' style='min-height:275px'>";
         echo "<h3 style='background:#eee;margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h3>";
         echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
         echo "<a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a></div>";
     }
-}   
-    
+}
+
 
 
 ?>

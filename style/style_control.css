@@ -150,3 +150,8 @@ table#youtube_table td {
         position: relative;
 }
 
+.data-select-access
+{
+    border:2px solid blue;
+    border-radius:5px; 
+}

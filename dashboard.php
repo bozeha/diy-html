@@ -43,7 +43,7 @@ if(isset($_GET['dash'])) {
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
@@ -91,10 +91,10 @@ if(isset($_GET['dash'])) {
                         <p>ניהול מדריכים</p>
                     </a>
                 </li>
-                <li>
-                    <a href="icons.html">
+                <li id='li-manage-access'>
+                    <a href="dashboard.php?dash=manage-access">
                         <i class="pe-7s-science"></i>
-                        <p>Icons</p>
+                        <p>ערוך מיצרכים</p>
                     </a>
                 </li>
                 <li>
@@ -217,7 +217,7 @@ if(isset($_GET['dash'])) {
 
 
                     <div class="col-md-12">
-                        <div class="card card-plain">
+                        <!--div class="card card-plain">
                             <div class="header">
                                 <h4 class="title">Table on Plain Background</h4>
                                 <p class="category">Here is a subtitle for this table</p>
@@ -278,7 +278,7 @@ if(isset($_GET['dash'])) {
                                 </table>
 
                             </div>
-                        </div>
+                        </div-->
                     </div>
 
 
