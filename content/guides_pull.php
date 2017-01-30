@@ -51,7 +51,7 @@ if ($current_subject=='all')
     }
     
     
-    echo "<button onclick=elements_to_remove('guides')>מחק את המדריכים המסומנים</button>";
+    echo "<button class='btn btn-danger' onclick=elements_to_remove('guides')>מחק את המדריכים המסומנים</button>";
     
     
 }

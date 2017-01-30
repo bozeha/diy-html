@@ -1,9 +1,34 @@
+<?php
+$id='';
+if(isset($_POST['uname'])) {
+              $user['uname'] = $_POST['uname'];
+              //   echo $user['uname'];
+          }
+          if((isset($_POST['status']))&& ($_POST['status'])=='true') {
+
+              $user['status'] = $_POST['status'];
+              
+              session_start();
+              $id = session_id();
+
+          }
+?>
 <html>
 
 <title>Orlando Travel Guide</title>
+
 <head>
   <?php include '/settings/head.php'; ?>
+    <?php
+
+if(isset($_POST['mess'])) {
+    $mess = $_POST['mess'];
+    //   echo $user['uname'];
+    echo $mess;
+}
+?>
 </head>
+
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -17,10 +42,10 @@
         <a class="navbar-brand" href="/"><strong style="color:#29d846">Orlando</strong>Guests</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+        <ul class="nav navbar-nav pull-right">
+          <li><a href="/">דף הבית</a></li>
+          <li><a href="#">מדריכים</a></li>
+          <li><a href="#">הודותינו</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Major Attractions<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -31,11 +56,43 @@
             </ul>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Flight Info</a></li>
-          <li><a href="#">Ticket Info</a></li>
-          <li><a href="#">Things To Do</a></li>
-        </ul>
+        <?php
+          if ($id!='')
+          {
+
+              echo "<h3>hello ". $user['uname']."</h3>";
+              echo $id;
+
+          }
+          else {
+
+echo <<<BOT
+
+      <form action="settings/log-in.php" method="post">
+            <ul class="nav navbar-nav navbar-left">
+              <li>
+                <a href="#">
+                  <button class='btn'>התחבר</button>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <input name='uname' type='text' class="form-control">
+                </a>user name</li>
+              <li>
+                <a href="#">
+                  <input name='pass' type='text' class="form-control">
+                </a>password</li>
+            </ul>
+          </form>
+BOT;
+
+
+          }
+
+
+?>
+    
       </div>
       <!--/.nav-collapse -->
     </div>

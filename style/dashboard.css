@@ -12,3 +12,9 @@ body
 overflow:visible !important;
 
 }
+
+.red-button-remove
+{
+    margin-top: -45px;
+    margin-left: 20px;
+}
