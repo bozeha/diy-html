@@ -22,3 +22,8 @@ overflow:visible !important;
     margin-top: -45px;
     margin-left: 20px;
 }
+.sidebar-wrapper ul.nav
+{
+
+    padding-right:0px ;
+}
