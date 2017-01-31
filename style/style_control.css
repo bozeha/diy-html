@@ -32,6 +32,7 @@ input {
     height: 100%;
     display: inline-block;
     padding-bottom: 50px;
+    display:table;
 }
 
 .button_p {
@@ -158,4 +159,36 @@ table#youtube_table td {
 .navbar-nav>li
 {
     float:right !important;
+}
+.message_text
+{
+
+    line-height:10px;
+    font-size:14px;
+    color:blue;
+}
+.log_out_button
+{
+    background-color: transparent;
+    line-height: 11px;
+    display: inline-block;
+    height: 10px;
+    color: #3ADB55;
+    border:0px ;
+}
+
+#top-main-message
+{
+    max-width: 150px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+#top-main-message button 
+{
+float:none;
+display: table;
+    margin: 0 auto;
+    border:none;
+
 }

@@ -17,6 +17,10 @@ $(document).ready(function () {
         $('#li-manage-access').addClass('active');
 
     }
+    else if (url.search(/manage-users/i) > -1) {
+        $('#li-manage-users').addClass('active');
+
+    }
 });
 function markForDelete(current_guide) {
     console.log($(current_guide).parent());
@@ -50,6 +54,10 @@ function elements_to_remove(object_type) {
         $('.accessories').each(function (key, value) { ($(this).attr('data-select-access') == 'false') ? console.log('false') : array_to_delet.push($(this).attr('data-user-id'));});
 
     }
+    else if(object_type== 'users')
+    {
+        array_to_delet.push($('select.users option:selected').attr('data-user-id'));
+    }
     //console.log(array_to_delet);
 
     $.post("content/remov_element.php",
@@ -59,6 +67,8 @@ function elements_to_remove(object_type) {
     },
     function(data, status){
         console.log("\nStatus: " + status);
+        $('#done_message').html('the process has done');
+        location.reload();
     });
 
 }

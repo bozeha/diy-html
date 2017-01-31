@@ -1,6 +1,5 @@
 
 <?php
-include '/settings/top_menu.php';
 include 'settings/connect.php';
 
 $connection = mysqli_connect($servername, $username, $password, $dbname);

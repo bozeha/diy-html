@@ -3,13 +3,12 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="style/style_control.css">
-  <?php include '/settings/head.php'; ?>
+  
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
 
 <body  style='padding-top:100px'>
-    <?php include '/settings/top_menu.php'; ?>
   <div class="container">
 
     <?php

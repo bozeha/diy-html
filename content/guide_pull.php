@@ -69,7 +69,7 @@ $sql = "SELECT id,access_name ,access_disc ,access_img FROM  accessories ";
 $result = $connection->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo $row["id"]."--";
+        //echo $row["id"]."--";
         $guide_array_access['id'][$row["id"]] = $row["id"];
         $guide_array_access['access_name'][$row["id"]] = $row["access_name"];
         $guide_array_access['access_disc'][$row["id"]] = $row["access_disc"];

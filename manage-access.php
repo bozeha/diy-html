@@ -1,3 +1,4 @@
+<div class="container">
 <?php
 include 'settings/pull_access.php';
 
@@ -9,3 +10,5 @@ include 'settings/pull_access.php';
 
 
   <button class='btn btn-danger pull-left red-button-remove' onclick=elements_to_remove( 'accessories')>מחק את המוצרים המסומנים</button>
+
+  </div>

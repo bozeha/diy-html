@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php include '/settings/head.php'; ?>
+
     <script src='scripts/upload_guide.js'></script>
     <!-- script for text area editor  -->
     <script src="ckeditor/ckeditor.js"></script>
@@ -12,7 +12,7 @@
 
 <body>
 
-  <?php include '/settings/top_menu.php'; ?>
+  
     <div class="container">
       <h1 class="display-3">הוספת מדריך</h1>
       <form action="content/guide_push.php" method="post" enctype="multipart/form-data">

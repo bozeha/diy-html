@@ -26,22 +26,28 @@ $result = $connection->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         //echo $row["password"];
-        if($row["password"]== $user['pass']){
-            
-            
-            echo 'sssssssssssss';
-            //header('Location: http://www.example.com/');
-            echo "<form id='paypalpayment' name='paypalpayment' action='../index.php' method='post'>";
-            echo "<input name='uname' type='hidden'  value='yyyy' class='form-control'>";
+        if($row["password"]== $user['pass']){ 
+            // $_SERVER['HTTP_REFERER'] --> this function get the previous url
+            echo "<form id='paypalpayment' name='paypalpayment' action='".$_SERVER['HTTP_REFERER']."' method='post'>";
+            echo "<input name='uname' type='hidden'  value='".$user['uname']."' class='form-control'>";
             echo "<input name='status' type='hidden' value='true' class='form-control'>";
+            echo "<input name='mess' type='hidden' value='התחברתה בהצלחה' class='form-control'>";
             echo "</form>";
             echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>";
-            echo "<script type='text/javascript'>$(document).ready(function(){ alert('xxx');$('#paypalpayment').submit()})</script>";
-           // exit;
+            echo "<script type='text/javascript'>$(document).ready(function(){ $('#paypalpayment').submit()})</script>";
         }
     }
 } else {
-    echo "0 results";
+    // $_SERVER['HTTP_REFERER'] --> this function get the previous url
+      echo "<form id='paypalpayment' name='paypalpayment' action='".$_SERVER['HTTP_REFERER']."' method='post'>";
+            echo "<input name='status' type='hidden' value='false' class='form-control'>";
+            echo "<input name='mess' type='hidden' value='שם משתמש או סיסמא שגויה' class='form-control'>";
+            echo "</form>";
+            echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>";
+            echo "<script type='text/javascript'>$(document).ready(function(){ $('#paypalpayment').submit()})</script>";
+
+
+
 }
 $connection->close();
 

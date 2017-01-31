@@ -1,3 +1,4 @@
+<?php include '/settings/head.php'; ?>
 <?php
 
 if(isset($_GET['dash'])) {
@@ -13,6 +14,7 @@ if(isset($_GET['dash'])) {
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="style/style_control.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="scripts/dashboard.js"></script>
@@ -48,8 +50,11 @@ if(isset($_GET['dash'])) {
 
 </head>
 <body>
-
 <div class="wrapper">
+
+<?php 
+include 'content/top_main.php';
+?>
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
     <!--
@@ -79,10 +84,10 @@ if(isset($_GET['dash'])) {
                         <p>הוספת מיצרך</p>
                     </a>
                 </li>
-                <li>
-                    <a href="user.html">
+                <li id='li-manage-users'>
+                    <a href="dashboard.php?dash=manage-users">
                         <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
+                        <p>ערוך משתמשים</p>
                     </a>
                 </li>
                 <li id='li-manage-guides'>
@@ -120,7 +125,7 @@ if(isset($_GET['dash'])) {
     </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
+        <!--nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
@@ -197,7 +202,7 @@ if(isset($_GET['dash'])) {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav-->
 
 
      <div class="content">
