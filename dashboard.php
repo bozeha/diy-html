@@ -1,5 +1,10 @@
 <?php include '/settings/head.php'; ?>
 <?php
+if(session_status() == PHP_SESSION_NONE){  session_start(); }
+if(!(isset($_SESSION["id"]))||($_SESSION["id"]==''))
+{
+   header('Location: index.php');
+}
 
 if(isset($_GET['dash'])) {
     $current_dash = $_GET['dash'];
@@ -102,10 +107,10 @@ include 'content/top_main.php';
                         <p>ערוך מיצרכים</p>
                     </a>
                 </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
+                <li id='li-manage-sub'>
+                    <a href="dashboard.php?dash=manage-sub">
+                        <i class="pe-7s-rocket"></i>
+                        <p>הוסף קטגוריה</p>
                     </a>
                 </li>
                 <li>

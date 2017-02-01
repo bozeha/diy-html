@@ -21,6 +21,10 @@ $(document).ready(function () {
         $('#li-manage-users').addClass('active');
 
     }
+    else if (url.search(/manage-sub/i) > -1) {
+        $('#li-manage-sub').addClass('active');
+
+    }
 });
 function markForDelete(current_guide) {
     console.log($(current_guide).parent());

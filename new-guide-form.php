@@ -53,8 +53,8 @@ include '/settings/pull_subjects.php';
 
 </span>
           <div class="row youtube_buttons">
-            <div id="gray-div">
-              </div>
+            <!--<div id="gray-div">
+              </div>-->
             <div class='col-xs-6 pull-right'>
               <button type="button" class="btn-lg button_youtube">צור שלב של סרטון יוטיוב</button>
               <button type="button" class="btn-lg button_textarea">קטע טקסט</button>

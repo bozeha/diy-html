@@ -98,7 +98,23 @@ function youtube_options() {
 
 function disable_next(current_step)
 {
-current_step?$('#gray-div').css('display','block'):$('#gray-div').css('display','none');
-
-
+//current_step?$('#gray-div').css('display','block'):$('#gray-div').css('display','none');
+    if (current_step==true)
+      {
+      $('.button_youtube').attr("disabled", true);
+      $('.button_textarea').attr("disabled", true);
+      $('.button_text_and_img').attr("disabled", true);
+      $('.button_youtube').addClass("dis-button");
+      $('.button_textarea').addClass("dis-button");
+      $('.button_text_and_img').addClass("dis-button");
+      }
+    if (current_step==false)
+      {
+      $('.button_youtube').attr("disabled", false);
+      $('.button_textarea').attr("disabled", false);
+      $('.button_text_and_img').attr("disabled", false);
+      $('.button_youtube').removeClass("dis-button");
+      $('.button_textarea').removeClass("dis-button");
+      $('.button_text_and_img').removeClass("dis-button");
+      }
 }
