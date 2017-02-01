@@ -20,7 +20,7 @@ if(isset($_GET['mess'])) {
         <h1 class="display-3">הוסף קטגוריה</h1>
 
 
-        <form action="content/user_push.php" method="post" enctype="multipart/form-data">
+        <form action="content/sub_push.php" method="post" enctype="multipart/form-data">
 
 
           <div class="form-group">
@@ -44,29 +44,12 @@ if(isset($_GET['mess'])) {
           </div>
 
 
-          <button type="submit" class="btn btn-primary">צור משתמש</button>
+          <button type="submit" class="btn btn-primary">צור קטגוריה</button>
         </form>
 
 
 
-<?php
-include 'settings/pull_users.php';
 
-
-?>
-
-  <link href="style/style_control.css" rel="stylesheet" />
-
-  <div class='row'>
-  <script src='scripts/remove_access.js'></script>
-
-
-  <button class='btn btn-danger red-button-remove-user' onclick=elements_to_remove('users')>מחק את המשתמש המסומן</button>
-  <div class='alert-danger' id='done_message'>
-    </div>
-  </div>
-
-      </div>
 </body>
 
 </html>
