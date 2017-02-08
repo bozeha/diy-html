@@ -44,7 +44,7 @@ if ($current_subject=='all')
     
     for($loop2=0;$loop2!=$loop;$loop2++) {
         
-        echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-12 selected-guide'><button onclick='markForDelete(this)'>סמן מדריך</button><img src='".$guides_array['guide_images_array'][$loop2]."' class='img-responsive  pull-left' style='max-height:100px'>";
+        echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-12 selected-guide'><button onclick='markForDelete(this)'>סמן מדריך</button><button onclick=window.open('dashboard.php?dash=edit-guide&guide=".$guides_array['id'][$loop2]."')>ערוך מדריך</button><img src='".$guides_array['guide_images_array'][$loop2]."' class='img-responsive  pull-left' style='max-height:100px'>";
         echo "<h3 style='background:#eee;margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h3>";
         echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
         echo "<a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a></div>";

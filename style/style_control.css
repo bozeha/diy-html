@@ -1,7 +1,8 @@
 body {
     text-align: right;
     background-color: #f6f1ea !important;
-    padding: 100px 0px;
+    
+
 }
 
 input {
@@ -191,4 +192,8 @@ display: table;
     margin: 0 auto;
     border:none;
 
+}
+.guide-box div,h2,h1
+{
+    direction :rtl
 }

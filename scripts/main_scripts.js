@@ -7,6 +7,9 @@ $(document).ready(function () {
 
     })
 
+    // this to show messages on hover the images tooltip of bootstrap 
+    $('[data-toggle="tooltip"]').tooltip();   
+
 })
 function fullSizeImage(current_img) {
     temp_img['src'] = $(current_img).attr('src');
@@ -21,3 +24,5 @@ function fullSizeImage(current_img) {
     $('#resize_div').css('display', 'block');
 
 }
+
+

@@ -39,7 +39,7 @@ $(document).ready(function () {
 
   //upload_array['type_of_steps'][0] = "text_and_img";// the first tet and image are already in the page 
   $('.button_text_and_img').click(function () {
-    $('.add_another_step').first().clone().appendTo(".start_steps");
+    $('.add_another_step').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
     $('form .one_of_steps').last().val('');
 

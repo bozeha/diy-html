@@ -15,6 +15,12 @@
   
     <div class="container">
       <h1 class="display-3">הוספת מדריך</h1>
+      
+    <?php
+if(isset($_GET['mess'])) {
+  echo "<h3 class='text-primary'>".$current_mess = $_GET['mess']."</h3>";
+}
+?>
       <form action="content/guide_push.php" method="post" enctype="multipart/form-data">
         <input type="hidden" id="subject_number" name="subject_number" />
         <input type="hidden" id="user_number" name="user_number" />

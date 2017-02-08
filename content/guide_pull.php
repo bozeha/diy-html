@@ -102,19 +102,21 @@ echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
 //////////////////
 
 //$access_loop--;
-echo "<div class='access_div'>";
-//for(;$access_loop!=-1;$access_loop--)
-foreach($guide_array['guide_accessories_array'][0] as $key=>$value)
+if($guide_array['guide_accessories_array'][0][0]!="")
 {
+    echo "<div class='access_div'>";
+    //for(;$access_loop!=-1;$access_loop--)
+    foreach($guide_array['guide_accessories_array'][0] as $key=>$value)
+    {
 
-        $current_access = $guide_array['guide_accessories_array'][0][$key];
-    echo "<div class='pull-right' ><span  class='pull-right col-xs-12' data-access-id='".$guide_array_access['id'][$current_access]."'>";
-    echo $guide_array_access['access_name'][$current_access]."</span>";
-    echo "<img width='100px' height='100px' src='".$guide_array_access['access_img'][$current_access]."'/></div>";
-     $guide_array_access['access_disc'][$current_access];
+            $current_access = $guide_array['guide_accessories_array'][0][$key];
+        echo "<div class='pull-right' ><span  class='pull-right col-xs-12' data-access-id='".$guide_array_access['id'][$current_access]."'>";
+        echo $guide_array_access['access_name'][$current_access]."</span>";
+        echo "<img data-toggle='tooltip' data-placement='bottom' title='".$guide_array_access['access_disc'][$current_access]."' width='100px' height='100px' src='".$guide_array_access['access_img'][$current_access]."'/></div>";
+        
+    }
+    echo "</div>";
 }
-
-echo "</div>";
 
 
 /////////////////
@@ -169,12 +171,5 @@ foreach($guide_array['type_of_steps_array'] as $val)
 }
 
 $guide_array['guide_videos_array']
-
-
-
-
-
-
-
 
 ?>

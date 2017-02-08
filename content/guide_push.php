@@ -129,7 +129,7 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
         $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload"]["size"][$key] > 10000000) {
+    if ($_FILES["fileToUpload"]["size"][$key] > 100000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -170,9 +170,12 @@ $sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_e
 VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['guide_videos_array'][0])."','".json_encode($upload_array['type_of_steps'])."','".base64_encode(json_encode($upload_array['guide_textarea_array']))."')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    $current_message= "המדריך נוצר בהצלחה";
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    $current_message= "Error: " . $sql . "<br>" . $conn->error;
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
+    
 }
 
 
