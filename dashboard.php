@@ -56,7 +56,7 @@ if(isset($_GET['dash'])) {
 </head>
 <body>
 <div class="wrapper">
-
+<div id='load_div'></div>
 <?php 
 include 'content/top_main.php';
 ?>

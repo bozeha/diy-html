@@ -197,16 +197,3 @@ display: table;
 {
     direction :rtl
 }
-#load_div
-{
-    display:none;
-background-color: #262626;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    background-image: url(../images/web/loader.gif);
-    background-repeat: no-repeat;
-    background-size: 10%;
-    position: fixed;
-    background-position: 50%,50%;
-}

@@ -61,7 +61,6 @@ if ($result->num_rows > 0) {
         {
         $guide_array['guide_videos_array'] = $row["guide_videos_array"];
         echo "<script>guide_array['guide_videos_array']=JSON.parse('".$guide_array['guide_videos_array']."')</script>";
-        //echo "<script>guide_array['guide_videos_array']=guide_array['guide_videos_array2']</script>";
         $string2json =  json_decode($guide_array['guide_videos_array'],TRUE);
         $guide_array['guide_videos_array']=$string2json;
         }
@@ -107,96 +106,6 @@ if ($result->num_rows > 0) {
 $connection->close();
 
 
-
-echo "<div class='row' ><div class='co-xs-12 top_main_guide'>";
-echo "<div class='col-xs-12 top_main_guide_img' style='background-image:url(".$guide_array['guide_images_array'][0].")'>";
-echo "</div><div class='col-xs-12'>";
-echo "<h1>".$guide_array['guide_title']."</h1>";
-echo "</div><div class='col-xs-12'>";
-echo "<h2>".$guide_array['guide_subtitle']."</h2>";
-echo "</div>";
-echo "</div></div>";
-//echo $guide_array['type_of_steps_array'];
-
-echo "<div class'row pull_access_div' style='display:inline-block' >";
-echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
-
-
-
-//////////////////
-
-//$access_loop--;
-if($guide_array['guide_accessories_array'][0][0]!="")
-{
-    echo "<div class='access_div'>";
-    //for(;$access_loop!=-1;$access_loop--)
-    foreach($guide_array['guide_accessories_array'][0] as $key=>$value)
-    {
-
-            $current_access = $guide_array['guide_accessories_array'][0][$key];
-        echo "<div class='pull-right' ><span  class='pull-right col-xs-12' data-access-id='".$guide_array_access['id'][$current_access]."'>";
-        echo $guide_array_access['access_name'][$current_access]."</span>";
-        echo "<img data-toggle='tooltip' data-placement='bottom' title='".$guide_array_access['access_disc'][$current_access]."' width='100px' height='100px' src='".$guide_array_access['access_img'][$current_access]."'/></div>";
-        
-    }
-    echo "</div>";
-}
-
-
-/////////////////
-/*include '/content/pull_access.php'; */
-echo "</div>";
-
-
-
-$array_of_loops['main']= 0;
-$array_of_loops['text_img']= 0;
-$array_of_loops['textarea']= 0;
-$array_of_loops['youtube']= 0;
-foreach($guide_array['type_of_steps_array'] as $val)
-{
-    if($guide_array['type_of_steps_array'][$array_of_loops['main']]=="text_and_img")
-    {
-        echo "<div class='row' ><div class='guide-box co-xs-12 col-md-6 col-centered'>";
-        echo "<span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span>";
-        
-        if($guide_array['guide_images_array'][$array_of_loops['text_img']+1])
-        {
-            echo "<div class='col-md-6'><img  onclick='fullSizeImage(this)' src='".$guide_array['guide_images_array'][$array_of_loops['text_img']+1]."'/></div>";
-            echo "<div class='col-md-6'>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</div>";
-        }
-        else echo "<div class='col-md-12'>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</div>";
-            //print $val;
-        
-        echo "</div>";
-        echo "</div>";
-        $array_of_loops['text_img']++;
-    }
-    
-    else if($guide_array['type_of_steps_array'][$array_of_loops['main']]=="textarea")
-    {
-        echo "<div class='row' ><div class='guide-box co-xs-12 col-md-6 col-centered'>";
-        echo "<span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span>";
-        
-        echo "<div class='col-md-12'>".$guide_array['guide_textarea_array'][$array_of_loops['textarea']]."</div>";
-        echo "</div>";
-        echo "</div>";
-        $array_of_loops['textarea']++;
-    }
-    else if($guide_array['type_of_steps_array'][$array_of_loops['main']]=="youtube")
-    {
-        echo "<div class='row' ><div class='guide-box co-xs-12 col-md-6 col-centered'>";
-        echo "<span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span>";
-        echo "<div class='col-md-12'><iframe width='100%' height='500px' src='https://www.youtube.com/embed/".$guide_array['guide_videos_array'][$array_of_loops['youtube']]."' frameborder='0' allowfullscreen></iframe></div>";
-        echo "</div>";
-        echo "</div>";
-        $array_of_loops['youtube']++;
-    }
-    $array_of_loops['main']++;
-}
-
-$guide_array['guide_videos_array']
-
 ?>
 
 
@@ -206,7 +115,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 <html lang="en">
 
 <head>
-
+<script>$('#load_div').css('display','inline-block');</script>
     <script src='scripts/upload_guide.js'></script>
     <!-- script for text area editor  -->
     <script src="ckeditor/ckeditor.js"></script>
