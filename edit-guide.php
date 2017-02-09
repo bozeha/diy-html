@@ -1,3 +1,4 @@
+
 <?php
 include 'settings/connect.php';
 $connection = mysqli_connect($servername, $username, $password, $dbname);
@@ -153,7 +154,10 @@ if(isset($_GET['mess'])) {
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">תמונה ראשית למדריך</label>
-          <input type="file" name="fileToUpload[]" id="fileToUpload" required>
+          <input type="file" data-id-img-input=0 name="fileToUpload[]" id="fileToUpload" class='fileToUpload' >
+          <div data-id-img-div=0 class='edit_guide_img'><img onclick='fullSizeImage(this)' src=""/>
+            <button type='button' onclick='replaceImage(0)'>x</button>
+          </div>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">תת כותרת למדריך</label>
@@ -205,9 +209,11 @@ include '/settings/pull_subjects.php';
 
 
         <div class="form-group">
-          <label for="exampleInputFile">הוסף תמונה</label>
-          <input type="file" name="fileToUpload[]" id="fileToUpload">
-          <!--small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small-->
+          <label for="exampleInputFile">החלף תמונה</label>
+          <input type="file"  data-id-img-input=-1 name="fileToUpload[]" class='fileToUpload' id="fileToUpload">
+          <div data-id-img-div=-1 class='edit_guide_img'><img onclick='fullSizeImage(this)' src=""/>
+            <button type='button' onclick='replaceImage(-1)'>x</button>
+          </div>
         </div>
       </div>
 

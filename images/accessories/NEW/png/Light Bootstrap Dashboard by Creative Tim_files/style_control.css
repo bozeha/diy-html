@@ -80,7 +80,7 @@ label {
 }
 
 .guide-box img {
-    max-width: 250px !important;
+    max-width: 200px !important;
     cursor: pointer;
 }
 
@@ -119,11 +119,12 @@ label {
 }
 
 #resize_div {
-    z-index: 500;
+    z-index: 1500;
     background-repeat: no-repeat;
     background-position: 50%;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.9);
+    background-size:contain;
 }
 
 table#youtube_table td {
