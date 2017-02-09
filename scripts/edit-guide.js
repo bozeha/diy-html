@@ -1,8 +1,12 @@
 
 
+var temp_arr={};
 var temp_loop_array = {'text_and_img':0,'textarea':0,'youtube':0}
 $(document).ready(function(){
-    startEnterVal();}
+    startEnterVal();
+    $('form').on('change','.fileToUpload',function(){resetImages()})
+    //resave the new file in the array images
+        }
     )
 function startEnterVal()
 {
@@ -73,4 +77,26 @@ function replaceImage(currentId)
 {
     $("[data-id-img-input="+currentId+"]").css('display','inline-block');
     $("[data-id-img-div="+currentId+"]").css('display','none');
+}
+function resetImages()
+{
+jQuery.each($('input.fileToUpload'),function(i,val){
+    
+    if($(this).val())
+    {
+        console.log(guide_array['guide_images_array'][i]);
+        var str = guide_array['guide_images_array'][i];
+        var regexp = /.*(\/)/gi;
+        var matches_array = str.match(regexp);
+        matches_array[0]=matches_array[0]+$(this).val();
+        //console.log(matches_array);
+     guide_array['guide_images_array'][i]= matches_array[0];
+
+    }
+
+    temp_arr[i]=$(this).val();
+
+
+})
+
 }
