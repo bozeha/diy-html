@@ -89,7 +89,7 @@ if (isset($_POST['guide_videos_array']))
         $upload_array['guide_videos_array'][$key] = $guide_videos_array ;
         $temp_temp =json_encode($upload_array['guide_videos_array'][0]);
         $videos_to_send = "guide_videos_array =".$temp_temp;
-        echo $videos_to_send;
+        echo "mm".$videos_to_send;
     }
 
 }
@@ -193,7 +193,7 @@ VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_
 else
 {
     echo 'innnnnnnnnnnnnnnnnnnnnnnnnn';
-$sql = "UPDATE guides SET subject ='".$upload_array['subject']."', user = '". $upload_array['user']."', guide_key='".$upload_array['guide_key']."', guide_title ='".$upload_array['guide_title']."', guide_title_en='".$upload_array['guide_title_en']."' ,guide_subtitle='".$upload_array['guide_sub_title']."' , guide_accessories_array ='".json_encode($upload_array['access_array'])."', guide_text_array ='".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."',guide_images_array ='".json_encode($upload_array['files'])."', type_of_steps_array ='".json_encode($upload_array['type_of_steps'])."',guide_textarea_array ='".base64_encode(json_encode($upload_array['guide_textarea_array']))."',guide_videos_array = 'xxxxxxxxxx' WHERE id = ".$upload_array ['guide_id']."" ;
+$sql = "UPDATE guides SET subject ='".$upload_array['subject']."', user = '". $upload_array['user']."', guide_key='".$upload_array['guide_key']."', guide_title ='".$upload_array['guide_title']."', guide_title_en='".$upload_array['guide_title_en']."' ,guide_subtitle='".$upload_array['guide_sub_title']."' , guide_accessories_array ='".json_encode($upload_array['access_array'])."', guide_text_array ='".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."',guide_images_array ='".json_encode($upload_array['files'])."', type_of_steps_array ='".json_encode($upload_array['type_of_steps'])."',guide_textarea_array ='".base64_encode(json_encode($upload_array['guide_textarea_array']))."',guide_videos_array ='".json_encode($upload_array['guide_videos_array'][0])."'  WHERE id = ".$upload_array ['guide_id']."" ;
 
 }
 

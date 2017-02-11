@@ -40,6 +40,8 @@ $(document).ready(function () {
   $('.button_text_and_img').click(function () {
     $('.add_another_step').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
+    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+"),'text_and_img'");
+    //do the reomve block option 
     $('form .one_of_steps').last().val('');
 
 
@@ -54,6 +56,8 @@ $(document).ready(function () {
   $('.button_textarea').click(function () {
     $('.add_another_textarea').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
+    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+"),'textarea'");
+// do the romove bloc option
 
     var temp_loop2 = temp_loop + 1;// add new id name for every textarea
     $('form textarea').last().attr('id', 'editor' + temp_loop2);
@@ -69,7 +73,8 @@ $(document).ready(function () {
   $('.button_youtube').click(function () {
     $('.add_guide_videos_array').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
-    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+");disable_next(false)");
+    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+"),'youtube'");
+    // do the romove bloc option
 
     $('form .add_guide_videos_array').last().val('');
     upload_array['type_of_steps'][temp_loop] = "youtube";
@@ -92,6 +97,7 @@ function youtube_options() {
   str = $('form #loop').last().is(':checked') ? str + "&loop=1" : str + "&loop=0";
   str = $('form #controler').last().is(':checked') ? str + "&controls=1" : str + "&controls=0";
   str = $('form #rel').last().is(':checked') ? str + "&rel=1" : str + "&rel=0";
+  console.log(str);
   $('form .add_guide_videos_array input#guide_videos_array_finel').last().val(str);
   $('form .add_guide_videos_array input.guide_videos_array').last().attr('readonly', true);
   $('form .add_guide_videos_array input.guide_videos_array').last().css('background-color','#D3D3D3');
@@ -120,7 +126,7 @@ function disable_next(current_step)
       $('.button_text_and_img').removeClass("dis-button");
       }
 }
-function removeBlock(current_div,number_of_step_to_remove)
+function removeBlock(current_div,number_of_step_to_remove,type_of_block)
 {
 
 // console.log(number_of_step_to_remove);
@@ -131,5 +137,14 @@ console.log(upload_array['step_number']);
 temp_loop--;
 upload_array['step_number'] --;
 console.log(upload_array['step_number']);
+type_of_block= 'youtube'?disable_next(false):"";
+
+//set the levels names
+$.each($('.step_lable'), function (index) {
+$('.step_lable')[index].textContent = (index+1)+' שלב';
+    })
+
+
+
  //console.log($(current_div ).children("label").val());
 }

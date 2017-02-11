@@ -221,3 +221,7 @@ background-color: #262626;
 {
     cursor: pointer;
 }
+label.active
+{
+background-color:#122b40 !important;
+}

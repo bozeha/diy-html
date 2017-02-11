@@ -56,7 +56,7 @@ if ($result->num_rows > 0) {
         $guide_array['guide_images_array']=$string2json;
         
         
-        if (is_null($row["guide_videos_array"]))
+        if (!is_null($row["guide_videos_array"]))
         {
         $guide_array['guide_videos_array'] = $row["guide_videos_array"];
         echo "<script>guide_array['guide_videos_array']=JSON.parse('".$guide_array['guide_videos_array']."')</script>";
@@ -197,7 +197,7 @@ include '/settings/pull_subjects.php';
 
     <div style='display:none'>
       <div class="add_another_step">
-<button class="btn btn-danger" onclick="$(this).parent().remove()">x</button>
+<button class="btn btn-danger" onclick="">x</button>
         <div class="form-group">
           <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
           <input type="text" class="form-control one_of_steps" name="step[]">
@@ -214,7 +214,7 @@ include '/settings/pull_subjects.php';
       </div>
 
       <div class="add_another_textarea">
-        <button type='button' class="btn btn-danger" onclick="$(this).parent().remove()">x</button>
+        <button type='button' class="btn btn-danger" onclick="">x</button>
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <textarea name="editor1[]" id="editor1" rows="10" cols="80">
         </textarea>

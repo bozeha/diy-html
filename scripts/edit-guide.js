@@ -59,7 +59,7 @@ for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
     setTimeout(function(){ $(".cke_button__source").trigger( "click" );
 }, 100);
 
-//$('form img').first().attr('src',guide_array['guide_images_array'][0]);
+
 
 jQuery.each(guide_array['guide_images_array'],function(i,val)
     {
@@ -69,11 +69,31 @@ $('form .edit_guide_img')[i].setAttribute('data-id-img-div',i);
 $('form .edit_guide_img button')[i].setAttribute('onclick','replaceImage('+i+')');
 })
 
+
+
+
+////start add values to youtube blocks
+if(guide_array['guide_videos_array'])
+{
+jQuery.each(guide_array['guide_videos_array'],function(i,val)
+{
+$('.guide_videos_array')[i].value= guide_array['guide_videos_array'][i];
+
+})
+}
+
+
+
 $('.fileToUpload').css('display','none');
     //remove the loader 
 $('#load_div').css('display','none');
 replaceImage(-1);
 }, 3000);
+
+
+
+
+
 }
 
 function replaceImage(currentId)
