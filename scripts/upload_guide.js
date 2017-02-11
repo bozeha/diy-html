@@ -1,11 +1,10 @@
 var upload_array = {};
 
-
-upload_array['step_number'] = 1;
-//upload_array['type_of_steps'] = {};
+upload_array['step_number'] = 1; /// the level place 
 upload_array['type_of_steps'] = [];
+console.log(upload_array['step_number']+"xxxxxxxxxxxxxxxxxxxxxxxxx");
 
-temp_loop = 0;
+temp_loop = 0; /// the type_of_steps place
 
 $(document).ready(function () {
   upload_array['subject_number'] = $('#subject_name option:selected').attr('subject-user-id');
@@ -47,6 +46,7 @@ $(document).ready(function () {
     upload_array['type_of_steps'][temp_loop] = "text_and_img";
     $('#type_of_steps').val(upload_array['type_of_steps']);
     upload_array['step_number']++;
+    console.log(upload_array['step_number']);
     temp_loop++;
   })
 
@@ -62,18 +62,20 @@ $(document).ready(function () {
     upload_array['type_of_steps'][temp_loop] = "textarea";
     $('#type_of_steps').val(upload_array['type_of_steps']);
     upload_array['step_number']++;
+    console.log(upload_array['step_number']);
     temp_loop++;
 
   })
   $('.button_youtube').click(function () {
     $('.add_guide_videos_array').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
-
+    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+");disable_next(false)");
 
     $('form .add_guide_videos_array').last().val('');
     upload_array['type_of_steps'][temp_loop] = "youtube";
     $('#type_of_steps').val(upload_array['type_of_steps']);
     upload_array['step_number']++;
+    console.log(upload_array['step_number']);
     temp_loop++;
       disable_next(true);
 
@@ -117,4 +119,17 @@ function disable_next(current_step)
       $('.button_textarea').removeClass("dis-button");
       $('.button_text_and_img').removeClass("dis-button");
       }
+}
+function removeBlock(current_div,number_of_step_to_remove)
+{
+
+// console.log(number_of_step_to_remove);
+ upload_array['type_of_steps'].splice([number_of_step_to_remove-1],1);
+ $(current_div ).remove();
+upload_array['type_of_steps'];
+console.log(upload_array['step_number']);
+temp_loop--;
+upload_array['step_number'] --;
+console.log(upload_array['step_number']);
+ //console.log($(current_div ).children("label").val());
 }

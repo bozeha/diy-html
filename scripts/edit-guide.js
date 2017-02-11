@@ -5,6 +5,9 @@ var temp_loop_array = {'text_and_img':0,'textarea':0,'youtube':0}
 $(document).ready(function(){
     startEnterVal();
     $('form').on('change','.fileToUpload',function(){resetImages()})
+    $('#all_images').val(guide_array['guide_images_array']);// add all images to array input
+    $('#guide_id').val(guide_array['guide_id']);
+
     //resave the new file in the array images
         }
     )
@@ -84,11 +87,15 @@ jQuery.each($('input.fileToUpload'),function(i,val){
     
     if($(this).val())
     {
-        console.log(guide_array['guide_images_array'][i]);
-        var str = guide_array['guide_images_array'][i];
+        if(!guide_array['guide_images_array'][0])console.log('xxxxxxxxxxxxxxxxxxxxx');
+        //console.log(guide_array['guide_images_array'][i]);
+        var str = guide_array['guide_images_array'][0];
+        var str2 = $(this).val();
         var regexp = /.*(\/)/gi;
+        var regexp2 = /(.*(\\))/gi;
         var matches_array = str.match(regexp);
-        matches_array[0]=matches_array[0]+$(this).val();
+        var matches_array2 = str2.replace(regexp2,"");
+        matches_array[0]=matches_array[0]+matches_array2;
         //console.log(matches_array);
      guide_array['guide_images_array'][i]= matches_array[0];
 
@@ -98,5 +105,5 @@ jQuery.each($('input.fileToUpload'),function(i,val){
 
 
 })
-
+$('#all_images').val(guide_array['guide_images_array']);
 }

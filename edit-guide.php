@@ -19,9 +19,8 @@ $sql = "SELECT id, subject, user, guide_key, guide_title, guide_title_en,guide_s
 $result = $connection->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-       // echo "var guide_array={}";
-        //echo "console.log('sss')";
         echo "<script>var guide_array={}</script>";
+         echo "<script>guide_array['guide_id']='".$current_guide."'</script>";
         $guide_array['id'] = $row["id"];
         echo "<script>guide_array['id']=".$guide_array['id']."</script>";
         $guide_array['subject'] = $row["subject"];
@@ -43,7 +42,7 @@ if ($result->num_rows > 0) {
          echo "<script>guide_array['guide_accessories_array']=guide_array['guide_accessories_array2'][0]</script>";
         $string2json =  json_decode($guide_array['guide_accessories_array'],TRUE);
         $guide_array['guide_accessories_array']=$string2json;
-         //echo "<script>guide_array['guide_accessories_array']='".$guide_array['guide_accessories_array'][0]."'</script>";
+         
 
         
         $guide_array['guide_text_array'] = $row["guide_text_array"];
@@ -52,8 +51,7 @@ if ($result->num_rows > 0) {
         $guide_array['guide_text_array']=$string2json;
         
         $guide_array['guide_images_array'] = $row["guide_images_array"];
-        echo "<script>guide_array['guide_images_array']=JSON.parse('".$guide_array['guide_images_array']."')</script>";
-         //echo "<script>guide_array['guide_images_array']=guide_array['guide_images_array2']</script>";
+        echo "<script>guide_array['guide_images_array']=JSON.parse('".$guide_array['guide_images_array']."')</script>";    
         $string2json =  json_decode($guide_array['guide_images_array'],TRUE);
         $guide_array['guide_images_array']=$string2json;
         
@@ -87,18 +85,14 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-// start pull accessores 
-//$access_loop =0;
 $sql = "SELECT id,access_name ,access_disc ,access_img FROM  accessories ";
 $result = $connection->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        //echo $row["id"]."--";
         $guide_array_access['id'][$row["id"]] = $row["id"];
         $guide_array_access['access_name'][$row["id"]] = $row["access_name"];
         $guide_array_access['access_disc'][$row["id"]] = $row["access_disc"];
         $guide_array_access['access_img'][$row["id"]] = $row["access_img"];
-        //$access_loop++;
     }
 }
 
@@ -142,6 +136,8 @@ if(isset($_GET['mess'])) {
         <input type="hidden" id="user_number" name="user_number" />
         <input type="hidden" id="access_array" name="access_array[]" />
         <input type="hidden" id="type_of_steps" name="type_of_steps[]" />
+        <input type="hidden" id="guide_id" name="guide_id" />
+        <input type="hidden" id="all_images" name="all_images[]" />
 
 
         <div class="form-group">
@@ -226,7 +222,7 @@ include '/settings/pull_subjects.php';
 
 
       <div class="add_guide_videos_array">
-        <button class="btn btn-danger" onclick="$(this).parent().remove();disable_next(false)">x</button>
+        <button type='button' class="btn btn-danger" onclick="">x</button>
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <div class="form-group">
           <div class="row">
