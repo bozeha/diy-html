@@ -77,7 +77,43 @@ if(guide_array['guide_videos_array'])
 {
 jQuery.each(guide_array['guide_videos_array'],function(i,val)
 {
-$('.guide_videos_array')[i].value= guide_array['guide_videos_array'][i];
+$('body').append("<div>sssssss</div>");
+//$('.guide_videos_array')[i].append("<div>sssssss</div>");
+$('.guide_videos_array').eq(i).parent().append("<div class='col-md-12'><iframe width='100%' height='500px' src='https://www.youtube.com/embed/"+guide_array['guide_videos_array'][i]+"' frameborder='0' allowfullscreen></iframe></div>");
+
+//  https://www.youtube.com/watch?v=
+
+
+      var str3 = guide_array['guide_videos_array'][i];
+        var regexp3 = /.+?(?=\?)/gi;
+        var regexp4 = new RegExp("autoplay=1");
+        var regexp5 = new RegExp("loop=1");
+        var regexp6 = new RegExp("controls=1");
+        var regexp7 = new RegExp("rel=1");
+
+regexp4.test(guide_array['guide_videos_array'][i])?$("#auto").eq(i).trigger( "click" ):"";
+regexp5.test(guide_array['guide_videos_array'][i])?$("#loop").eq(i).trigger( "click" ):"";
+regexp6.test(guide_array['guide_videos_array'][i])?$("#controls").eq(i).trigger( "click" ):"";
+regexp7.test(guide_array['guide_videos_array'][i])?$("#rel").eq(i).trigger( "click" ):"";
+
+var main_youtube_url = str3.match(regexp3);
+
+$('.guide_videos_array').eq(i).val("https://www.youtube.com/watch?v="+main_youtube_url);
+
+youtube_options();
+
+
+
+//        var main_youtube_url = str2.replace(regexp2,"");
+  //      var vars_youtube_url
+
+
+    //    var regexp2 = /(.*(\\))/gi;
+        //var matches_array = str.match(regexp);
+        //matches_array[0]=matches_array[0]+matches_array2;
+
+
+
 
 })
 }

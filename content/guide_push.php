@@ -185,10 +185,10 @@ $temp_array = explode(",",$upload_array['type_of_steps'][0][0]);
 $upload_array['type_of_steps'] =$temp_array;
 // fix array
 
-if(is_null($upload_array ['guide_id']))
+if(!isset($upload_array ['guide_id']))
 {
 $sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array,guide_textarea_array )
-VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".(is_null($upload_array['all_images']))?json_encode($upload_array['files']):json_encode($upload_array['all_images'])."','".json_encode($upload_array['guide_videos_array'][0])."','".json_encode($upload_array['type_of_steps'])."','".base64_encode(json_encode($upload_array['guide_textarea_array']))."')";
+VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['guide_videos_array'][0])."','".json_encode($upload_array['type_of_steps'])."','".base64_encode(json_encode($upload_array['guide_textarea_array']))."')";
 }
 else
 {
@@ -203,10 +203,10 @@ VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_
 
 if ($conn->query($sql) === TRUE) {
     $current_message= "המדריך נוצר בהצלחה";
-  //  header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
 } else {
     $current_message= "Error: " . $sql . "<br>" . $conn->error;
-//    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
     
 }
 
