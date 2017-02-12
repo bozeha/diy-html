@@ -112,18 +112,22 @@ function disable_next(current_step)
       $('.button_youtube').attr("disabled", true);
       $('.button_textarea').attr("disabled", true);
       $('.button_text_and_img').attr("disabled", true);
+      $('#submit-button').attr("disabled", true);
       $('.button_youtube').addClass("dis-button");
       $('.button_textarea').addClass("dis-button");
       $('.button_text_and_img').addClass("dis-button");
+      $('#submit-button').addClass("dis-button");
       }
     if (current_step==false)
       {
       $('.button_youtube').attr("disabled", false);
       $('.button_textarea').attr("disabled", false);
       $('.button_text_and_img').attr("disabled", false);
+      $('#submit-button').attr("disabled", false);
       $('.button_youtube').removeClass("dis-button");
       $('.button_textarea').removeClass("dis-button");
       $('.button_text_and_img').removeClass("dis-button");
+      $('#submit-button').removeClass("dis-button");
       }
 }
 function removeBlock(current_div,number_of_step_to_remove,type_of_block)

@@ -70,65 +70,49 @@ for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
     setTimeout(function(){ $(".cke_button__source").trigger( "click" );
 }, 100);
 
-
-var images_string_to_array =  guide_array['guide_images_array'][0][0].split(',');
-guide_array['guide_images_array'] = images_string_to_array;
-jQuery.each(guide_array['guide_images_array'],function(i,val)
-    {
-$('form .edit_guide_img img')[i].setAttribute('src',guide_array['guide_images_array'][i]);
-//console.log(guide_array['guide_images_array'][0]+'xxxxxxxxxxxxxxxxx');
-$('form .fileToUpload')[i].setAttribute('data-id-img-input',i);
-$('form .edit_guide_img')[i].setAttribute('data-id-img-div',i);
-$('form .edit_guide_img button')[i].setAttribute('onclick','replaceImage('+i+')');
-})
-
-
-
+if(guide_array['guide_images_array'][0])
+{
+    //var images_string_to_array =  guide_array['guide_images_array'].split(',');
+    //guide_array['guide_images_array'] = images_string_to_array;
+    //var res = guide_array['guide_images_array'][0].split(",");
+    //console.log(res);
+    guide_array['guide_images_array']=guide_array['guide_images_array'][0].split(',');
+    jQuery.each(guide_array['guide_images_array'],function(i,val)
+        {
+    $('form .edit_guide_img img')[i].setAttribute('src',guide_array['guide_images_array'][i]);
+        $('form .fileToUpload')[i].setAttribute('data-id-img-input',i);
+        $('form .edit_guide_img')[i].setAttribute('data-id-img-div',i);
+        $('form .edit_guide_img button')[i].setAttribute('onclick','replaceImage('+i+')');
+    })
+}
 
 ////start add values to youtube blocks
 if(guide_array['guide_videos_array'])
 {
 jQuery.each(guide_array['guide_videos_array'],function(i,val)
-{
-$('body').append("<div>sssssss</div>");
-//$('.guide_videos_array')[i].append("<div>sssssss</div>");
-$('.guide_videos_array').eq(i).parent().append("<div class='col-md-12'><iframe width='100%' height='500px' src='https://www.youtube.com/embed/"+guide_array['guide_videos_array'][i]+"' frameborder='0' allowfullscreen></iframe></div>");
+    {
+      
+        $('.guide_videos_array').eq(i).parent().append("<div class='col-md-12'><iframe width='100%' height='500px' src='https://www.youtube.com/embed/"+guide_array['guide_videos_array'][i]+"' frameborder='0' allowfullscreen></iframe></div>");
 
-//  https://www.youtube.com/watch?v=
+            var str3 = guide_array['guide_videos_array'][i];
+                var regexp3 = /.+?(?=\?)/gi;
+                var regexp4 = new RegExp("autoplay=1");
+                var regexp5 = new RegExp("loop=1");
+                var regexp6 = new RegExp("controls=1");
+                var regexp7 = new RegExp("rel=1");
 
+        regexp4.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #auto").eq(i).trigger( "click" ):"";
+        regexp5.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #loop").eq(i).trigger( "click" ):"";
+        regexp6.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #controls").eq(i).trigger( "click" ):"";
+        regexp7.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #rel").eq(i).trigger( "click" ):"";
 
-      var str3 = guide_array['guide_videos_array'][i];
-        var regexp3 = /.+?(?=\?)/gi;
-        var regexp4 = new RegExp("autoplay=1");
-        var regexp5 = new RegExp("loop=1");
-        var regexp6 = new RegExp("controls=1");
-        var regexp7 = new RegExp("rel=1");
+        var main_youtube_url = str3.match(regexp3);
 
-regexp4.test(guide_array['guide_videos_array'][i])?$("#auto").eq(i).trigger( "click" ):"";
-regexp5.test(guide_array['guide_videos_array'][i])?$("#loop").eq(i).trigger( "click" ):"";
-regexp6.test(guide_array['guide_videos_array'][i])?$("#controls").eq(i).trigger( "click" ):"";
-regexp7.test(guide_array['guide_videos_array'][i])?$("#rel").eq(i).trigger( "click" ):"";
+        $('.guide_videos_array').eq(i).val("https://www.youtube.com/watch?v="+main_youtube_url);
 
-var main_youtube_url = str3.match(regexp3);
+        youtube_options();
 
-$('.guide_videos_array').eq(i).val("https://www.youtube.com/watch?v="+main_youtube_url);
-
-youtube_options();
-
-
-
-//        var main_youtube_url = str2.replace(regexp2,"");
-  //      var vars_youtube_url
-
-
-    //    var regexp2 = /(.*(\\))/gi;
-        //var matches_array = str.match(regexp);
-        //matches_array[0]=matches_array[0]+matches_array2;
-
-
-
-
-})
+    })
 }
 
 
@@ -162,14 +146,14 @@ jQuery.each($('input.fileToUpload'),function(i,val){
         var str2 = $(this).val();
         var regexp = /.*(\/)/gi;
         var regexp2 = /(.*(\\))/gi;
-        var regexp3 = /\..*/gi; 
         var matches_array = str.match(regexp);
-        var matches_array2 = str2.replace(regexp2,"");
+        var regexp3 = /\..*/gi; 
+        var matches_array2 = str2.replace(regexp2,""); 
         var only_extantion = matches_array2.match(regexp3);
         var full_image_path ="images/guides/"+current_images_path+"/"+current_images_path+"_"+i+only_extantion;
         matches_array[0]=matches_array[0]+matches_array2;
         //console.log(full_image_path);
-     guide_array['guide_images_array'][i]= full_image_path;
+        guide_array['guide_images_array'][i]= full_image_path;
     }
     temp_arr[i]=$(this).val();
 })

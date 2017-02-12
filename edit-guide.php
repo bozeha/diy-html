@@ -108,7 +108,7 @@ $connection->close();
 ?>
 
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -187,7 +187,7 @@ include '/settings/pull_subjects.php';
             </div>
 
             <div class='col-xs-6'>
-              <button type="submit" class="btn btn-primary pull-right">אשר ושמור מדריך</button>
+              <button type="submit" id='submit-button' class="btn btn-primary pull-right">אשר ושמור מדריך</button>
             </div>
             
           </div>

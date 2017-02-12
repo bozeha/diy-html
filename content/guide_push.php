@@ -11,7 +11,7 @@ $temp_file_name= 0;
 if (isset($_POST['guide_id']))
 {
     $upload_array ['guide_id'] = $_POST['guide_id'];
-    echo $upload_array ['guide_id'].'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
+    //echo $upload_array ['guide_id'].'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     //// this part is only if sorce is edit guide
     if (isset($_POST['all_images']))
     {
@@ -21,6 +21,8 @@ if (isset($_POST['guide_id']))
             //echo $upload_array['all_images'];
         }
     }
+    $upload_array['all_images'] = $upload_array['all_images'][0] ;
+    //echo $upload_array['all_images'][0]."jjjxxxxjjjjjjjjjjj";
 }
 if (isset($_POST['subject_number']))
 {
@@ -128,7 +130,7 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
     $target_file = $target_dir.$upload_array['guide_key']."_".$temp_file_name.".".$imageFileType ;
     
     //create the file path
-    $upload_array['files'][$key] = str_replace('../','',$target_file);
+    $upload_array['files'][0][$key] = str_replace('../','',$target_file);
     
     if(!$imageFileType)$upload_array['files'][$key]='';
     
@@ -203,7 +205,15 @@ VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_
 
 
 if ($conn->query($sql) === TRUE) {
+
+    if (!isset($_POST['guide_id']))
+    {
     $current_message= "המדריך נוצר בהצלחה";
+    }
+    else
+    {
+        $current_message= "המדריך נערך בהצלחה";
+    }
     //header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
 } else {
     $current_message= "Error: " . $sql . "<br>" . $conn->error;
