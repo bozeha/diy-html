@@ -39,7 +39,6 @@ if ($result->num_rows > 0) {
         $string2json =  json_decode($guide_array['guide_images_array'],TRUE);
         $guide_array['guide_images_array']=$string2json;
         
-        
         $guide_array['guide_videos_array'] = $row["guide_videos_array"];
         $string2json =  json_decode($guide_array['guide_videos_array'],TRUE);
         $guide_array['guide_videos_array']=$string2json;

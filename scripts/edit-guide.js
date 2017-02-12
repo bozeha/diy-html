@@ -1,6 +1,7 @@
 
 
 var temp_arr={};
+var current_images_path = guide_array['guide_key'];
 var temp_loop_array = {'text_and_img':0,'textarea':0,'youtube':0}
 $(document).ready(function(){
     startEnterVal();
@@ -9,6 +10,16 @@ $(document).ready(function(){
     $('#guide_id').val(guide_array['guide_id']);
 
     //resave the new file in the array images
+//if we chage the en title the guide key will chage and the file names path will be change
+$('form').on('change','#guide_title_en',function(){
+    
+    //replace(/\+/g, ' ');
+    current_images_path = $('#guide_title_en').val().replace(/ /g,"_").toLowerCase();
+    resetImages()
+    
+    
+})
+
         }
     )
 function startEnterVal()
@@ -60,10 +71,12 @@ for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
 }, 100);
 
 
-
+var images_string_to_array =  guide_array['guide_images_array'][0][0].split(',');
+guide_array['guide_images_array'] = images_string_to_array;
 jQuery.each(guide_array['guide_images_array'],function(i,val)
     {
 $('form .edit_guide_img img')[i].setAttribute('src',guide_array['guide_images_array'][i]);
+//console.log(guide_array['guide_images_array'][0]+'xxxxxxxxxxxxxxxxx');
 $('form .fileToUpload')[i].setAttribute('data-id-img-input',i);
 $('form .edit_guide_img')[i].setAttribute('data-id-img-div',i);
 $('form .edit_guide_img button')[i].setAttribute('onclick','replaceImage('+i+')');
@@ -149,17 +162,16 @@ jQuery.each($('input.fileToUpload'),function(i,val){
         var str2 = $(this).val();
         var regexp = /.*(\/)/gi;
         var regexp2 = /(.*(\\))/gi;
+        var regexp3 = /\..*/gi; 
         var matches_array = str.match(regexp);
         var matches_array2 = str2.replace(regexp2,"");
+        var only_extantion = matches_array2.match(regexp3);
+        var full_image_path ="images/guides/"+current_images_path+"/"+current_images_path+"_"+i+only_extantion;
         matches_array[0]=matches_array[0]+matches_array2;
-        //console.log(matches_array);
-     guide_array['guide_images_array'][i]= matches_array[0];
-
+        //console.log(full_image_path);
+     guide_array['guide_images_array'][i]= full_image_path;
     }
-
     temp_arr[i]=$(this).val();
-
-
 })
 $('#all_images').val(guide_array['guide_images_array']);
 }

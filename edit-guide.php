@@ -25,8 +25,12 @@ if ($result->num_rows > 0) {
         echo "<script>guide_array['id']=".$guide_array['id']."</script>";
         $guide_array['subject'] = $row["subject"];
         echo "<script>guide_array['subject']=".$guide_array['subject']."</script>";
+        if($row["user"]!= "")
+        {
+        //  echo 'ssssssssssssssssssssssssssssssssssssss';
         $guide_array['user'] = $row["user"];
         echo "<script>guide_array['user']=".$guide_array['user']."</script>";
+        }
         $guide_array['guide_key'] = $row["guide_key"];
         echo "<script>guide_array['guide_key']='".$guide_array['guide_key']."'</script>";
         $guide_array['guide_title'] = $row["guide_title"];

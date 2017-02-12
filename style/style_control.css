@@ -225,3 +225,8 @@ label.active
 {
 background-color:#122b40 !important;
 }
+
+#guide_title_en
+{
+    direction:ltr;
+}
