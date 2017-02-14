@@ -87,7 +87,7 @@ if(guide_array['guide_images_array'][0])
 }
 
 ////start add values to youtube blocks
-if(guide_array['guide_videos_array'])
+if(guide_array['guide_videos_array']!="")
 {
 jQuery.each(guide_array['guide_videos_array'],function(i,val)
     {
@@ -110,7 +110,7 @@ jQuery.each(guide_array['guide_videos_array'],function(i,val)
 
         $('.guide_videos_array').eq(i).val("https://www.youtube.com/watch?v="+main_youtube_url);
 
-        youtube_options();
+      //  youtube_options();
 
     })
 }

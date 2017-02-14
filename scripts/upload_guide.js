@@ -40,7 +40,7 @@ $(document).ready(function () {
   $('.button_text_and_img').click(function () {
     $('.add_another_step').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
-    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+"),'text_and_img'");
+    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+(upload_array['step_number']-1)+"),'text_and_img'");
     //do the reomve block option 
     $('form .one_of_steps').last().val('');
 
@@ -56,7 +56,7 @@ $(document).ready(function () {
   $('.button_textarea').click(function () {
     $('.add_another_textarea').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
-    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+"),'textarea'");
+    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+(upload_array['step_number']-1)+"),'textarea'");
 // do the romove bloc option
 
     var temp_loop2 = temp_loop + 1;// add new id name for every textarea
@@ -73,7 +73,7 @@ $(document).ready(function () {
   $('.button_youtube').click(function () {
     $('.add_guide_videos_array').last().clone().appendTo(".start_steps");
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
-    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+upload_array['step_number']+"),'youtube'");
+    $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+(upload_array['step_number']-1)+"),'youtube'");
     // do the romove bloc option
 
     $('form .add_guide_videos_array').last().val('');
@@ -134,9 +134,9 @@ function removeBlock(current_div,number_of_step_to_remove,type_of_block)
 {
 
 // console.log(number_of_step_to_remove);
- upload_array['type_of_steps'].splice([number_of_step_to_remove-1],1);
+ upload_array['type_of_steps'].splice([number_of_step_to_remove],1);
  $(current_div ).remove();
-upload_array['type_of_steps'];
+$("#type_of_steps").val(upload_array['type_of_steps']);
 console.log(upload_array['step_number']);
 temp_loop--;
 upload_array['step_number'] --;
@@ -146,6 +146,9 @@ type_of_block= 'youtube'?disable_next(false):"";
 //set the levels names
 $.each($('.step_lable'), function (index) {
 $('.step_lable')[index].textContent = (index+1)+' שלב';
+    })
+$.each($('form .remove-block'), function (index) {
+$('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"+index+"),'"+upload_array['type_of_steps'][index]+"'")
     })
 
 

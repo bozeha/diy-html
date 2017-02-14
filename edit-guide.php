@@ -201,7 +201,7 @@ include '/settings/pull_subjects.php';
 
     <div style='display:none'>
       <div class="add_another_step">
-<button class="btn btn-danger" onclick="">x</button>
+<button class="btn remove-block btn-danger" onclick="">x</button>
         <div class="form-group">
           <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
           <input type="text" class="form-control one_of_steps" name="step[]">
@@ -218,7 +218,7 @@ include '/settings/pull_subjects.php';
       </div>
 
       <div class="add_another_textarea">
-        <button type='button' class="btn btn-danger" onclick="">x</button>
+        <button type='button' class="btn remove-block btn-danger" onclick="">x</button>
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <textarea name="editor1[]" id="editor1" rows="10" cols="80">
         </textarea>
@@ -226,7 +226,7 @@ include '/settings/pull_subjects.php';
 
 
       <div class="add_guide_videos_array">
-        <button type='button' class="btn btn-danger" onclick="">x</button>
+        <button type='button' class="btn remove-block btn-danger" onclick="">x</button>
         <label class='step_lable' for="exampleInputEmail1">שלב 1</label>
         <div class="form-group">
           <div class="row">
