@@ -128,7 +128,7 @@ $connection->close();
 
   
     <div class="container">
-      <h1 class="display-3">הוספת מדריך</h1>
+      <h1 class="display-3">ערוך מדריך</h1>
       
     <?php
 if(isset($_GET['mess'])) {

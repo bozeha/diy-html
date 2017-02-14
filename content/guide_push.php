@@ -15,14 +15,18 @@ if (isset($_POST['guide_id']))
     //// this part is only if sorce is edit guide
     if (isset($_POST['all_images']))
     {
-        $all_images = $_POST['all_images'];
+        echo "lllllllll".$_POST['all_images'][0]."222222";
+        $upload_array['all_images'] = $_POST['all_images'][0];
+        $upload_array['all_images_fix'] =explode(",",$upload_array['all_images']);
+         //print_r($upload_array['all_images_fix']);
+        /*$all_images = $_POST['all_images'];
         foreach( $all_images as $key => $n ) {
-            $upload_array['all_images'][$key] = $all_images ;
+            $upload_array['all_images'][$key] = $all_images ;*/
             //echo $upload_array['all_images'];
-        }
+    //    }
     }
-    $upload_array['all_images'] = $upload_array['all_images'][0] ;
-    //echo $upload_array['all_images'][0]."jjjxxxxjjjjjjjjjjj";
+    //$upload_array['all_images'] = $upload_array['all_images'][0] ;
+    //echo "jjjxxxx".$upload_array['all_images'][0]."jjjxxxxjjjjjjjjjjj";
 }
 if (isset($_POST['subject_number']))
 {
@@ -96,7 +100,9 @@ if (isset($_POST['guide_videos_array']))
     }
 
 }
-//else $upload_array['guide_videos_array'][0]=[];
+else {
+    $upload_array['guide_videos_array'][0]="";
+    }
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -130,8 +136,8 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
     $target_file = $target_dir.$upload_array['guide_key']."_".$temp_file_name.".".$imageFileType ;
     
     //create the file path
-    $upload_array['files'][0][$key] = str_replace('../','',$target_file);
-    
+    $upload_array['files'][$key] = str_replace('../','',$target_file);
+    echo "123".$upload_array['files'][$key]."456";
     if(!$imageFileType)$upload_array['files'][$key]='';
     
     $uploadOk = 1;
@@ -147,10 +153,7 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
         }
     }
     // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
+  
     // Check file size
     if ($_FILES["fileToUpload"]["size"][$key] > 100000000) {
         echo "Sorry, your file is too large.";
@@ -167,6 +170,12 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
         echo "Sorry, your file was not uploaded.";
         // if everything is ok, try to upload file
     } else {
+
+  if (file_exists($target_file)) {
+      unlink($target_file);
+     //   echo "Sorry, file already exists.";
+   //     $uploadOk = 0;
+    }
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"][$key], $target_file)) {
             echo "The file ". basename( $_FILES["fileToUpload"]["name"][$key]). " has been uploaded.";
         } else {
@@ -177,6 +186,7 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
     
     $temp_file_name ++;
 }
+
 
 
 // **************** end upload files
@@ -196,7 +206,7 @@ VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_
 else
 {
     echo 'innnnnnnnnnnnnnnnnnnnnnnnnn';
-$sql = "UPDATE guides SET subject ='".$upload_array['subject']."', user = '". $upload_array['user']."', guide_key='".$upload_array['guide_key']."', guide_title ='".$upload_array['guide_title']."', guide_title_en='".$upload_array['guide_title_en']."' ,guide_subtitle='".$upload_array['guide_sub_title']."' , guide_accessories_array ='".json_encode($upload_array['access_array'])."', guide_text_array ='".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."',guide_images_array ='".json_encode($upload_array['all_images'])."', type_of_steps_array ='".json_encode($upload_array['type_of_steps'])."',guide_textarea_array ='".base64_encode(json_encode($upload_array['guide_textarea_array']))."',guide_videos_array ='".json_encode($upload_array['guide_videos_array'][0])."'  WHERE id = ".$upload_array ['guide_id']."" ;
+$sql = "UPDATE guides SET subject ='".$upload_array['subject']."', user = '". $upload_array['user']."', guide_key='".$upload_array['guide_key']."', guide_title ='".$upload_array['guide_title']."', guide_title_en='".$upload_array['guide_title_en']."' ,guide_subtitle='".$upload_array['guide_sub_title']."' , guide_accessories_array ='".json_encode($upload_array['access_array'])."', guide_text_array ='".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."',guide_images_array ='".json_encode($upload_array['all_images_fix'])."', type_of_steps_array ='".json_encode($upload_array['type_of_steps'])."',guide_textarea_array ='".base64_encode(json_encode($upload_array['guide_textarea_array']))."',guide_videos_array ='".json_encode($upload_array['guide_videos_array'][0])."'  WHERE id = ".$upload_array ['guide_id']."" ;
 
 }
 
@@ -214,10 +224,10 @@ if ($conn->query($sql) === TRUE) {
     {
         $current_message= "המדריך נערך בהצלחה";
     }
-    //header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
 } else {
     $current_message= "Error: " . $sql . "<br>" . $conn->error;
-    //header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
     
 }
 

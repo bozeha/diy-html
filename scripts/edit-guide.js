@@ -76,7 +76,7 @@ if(guide_array['guide_images_array'][0])
     //guide_array['guide_images_array'] = images_string_to_array;
     //var res = guide_array['guide_images_array'][0].split(",");
     //console.log(res);
-    guide_array['guide_images_array']=guide_array['guide_images_array'][0].split(',');
+    //guide_array['guide_images_array']=guide_array['guide_images_array'][0].split(',');
     jQuery.each(guide_array['guide_images_array'],function(i,val)
         {
     $('form .edit_guide_img img')[i].setAttribute('src',guide_array['guide_images_array'][i]);
