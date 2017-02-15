@@ -109,6 +109,8 @@ jQuery.each(guide_array['guide_videos_array'],function(i,val)
         var main_youtube_url = str3.match(regexp3);
 
         $('.guide_videos_array').eq(i).val("https://www.youtube.com/watch?v="+main_youtube_url);
+        $('#guide_videos_array_finel').eq(i).val(str3);
+        
 
       //  youtube_options();
 
