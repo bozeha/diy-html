@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
         echo "<script>guide_array['guide_textarea_array']=".$string2json."</script>";
         $string2json2 = json_decode($string2json,TRUE);
         $guide_array['guide_textarea_array']=$string2json2;
-       
+       //echo "<script>console.log('".$string2json."0000')</script>";
         
         
         $guide_array['type_of_steps_array'] = $row["type_of_steps_array"];
@@ -232,7 +232,7 @@ include '/settings/pull_subjects.php';
           <div class="row">
             <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
             <input type="text" class="col-xs-6 pull-right guide_videos_array" name="guide_videos_array_temp">
-            <button type="button" class="col-xs-2 btn-md btn btn-primary pull-right" onclick='youtube_options()'>אשר</button>
+            <button type="button" class="conf-button col-xs-2 btn-md btn btn-primary pull-right" onclick='youtube_options(this)'>אשר</button>
           </div>
 
           <div class="btn-group row" data-toggle="buttons">
@@ -275,7 +275,7 @@ include '/settings/pull_subjects.php';
                   </label>
                 </td>
               </tr>
-              <input type="hidden" id="guide_videos_array_finel" name="guide_videos_array[]" />
+              <input type="hidden" class="guide_videos_array_finel" name="guide_videos_array[]" />
 
             </table>
           </div>

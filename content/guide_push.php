@@ -58,7 +58,7 @@ if (isset($_POST['editor1']))
 {
     $step = $_POST['editor1'];
     foreach( $step as $key => $n ) {
-        $upload_array['guide_textarea_array'][$key] = $n ;   
+        $upload_array['guide_textarea_array'][$key] = $n ;
     }   
 }
 else $upload_array['guide_textarea_array'] = [];
@@ -229,10 +229,10 @@ if ($conn->query($sql) === TRUE) {
     {
         $current_message= "המדריך נערך בהצלחה";
     }
-    //header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
 } else {
     $current_message= "Error: " . $sql . "<br>" . $conn->error;
-    //header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
+    header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
     
 }
 

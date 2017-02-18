@@ -88,19 +88,27 @@ $(document).ready(function () {
 })
 
 
-function youtube_options() {
+function youtube_options(current_this) {
 
-  var str = $('form .add_guide_videos_array input.guide_videos_array').last().val();
+$(current_this).parent().parent().find('input#auto').val()
+
+
+  var str = $(current_this).parent().parent().parent().find('input.guide_videos_array').val();
+  //var str = $('form .add_guide_videos_array input.guide_videos_array').last().val();
   str = str.replace(/.*=/, "");
   console.log(str);
-  str = $('form #auto').last().is(':checked') ? str + "?autoplay=1" : str + "?autoplay=0";
-  str = $('form #loop').last().is(':checked') ? str + "&loop=1" : str + "&loop=0";
-  str = $('form #controler').last().is(':checked') ? str + "&controls=1" : str + "&controls=0";
-  str = $('form #rel').last().is(':checked') ? str + "&rel=1" : str + "&rel=0";
+  str = $(current_this).parent().parent().find('input#auto').is(':checked') ? str + "?autoplay=1" : str + "?autoplay=0";
+  str = $(current_this).parent().parent().find('input#loop').is(':checked') ? str + "&loop=1" : str + "&loop=0";
+  str = $(current_this).parent().parent().find('input#controler').is(':checked') ? str + "&controls=1" : str + "&controls=0";
+  str = $(current_this).parent().parent().find('input#rel').is(':checked') ? str + "&rel=1" : str + "&rel=0";
   console.log(str);
-  $('form .add_guide_videos_array input#guide_videos_array_finel').last().val(str);
-  $('form .add_guide_videos_array input.guide_videos_array').last().attr('readonly', true);
-  $('form .add_guide_videos_array input.guide_videos_array').last().css('background-color','#D3D3D3');
+  //$('form .add_guide_videos_array input.guide_videos_array_finel').last().val(str);
+  $(current_this).parent().parent().parent().find('input.guide_videos_array_finel').val(str);
+  
+  $(current_this).parent().find('input.guide_videos_array').attr('readonly', true);
+  $(current_this).parent().find('input.guide_videos_array').css('background-color','#D3D3D3');
+  //$('form .add_guide_videos_array input.guide_videos_array').last().attr('readonly', true);
+  //$('form .add_guide_videos_array input.guide_videos_array').last().css('background-color','#D3D3D3');
   disable_next(false);
 }
 
@@ -112,7 +120,7 @@ function disable_next(current_step)
       $('.button_youtube').attr("disabled", true);
       $('.button_textarea').attr("disabled", true);
       $('.button_text_and_img').attr("disabled", true);
-      $('#submit-button').attr("disabled", true);
+      $('#a-submit-button').attr("disabled", true);
       $('.button_youtube').addClass("dis-button");
       $('.button_textarea').addClass("dis-button");
       $('.button_text_and_img').addClass("dis-button");
@@ -123,7 +131,7 @@ function disable_next(current_step)
       $('.button_youtube').attr("disabled", false);
       $('.button_textarea').attr("disabled", false);
       $('.button_text_and_img').attr("disabled", false);
-      $('#submit-button').attr("disabled", false);
+      $('#a-submit-button').attr("disabled", false);
       $('.button_youtube').removeClass("dis-button");
       $('.button_textarea').removeClass("dis-button");
       $('.button_text_and_img').removeClass("dis-button");

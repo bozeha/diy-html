@@ -68,7 +68,7 @@ include '/settings/pull_subjects.php';
             </div>
 
             <div class='col-xs-6'>
-              <button type="submit" class="btn btn-primary pull-right">אשר ושמור מדריך</button>
+              <button type="submit" id='a-submit-button' class="btn btn-primary pull-right">אשר ושמור מדריך</button>
             </div>
             
           </div>
@@ -111,7 +111,7 @@ include '/settings/pull_subjects.php';
           <div class="row">
             <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
             <input type="text" class="col-xs-6 pull-right guide_videos_array" name="guide_videos_array_temp">
-            <button type="button" id='submit-button' class="col-xs-2 btn-md btn btn-primary pull-right" onclick='youtube_options()'>אשר</button>
+            <button type="button" id='submit-button' class="col-xs-2 btn-md btn btn-primary pull-right" onclick='youtube_options(this)'>אשר</button>
           </div>
 
           <div class="btn-group row" data-toggle="buttons">
@@ -154,7 +154,7 @@ include '/settings/pull_subjects.php';
                   </label>
                 </td>
               </tr>
-              <input type="hidden" id="guide_videos_array_finel" name="guide_videos_array[]" />
+              <input type="hidden" class="guide_videos_array_finel" name="guide_videos_array[]" />
 
             </table>
           </div>

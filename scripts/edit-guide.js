@@ -60,7 +60,8 @@ setTimeout(function(){
     // cke_button__source is the button on textarea to convert to html code so we can change the value 
     $(".cke_button__source").trigger( "click" );
     for(var loop=0;loop!=temp_loop_array['textarea'];loop++){
-    $('#cke_editor'+(loop+1)+' textarea').val(guide_array['guide_textarea_array'][loop]);
+    $('.add_another_textarea').eq(loop).find('textarea').val(guide_array['guide_textarea_array'][loop]);
+    console.log(guide_array['guide_textarea_array'][0]+"ssssssssss");
 }
 
 for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
@@ -79,10 +80,10 @@ if(guide_array['guide_images_array'][0])
     //guide_array['guide_images_array']=guide_array['guide_images_array'][0].split(',');
     jQuery.each(guide_array['guide_images_array'],function(i,val)
         {
-    $('form .edit_guide_img img')[i].setAttribute('src',guide_array['guide_images_array'][i]);
-        $('form .fileToUpload')[i].setAttribute('data-id-img-input',i);
-        $('form .edit_guide_img')[i].setAttribute('data-id-img-div',i);
-        $('form .edit_guide_img button')[i].setAttribute('onclick','replaceImage('+i+')');
+    $('.edit_guide_img img')[i].setAttribute('src',guide_array['guide_images_array'][i]);
+        $('.fileToUpload')[i].setAttribute('data-id-img-input',i);
+        $('.edit_guide_img')[i].setAttribute('data-id-img-div',i);
+        $('.edit_guide_img button')[i].setAttribute('onclick','replaceImage('+i+')');
     })
 }
 
@@ -103,18 +104,19 @@ jQuery.each(guide_array['guide_videos_array'],function(i,val)
 
         regexp4.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #auto").eq(i).trigger( "click" ):"";
         regexp5.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #loop").eq(i).trigger( "click" ):"";
-        regexp6.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #controls").eq(i).trigger( "click" ):"";
+        regexp6.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #controler").eq(i).trigger( "click" ):"";
         regexp7.test(guide_array['guide_videos_array'][i])?$(".youtube_btn #rel").eq(i).trigger( "click" ):"";
 
         var main_youtube_url = str3.match(regexp3);
 
         $('.guide_videos_array').eq(i).val("https://www.youtube.com/watch?v="+main_youtube_url);
-        $('#guide_videos_array_finel').eq(i).val(str3);
+        $('.guide_videos_array_finel').eq(i).val(str3);
         
 
       //  youtube_options();
 
     })
+    disable_next(false);
 }
 
 
