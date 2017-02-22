@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+  <link rel="stylesheet" type="text/css" href="style/new_effects.css">
   <?php include '/settings/head.php'; ?>
 
 </head>

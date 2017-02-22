@@ -67,7 +67,10 @@ if ($result->num_rows > 0) {
         $string2json =  json_decode($guide_array['guide_videos_array'],TRUE);
         $guide_array['guide_videos_array']=$string2json;
         }
-        else{$guide_array['guide_videos_array']='';}
+        else{
+          $guide_array['guide_videos_array']='';
+          echo "<script>console.log('boaz boz');guide_array['guide_videos_array']=''</script>";
+          }
         
         
         $guide_array['guide_textarea_array'] = $row["guide_textarea_array"];

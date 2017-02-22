@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     var url = window.location.href;
     var n;
@@ -71,8 +72,8 @@ function elements_to_remove(object_type) {
     },
     function(data, status){
         console.log("\nStatus: " + status);
-        $('#done_message').html('the process has done');
-        location.reload();
+        //$('#done_message').html('the process has done');
+        $(location).attr('href',$(location).attr('href')+"&msg=delete elements successful");
     });
 
 }

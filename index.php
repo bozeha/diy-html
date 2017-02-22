@@ -7,6 +7,7 @@
 
 <head>
   <?php include '/settings/head.php'; ?>
+  <link rel="stylesheet" type="text/css" href="style/new_effects2.css">
 
 </head>
 
@@ -16,7 +17,7 @@
 include 'content/top_main.php';
 ?>
 
-
+<!--
   <div id="section1" style="background:url('img/epcot1.jpg')no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -25,7 +26,7 @@ background-size: cover;
 }">
     <div class="container">
 
-      <!-- Main component for a primary marketing message or call to action -->
+      
       <div class="jumbotron text-center" style="margin-top:110px;margin-bottom:110px;padding:40px;background:rgba(1,1,1,0.3)">
         <h1 style="color:#eee;font-weight:600">Visit <span style="color:rgba(41, 216, 70, 0.8)">Orlando</h1>
 
@@ -37,7 +38,7 @@ background-size: cover;
         </p>
       </div>
 
-    </div>
+    </div>-->
     <!-- /container -->
 
   </div>
@@ -54,7 +55,7 @@ background-size: cover;
 
     </div>
 
-    <div class="row">
+  <!--  <div class="row">
       <div class="container">
         <hr>
         <div class="col-sm-9">
@@ -144,7 +145,7 @@ background-size: cover;
 
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="row" style="background:#29d846">
       <div class="container" style="margin-top:50px">
         <div class="col-md-3">

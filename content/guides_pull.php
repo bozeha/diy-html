@@ -1,4 +1,13 @@
 <?php
+if(isset($_GET['msg'])) {
+    $message = $_GET['msg'];
+
+    echo "<h3>".$message."</h3>";
+}
+
+
+
+
 include 'settings/connect.php';
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 $guides_array=[];
@@ -60,10 +69,10 @@ if ($current_subject=='all')
 else
 {
     for($loop2=0;$loop2!=$loop;$loop2++) {
-        echo "<div class='col-md-4'><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive' style='min-height:275px'>";
-        echo "<h3 style='background:#eee;margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h3>";
-        echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
-        echo "<a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a></div>";
+        echo "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'><div class='hovereffect'><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive'>";
+        echo "<div class='overlay'><h2 >".$guides_array['guide_title'][$loop2]."</h2>";
+        echo "<a class='info' href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><p>".$guides_array['guide_subtitle'][$loop2]."</p>";
+        echo "</a></div></div></div>";
     }
 }
 

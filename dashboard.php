@@ -60,6 +60,7 @@ if(isset($_GET['dash'])) {
 <div id='load_div'></div>
 <?php 
 include 'content/top_main.php';
+
 ?>
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 
@@ -120,12 +121,12 @@ include 'content/top_main.php';
                         <p>Notifications</p>
                     </a>
                 </li>
-				<li class="active-pro">
+				<!--<li class="active-pro">
                     <a href="upgrade.html">
                         <i class="pe-7s-rocket"></i>
                         <p>Upgrade to PRO</p>
                     </a>
-                </li>
+                </li>-->
             </ul>
     	</div>
     </div>
