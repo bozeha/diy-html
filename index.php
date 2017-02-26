@@ -178,7 +178,7 @@ background-size: cover;
   </div>
 
 
-  <a href='content/new_sub.php'>xxxxxxxxxxxxxxxxx</a>
+  
 </body>
 
 </html>

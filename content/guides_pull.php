@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
         $loop++;
     }
 } else {
-    echo "0 results";
+    echo "<div cloass='' style='width:100px;height:100px;float:right;cursor: pointer;color:blue' onclick='window.history.back()'>כעת אין מדריכים בקטגוריה לחץ כאן לחזור אחורה</div>";
 }
 
         //$guide_array['guide_images_array'] = $row["guide_images_array"];
@@ -59,10 +59,10 @@ if ($current_subject=='all')
     
     for($loop2=0;$loop2!=$loop;$loop2++) {
         
-        echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-12 selected-guide'><button onclick='markForDelete(this)'>סמן מדריך</button><button onclick=window.open('dashboard.php?dash=edit-guide&guide=".$guides_array['id'][$loop2]."')>ערוך מדריך</button><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive  pull-left' style='max-height:100px'>";
-        echo "<h3 style='background:#eee;margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h3>";
-        echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
-        echo "<a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='btn btn-block' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a></div>";
+        echo "<div data-guide-selected='false' data-guide-id='".$guides_array['id'][$loop2]."' class='col-xs-6 selected-guide'><a href='display-guide.php?guide=".$guides_array['id'][$loop2]."'><button class='' style='background:#29d846;color:#fff'>לצפיה במדריך</button></a><button onclick='markForDelete(this)'>סמן מדריך</button><button onclick=window.open('dashboard.php?dash=edit-guide&guide=".$guides_array['id'][$loop2]."')>ערוך מדריך</button><img src='".$guides_array['guide_images_array_fix'][$loop2][0]."' class='img-responsive  pull-left' style='max-width:177px;height:100px'>";
+        echo "<h5 style='margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open'><strong></strong>".$guides_array['guide_title'][$loop2]."</h5>";
+        //echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
+        echo "</div>";
     } 
     echo "<button class='btn btn-danger' onclick=elements_to_remove('guides')>מחק את המדריכים המסומנים</button>";
 }

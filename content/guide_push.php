@@ -10,7 +10,7 @@ $temp_file_name= 0;
 
 if (isset($_POST['guide_id']))
 {
-    $upload_array ['guide_id'] = $_POST['guide_id'];
+    $upload_array['guide_id'] = $_POST['guide_id'];
     if (isset($_POST['all_images']))
     {
         echo "lllllllll".$_POST['all_images'][0]."222222";
@@ -22,27 +22,28 @@ if (isset($_POST['guide_id']))
 }
 if (isset($_POST['subject_number']))
 {
-    $upload_array ['subject'] = $_POST['subject_number'];
+    $upload_array['subject'] = $_POST['subject_number'];
 }
 if (isset($_POST['user_number']))
 {
-    $upload_array ['user'] = $_POST['user_number'];
+    $upload_array['user'] = $_POST['user_number'];
+    echo '98989898'.$upload_array['user'];
 }
 if (isset($_POST['guide_title']))
 {
-    $upload_array ['guide_title'] = $_POST['guide_title'];
-    $upload_array ['guide_title']=  str_replace('\'','&#39;',$upload_array ['guide_title']);
-    echo $upload_array ['guide_title'];
+    $upload_array['guide_title'] = $_POST['guide_title'];
+    $upload_array['guide_title']=  str_replace('\'','&#39;',$upload_array['guide_title']);
+    echo $upload_array['guide_title'];
 }
 if (isset($_POST['guide_title_en']))
 {
-    $upload_array ['guide_title_en'] = $_POST['guide_title_en'];
-    $upload_array ['guide_key'] = str_replace(' ','_',strtolower($_POST['guide_title_en']));
+    $upload_array['guide_title_en'] = $_POST['guide_title_en'];
+    $upload_array['guide_key'] = str_replace(' ','_',strtolower($_POST['guide_title_en']));
 }
 if (isset($_POST['guide_sub_title']))
 {
-    $upload_array ['guide_sub_title'] = $_POST['guide_sub_title'];
-    $upload_array ['guide_sub_title']=  str_replace('\'','&#39;',$upload_array ['guide_sub_title']);
+    $upload_array['guide_sub_title'] = $_POST['guide_sub_title'];
+    $upload_array['guide_sub_title']=  str_replace('\'','&#39;',$upload_array['guide_sub_title']);
 }
 
 if (isset($_POST['step']))
@@ -130,7 +131,7 @@ if ($conn->connect_error) {
 
 
 
-$target_dir = "../images/guides/".$upload_array ['guide_key']."/" ;
+$target_dir = "../images/guides/".$upload_array['guide_key']."/" ;
 if (!file_exists ($target_dir)){mkdir($target_dir, 0777);}
 
 foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
@@ -203,7 +204,7 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
 
 
 
-if(!isset($upload_array ['guide_id']))
+if(!isset($upload_array['guide_id']))
 {
 $sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array,guide_textarea_array )
 VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['guide_videos_array'])."','".json_encode($upload_array['type_of_steps'])."','".base64_encode(json_encode($upload_array['guide_textarea_array']))."')";
@@ -211,7 +212,7 @@ VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_
 else
 {
     echo 'innnnnnnnnnnnnnnnnnnnnnnnnn';
-$sql = "UPDATE guides SET subject ='".$upload_array['subject']."', user = '". $upload_array['user']."', guide_key='".$upload_array['guide_key']."', guide_title ='".$upload_array['guide_title']."', guide_title_en='".$upload_array['guide_title_en']."' ,guide_subtitle='".$upload_array['guide_sub_title']."' , guide_accessories_array ='".json_encode($upload_array['access_array'])."', guide_text_array ='".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."',guide_images_array ='".json_encode($upload_array['all_images_fix'])."', type_of_steps_array ='".json_encode($upload_array['type_of_steps'])."',guide_textarea_array ='".base64_encode(json_encode($upload_array['guide_textarea_array']))."',guide_videos_array ='".json_encode($upload_array['guide_videos_array'])."'  WHERE id = ".$upload_array ['guide_id']."" ;
+$sql = "UPDATE guides SET subject ='".$upload_array['subject']."', user = '".$upload_array['user']."', guide_key='".$upload_array['guide_key']."', guide_title ='".$upload_array['guide_title']."', guide_title_en='".$upload_array['guide_title_en']."' ,guide_subtitle='".$upload_array['guide_sub_title']."' , guide_accessories_array ='".json_encode($upload_array['access_array'])."', guide_text_array ='".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."',guide_images_array ='".json_encode($upload_array['all_images_fix'])."', type_of_steps_array ='".json_encode($upload_array['type_of_steps'])."',guide_textarea_array ='".base64_encode(json_encode($upload_array['guide_textarea_array']))."',guide_videos_array ='".json_encode($upload_array['guide_videos_array'])."'  WHERE id = ".$upload_array['guide_id']."" ;
 
 }
 
@@ -230,7 +231,9 @@ if ($conn->query($sql) === TRUE) {
         $current_message= "המדריך נערך בהצלחה";
     }
     header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
-} else {
+} 
+else 
+{
     $current_message= "Error: " . $sql . "<br>" . $conn->error;
     header("Location: ../dashboard.php?dash=new-guide-form&mess=".$current_message); /* Redirect browser */
     

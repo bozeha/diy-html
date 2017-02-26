@@ -31,3 +31,10 @@ overflow:visible !important;
 {
 color : #B0ABB4;
 }
+#main_php_div .btn-danger
+{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+}

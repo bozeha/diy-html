@@ -96,6 +96,7 @@ div.subjects-div
 
 .snip1570 img{
 height:250px;
+width:250px;
 }
 .snip1570 {
   font-family: 'Poppins', Arial, sans-serif;
@@ -250,4 +251,11 @@ body {
   background-color: #212121;
   text-align: center;
 }
-
+figure h4
+{
+text-align:right;
+}
+#section2
+{
+  overflow:hidden;
+}

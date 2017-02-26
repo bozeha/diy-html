@@ -103,6 +103,16 @@ if ($result->num_rows > 0) {
     }
 }
 
+/*$sql = "SELECT nickname FROM  users  WHERE id = ".$guide_array['user']."";
+$result = $connection->query($sql);
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      
+        $guide_array['user'] = $row["nickname"];
+        echo "<script>guide_array['user']='".$guide_array['user']."'</script>";
+    }
+}*/
+
 
 
 $connection->close();

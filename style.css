@@ -14,7 +14,7 @@
 }
 
 .row p a {
-    color: #fff
+    /*color: #fff*/
 }
 
 body {
@@ -33,4 +33,25 @@ body {
     border: 1px solid blue;
     padding: 30px;
     border-radius: 5px;
+}
+#navbar a
+{
+    text-align:right;
+}
+.selected-guide p
+{
+    margin-bottom:0px;
+}
+.selected-guide
+{
+    margin-bottom:10px;
+}
+/*.card .content
+{
+
+    padding-bottom:200px !important;
+}*/
+p
+{
+    direction:rtl;
 }
