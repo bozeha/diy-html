@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include '/settings/head.php'; ?>
+  <?php include 'settings/head.php'; ?>
   
 
 </head>
@@ -13,7 +13,7 @@
 
 
 
-        <?php include '/content/guide_pull.php'; ?>
+        <?php include 'content/guide_pull.php'; ?>
         
 
 

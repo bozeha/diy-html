@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="style/new_effects.css">
-  <?php include '/settings/head.php'; ?>
+  <?php include 'settings/head.php'; ?>
 
 </head>
 <body>
@@ -14,7 +14,7 @@ include 'content/top_main.php';
 
   <div class="container">
       <div class="row" style="margin-top:70px">
-        <?php include '/content/guides_pull.php'; ?>
+        <?php include 'content/guides_pull.php'; ?>
       </div>
 
     </div>

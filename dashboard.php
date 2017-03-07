@@ -1,9 +1,20 @@
-<?php include '/settings/head.php'; ?>
+<?php include 'settings/head.php'; ?>
 <?php
-if(session_status() == PHP_SESSION_NONE){  session_start(); }
-if(!(isset($_SESSION["id"]))||($_SESSION["id"]==''))
+if(session_status() == PHP_SESSION_NONE){  
+    session_start(); 
+    //echo "tttttttttttttttttttttt".$_SESSION["id"];
+    if($_SESSION["id"]==null){
+       // echo "hhhhhhhhhhh";
+        }
+}
+if(!(isset($_SESSION["id"]))||($_SESSION["id"]=='')||($_SESSION["id"]==null))
 {
-   header('Location: index.php');
+    //ob_start();
+    error_reporting(E_ALL);
+ini_set('display_errors','On');
+   header("Location:/");
+    echo "5555555555555555555";
+   
 }
 
 if(isset($_GET['dash'])) {
@@ -212,7 +223,7 @@ include 'content/top_main.php';
     <script src="assets/js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>

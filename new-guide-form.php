@@ -47,10 +47,10 @@ if(isset($_GET['mess'])) {
 
 
         <?php
-include '/settings/connect.php';
-include '/settings/pull_access.php';
-include '/settings/pull_users.php';
-include '/settings/pull_subjects.php';
+include 'settings/connect.php';
+include 'settings/pull_access.php';
+include 'settings/pull_users.php';
+include 'settings/pull_subjects.php';
 ?>
 
 

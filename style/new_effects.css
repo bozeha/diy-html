@@ -29,6 +29,7 @@
     height:250px;
   display: block;
   position: relative;
+  width:100%;
 }
 
 .hovereffect h2 {
