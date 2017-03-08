@@ -65,7 +65,10 @@ setTimeout(function(){
 }
 
 for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
-    $('.one_of_steps')[loop2].value =guide_array['guide_text_array'][loop2];
+    var temp_replace_ascii =asciiToChar(guide_array['guide_text_array'][loop2]);
+    console.log(temp_replace_ascii);
+    $('.one_of_steps')[loop2].value =temp_replace_ascii ;
+    
 }
 // press agean on cke_button__source so the textarea back to GUI view
     setTimeout(function(){ $(".cke_button__source").trigger( "click" );
@@ -73,11 +76,7 @@ for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
 
 if(guide_array['guide_images_array'][0])
 {
-    //var images_string_to_array =  guide_array['guide_images_array'].split(',');
-    //guide_array['guide_images_array'] = images_string_to_array;
-    //var res = guide_array['guide_images_array'][0].split(",");
-    //console.log(res);
-    //guide_array['guide_images_array']=guide_array['guide_images_array'][0].split(',');
+   
     jQuery.each(guide_array['guide_images_array'],function(i,val)
         {
     $('.edit_guide_img img')[i].setAttribute('src',guide_array['guide_images_array'][i]);
@@ -162,4 +161,28 @@ jQuery.each($('input.fileToUpload'),function(i,val){
     temp_arr[i]=$(this).val();
 })
 $('#all_images').val(guide_array['guide_images_array']);
+}
+
+function asciiToChar(get_string)
+{
+
+//get_string.replace("Microsoft", "W3Schools");
+get_string = get_string.replace(new RegExp("&#41;", "g"),")");
+get_string = get_string.replace(new RegExp("&#40;", "g"),"(");
+get_string = get_string.replace(new RegExp("&#39;", "g"),"'");
+get_string = get_string.replace(new RegExp("&#34;", "g"),"\"");
+get_string = get_string.replace(new RegExp("&#44;", "g"),",");
+get_string = get_string.replace(new RegExp("&#91;", "g"),"[");
+get_string = get_string.replace(new RegExp("&#93;", "g"),"]");
+get_string = get_string.replace(new RegExp("&#92;", "g"),"\\");
+get_string = get_string.replace(new RegExp("&#47;", "g"),"/");
+return get_string;
+
+
+
+
+
+
+
+
 }

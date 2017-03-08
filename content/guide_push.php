@@ -50,7 +50,10 @@ if (isset($_POST['step']))
 {
     $step = $_POST['step'];
     foreach( $step as $key => $n ) {
-        $upload_array['steps'][$key] = $n ;   
+       
+       $temp_fixed_string = replaceToascii($n);
+       // $temp_fixed_string = str_replace(")",replace,$n);
+        $upload_array['steps'][$key] = $temp_fixed_string ;   
     }   
 }
 else $upload_array['steps']= [];
@@ -78,17 +81,7 @@ if (isset($_POST['type_of_steps']))
          // fix array
 $temp_array = explode(",",$upload_array['type_of_steps']);
 $upload_array['type_of_steps'] =$temp_array;
-// fix array
 
-
-
-
-    /*$type_of_steps = $_POST['type_of_steps'];
-    foreach( $type_of_steps as $key => $n ) {
-         echo "only 0:".$type_of_steps[0];
-        $upload_array['type_of_steps'][$key] = $type_of_steps ;
-        echo "type of step num".$key.$upload_array['type_of_steps'][$key];
-    }*/
 
 }
 
@@ -99,14 +92,7 @@ if (isset($_POST['guide_videos_array']))
     
         $upload_array['guide_videos_array'] = $guide_videos_array ;
         echo "video string :".json_encode($upload_array['guide_videos_array']);
-    /*foreach( $guide_videos_array as $key => $n ) {
-        $upload_array['guide_videos_array'][$key] = $guide_videos_array ;
-        $temp_temp =json_encode($upload_array['guide_videos_array'][0]);
-        $videos_to_send = "guide_videos_array =".$temp_temp;
-        echo "key:".$key.$temp_temp."end key";
-        //echo "mm0".$videos_to_send[0];
-        //echo "mm1".$videos_to_send[1];
-    }*/
+
 
 }
 else {
@@ -203,6 +189,23 @@ foreach($_FILES['fileToUpload']['tmp_name'] as $key => $tmp_name)
 
 
 
+function replaceToascii($get_string)
+{
+
+$get_string = str_replace(")","&#41;",$get_string);
+$get_string = str_replace("(","&#40;",$get_string);
+$get_string = str_replace("'","&#39;",$get_string);
+$get_string = str_replace("\"","&#34;",$get_string);
+$get_string = str_replace(",","&#44;",$get_string);
+$get_string = str_replace("[","&#91;",$get_string);
+$get_string = str_replace("]","&#93;",$get_string);
+$get_string = str_replace("\\","&#92;",$get_string);
+$get_string = str_replace("/","&#47;",$get_string);
+return $get_string;
+
+}
+
+
 
 if(!isset($upload_array['guide_id']))
 {
@@ -211,13 +214,11 @@ VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_
 }
 else
 {
-    echo 'innnnnnnnnnnnnnnnnnnnnnnnnn';
 $sql = "UPDATE guides SET subject ='".$upload_array['subject']."', user = '".$upload_array['user']."', guide_key='".$upload_array['guide_key']."', guide_title ='".$upload_array['guide_title']."', guide_title_en='".$upload_array['guide_title_en']."' ,guide_subtitle='".$upload_array['guide_sub_title']."' , guide_accessories_array ='".json_encode($upload_array['access_array'])."', guide_text_array ='".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."',guide_images_array ='".json_encode($upload_array['all_images_fix'])."', type_of_steps_array ='".json_encode($upload_array['type_of_steps'])."',guide_textarea_array ='".base64_encode(json_encode($upload_array['guide_textarea_array']))."',guide_videos_array ='".json_encode($upload_array['guide_videos_array'])."'  WHERE id = ".$upload_array['guide_id']."" ;
 
 }
 
-/*$sql = "INSERT INTO guides (subject, user, guide_key, guide_title, guide_title_en, guide_subtitle, guide_accessories_array, guide_text_array,guide_images_array, guide_videos_array, type_of_steps_array,guide_textarea_array )
-VALUES ('".$upload_array['subject']."','". $upload_array['user']."', '".$upload_array['guide_key']."','".$upload_array['guide_title']."','".$upload_array['guide_title_en']."','".$upload_array['guide_sub_title']."','".json_encode($upload_array['access_array'])."','".json_encode($upload_array['steps'],JSON_UNESCAPED_UNICODE)."','".json_encode($upload_array['files'])."','".json_encode($upload_array['guide_videos_array'][0])."','".json_encode($upload_array['type_of_steps'])."','".base64_encode(json_encode($upload_array['guide_textarea_array']))."')";*/
+
 
 
 if ($conn->query($sql) === TRUE) {
