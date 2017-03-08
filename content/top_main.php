@@ -125,7 +125,7 @@ BOT;
 
 echo <<<BOT
 
-      <form action="settings/log-in.php" method="post">
+      <form id='log-in-form' action="settings/log-in.php" method="post">
             <ul class="nav navbar-nav navbar-left">
                   <li>
                 <a href="#">
