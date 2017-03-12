@@ -70,7 +70,7 @@ if(isset($_POST['uname'])) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"><strong style="color:#29d846">Orlando</strong>Guests</a>
+        <a class="navbar-brand" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav pull-right">

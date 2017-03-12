@@ -116,6 +116,7 @@ label {
     height: 250px;
     background-size: cover;
     background-repeat: no-repeat;
+        background-position-y: 50%;
 }
 
 #resize_div {
@@ -229,4 +230,19 @@ background-color:#122b40 !important;
 #guide_title_en
 {
     direction:ltr;
+}
+
+@media only screen and (max-device-width: 480px)
+ {
+
+   .guide-box div.step-img-div img
+      {
+          max-width:100px !important;
+
+      }
+    div.step-text-div span
+    {
+
+        font-size:10px;
+    }
 }

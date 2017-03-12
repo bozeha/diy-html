@@ -47,9 +47,6 @@ if ($result->num_rows > 0) {
     echo "<div cloass='' style='width:100px;height:100px;float:right;cursor: pointer;color:blue' onclick='window.history.back()'>כעת אין מדריכים בקטגוריה לחץ כאן לחזור אחורה</div>";
 }
 
-        //$guide_array['guide_images_array'] = $row["guide_images_array"];
-        //$guide_array['guide_images_array']= $guide_array['guide_images_array'][0];
-        //echo $guide_array['guide_images_array'][0];
 
 $connection->close();
 $loop2 = 0;
@@ -64,7 +61,7 @@ if ($current_subject=='all')
         //echo "<p  style='background:#eee;margin-top:0px;padding:10px'>".$guides_array['guide_subtitle'][$loop2]."</p>";
         echo "</div>";
     } 
-    echo "<button class='btn btn-danger' onclick=elements_to_remove('guides')>מחק את המדריכים המסומנים</button>";
+    echo "<button class='btn btn-danger remove_selected_guides' onclick=elements_to_remove('guides')>מחק את המדריכים המסומנים</button>";
 }
 else
 {

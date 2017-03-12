@@ -62,3 +62,14 @@ div.an-add
     height:1000px;
     background-color:gray;
 }
+.add-new-step-between button
+{
+    background-color: transparent;
+    border: none;
+    color: limegreen;
+}
+.add-new-step-between button:hover
+{
+    font-weight:bold;
+    color:blue;
+}

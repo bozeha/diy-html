@@ -66,7 +66,7 @@ setTimeout(function(){
 
 for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
     var temp_replace_ascii =asciiToChar(guide_array['guide_text_array'][loop2]);
-    console.log(temp_replace_ascii);
+    //console.log(temp_replace_ascii);
     $('.one_of_steps')[loop2].value =temp_replace_ascii ;
     
 }

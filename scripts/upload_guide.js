@@ -39,6 +39,10 @@ $(document).ready(function () {
   //upload_array['type_of_steps'][0] = "text_and_img";// the first tet and image are already in the page 
   $('.button_text_and_img').click(function () {
     $('.add_another_step').last().clone().appendTo(".start_steps");
+
+// add option to add new step between 
+    $(".start_steps").append("<div class='add-new-step-between' data-current-place='"+upload_array['step_number']+"'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
+      
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
     $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+(upload_array['step_number']-1)+"),'text_and_img'");
     //do the reomve block option 
@@ -162,4 +166,15 @@ $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"
 
 
  //console.log($(current_div ).children("label").val());
+}
+
+
+
+function addStepBetweenButton(current_button)
+{
+  console.log(current_button);
+  $(current_button).after($('.button_youtube:eq(0)').clone())
+  $(current_button).after($('.button_textarea:eq(0)').clone())
+  $(current_button).after($('.button_text_and_img:eq(0)').clone())
+  $(current_button).remove();
 }

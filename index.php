@@ -1,6 +1,6 @@
 <html>
 
-<title>Orlando Travel Guide</title>
+<title>אתר מדריכים</title>
 
 <head>
   <?php include 'settings/head.php'; ?>

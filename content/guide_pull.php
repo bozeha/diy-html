@@ -136,10 +136,10 @@ foreach($guide_array['type_of_steps_array'] as $val)
         echo "<span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span>";
         if($guide_array['guide_images_array'][$array_of_loops['text_img']+1])
         {
-            echo "<div class='col-md-6'><img  onclick='fullSizeImage(this)' src='".$guide_array['guide_images_array'][$array_of_loops['text_img']+1]."'/></div>";
-            echo "<div class='col-md-6'>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</div>";
+            echo "<div class='col-md-6 col-xs-6 step-img-div'><img  onclick='fullSizeImage(this)' src='".$guide_array['guide_images_array'][$array_of_loops['text_img']+1]."'/></div>";
+            echo "<div class='col-md-6 col-xs-6 step-text-div'><span>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</span></div>";
         }
-        else echo "<div class='col-md-12'>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</div>";
+        else echo "<div class='col-md-12'><span>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</span></div>";
             //print $val;
         
         echo "</div>";
@@ -150,8 +150,7 @@ foreach($guide_array['type_of_steps_array'] as $val)
     else if($guide_array['type_of_steps_array'][$array_of_loops['main']]=="textarea")
     {
         echo "<div class='row' ><div class='guide-box co-xs-12 col-md-6 col-centered'>";
-        echo "<span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span>";
-        
+        echo "<span class='step_number'>".($array_of_loops['main']+1)."<span id='triangle-right'></span></span>";      
         echo "<div class='col-md-12'>".$guide_array['guide_textarea_array'][$array_of_loops['textarea']]."</div>";
         echo "</div>";
         echo "</div>";

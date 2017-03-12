@@ -33,6 +33,14 @@ color : #B0ABB4;
 }
 #main_php_div .btn-danger
 {
+    width: 10%;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+#main_php_div .remove_selected_guides
+{
     width: 80%;
     margin: 0 auto;
     text-align: center;
