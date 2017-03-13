@@ -2,7 +2,7 @@ var upload_array = {};
 
 upload_array['step_number'] = 1; /// the level place 
 upload_array['type_of_steps'] = [];
-console.log(upload_array['step_number']+"xxxxxxxxxxxxxxxxxxxxxxxxx");
+//console.log(upload_array['step_number']+"xxxxxxxxxxxxxxxxxxxxxxxxx");
 
 temp_loop = 0; /// the type_of_steps place
 
@@ -16,14 +16,14 @@ $(document).ready(function () {
   $('#subject_name').change(function () {
     upload_array['subject_number'] = $('#subject_name option:selected').attr('subject-user-id');
     $('#subject_number').val(upload_array['subject_number']);
-    console.log(upload_array['subject_number']);
+  //  console.log(upload_array['subject_number']);
   })
 
 
   $('#nick_name').change(function () {
     upload_array['user_number'] = $('#nick_name option:selected').attr('data-user-id');
     $('#user_number').val(upload_array['user_number']);
-    console.log(upload_array['subject_number']);
+    //console.log(upload_array['subject_number']);
   })
 
 
@@ -41,7 +41,7 @@ $(document).ready(function () {
     $('.add_another_step').last().clone().appendTo(".start_steps");
 
 // add option to add new step between 
-    $(".start_steps").append("<div class='add-new-step-between' data-current-place='"+upload_array['step_number']+"'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
+    $(".start_steps").append("<div data-between-number='"+upload_array['step_number']+"' class='add-new-step-between' data-current-place='"+upload_array['step_number']+"'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
       
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
     $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+(upload_array['step_number']-1)+"),'text_and_img'");
@@ -52,7 +52,7 @@ $(document).ready(function () {
     upload_array['type_of_steps'][temp_loop] = "text_and_img";
     $('#type_of_steps').val(upload_array['type_of_steps']);
     upload_array['step_number']++;
-    console.log(upload_array['step_number']);
+    //console.log(upload_array['step_number']);
     temp_loop++;
   })
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
     upload_array['type_of_steps'][temp_loop] = "textarea";
     $('#type_of_steps').val(upload_array['type_of_steps']);
     upload_array['step_number']++;
-    console.log(upload_array['step_number']);
+    //console.log(upload_array['step_number']);
     temp_loop++;
 
   })
@@ -84,7 +84,7 @@ $(document).ready(function () {
     upload_array['type_of_steps'][temp_loop] = "youtube";
     $('#type_of_steps').val(upload_array['type_of_steps']);
     upload_array['step_number']++;
-    console.log(upload_array['step_number']);
+    //console.log(upload_array['step_number']);
     temp_loop++;
       disable_next(true);
 
@@ -100,12 +100,12 @@ $(current_this).parent().parent().find('input#auto').val()
   var str = $(current_this).parent().parent().parent().find('input.guide_videos_array').val();
   //var str = $('form .add_guide_videos_array input.guide_videos_array').last().val();
   str = str.replace(/.*=/, "");
-  console.log(str);
+  //console.log(str);
   str = $(current_this).parent().parent().find('input#auto').is(':checked') ? str + "?autoplay=1" : str + "?autoplay=0";
   str = $(current_this).parent().parent().find('input#loop').is(':checked') ? str + "&loop=1" : str + "&loop=0";
   str = $(current_this).parent().parent().find('input#controler').is(':checked') ? str + "&controls=1" : str + "&controls=0";
   str = $(current_this).parent().parent().find('input#rel').is(':checked') ? str + "&rel=1" : str + "&rel=0";
-  console.log(str);
+  //console.log(str);
   //$('form .add_guide_videos_array input.guide_videos_array_finel').last().val(str);
   $(current_this).parent().parent().parent().find('input.guide_videos_array_finel').val(str);
   
@@ -149,10 +149,10 @@ function removeBlock(current_div,number_of_step_to_remove,type_of_block)
  upload_array['type_of_steps'].splice([number_of_step_to_remove],1);
  $(current_div ).remove();
 $("#type_of_steps").val(upload_array['type_of_steps']);
-console.log(upload_array['step_number']);
+//console.log(upload_array['step_number']);
 temp_loop--;
 upload_array['step_number'] --;
-console.log(upload_array['step_number']);
+//console.log(upload_array['step_number']);
 type_of_block= 'youtube'?disable_next(false):"";
 
 //set the levels names
@@ -172,9 +172,131 @@ $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"
 
 function addStepBetweenButton(current_button)
 {
-  console.log(current_button);
-  $(current_button).after($('.button_youtube:eq(0)').clone())
-  $(current_button).after($('.button_textarea:eq(0)').clone())
-  $(current_button).after($('.button_text_and_img:eq(0)').clone())
+  //console.log(current_button);
+  /*$(current_button).after($('.button_youtube_between:eq(0)').clone())
+  $(current_button).after($('.button_textarea_between:eq(0)').clone())*/
+  $(current_button).after($('.block-of-between-buttons').last().clone())
+
   $(current_button).remove();
 }
+
+
+function step_between(current_between)
+{
+  //console.log(current_between);
+
+    
+        if($(current_between).hasClass('button_text_and_img_between'))
+            {
+                $( ".button_text_and_img" ).trigger( "click" );
+                temp_loop_array['text_and_img']++;
+                
+                $('form .add_another_step').last().appendTo($(current_between).parent());
+              //  $('.add_another_step').last().remove();
+
+                //to block the resetimages i'm adding a class 
+                  $(current_between).parent().find('.add_another_Step input.fileToUpload').addClass('run_reset_images_between');
+
+
+                // set steps 
+                $(current_between).parent().parent().addClass('add_another_step');
+                $.each($('.step_lable'), function (index) {
+                $('.step_lable')[index].textContent = (index+1)+' שלב';
+                    })
+                $.each($('form .remove-block'), function (index) {
+                $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"+index+"),'"+upload_array['type_of_steps'][index]+"'")
+                    })
+                    upload_array['type_of_steps'].splice(temp_loop-1,1);
+                    upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number'),0,'text_and_img');
+                    $('#type_of_steps').val(upload_array['type_of_steps']);
+
+                $(current_between).parent().find($('.button_youtube_between')).remove();
+                $(current_between).parent().find($('.button_textarea_between')).remove();
+                $(current_between).parent().find($('.button_text_and_img_between')).remove();
+           //     resetImages();
+
+
+            }
+        else if($(current_between).hasClass('button_textarea_between'))
+            {
+                $( ".button_textarea" ).last().trigger( "click" ); 
+              //  temp_loop_array['textarea']++;
+
+                setTimeout(function(){
+                  $('.start_steps .add_another_textarea').last().appendTo($(current_between).parent());
+                 // $('.start_steps .add_another_textarea').last().remove();
+                $(current_between).parent().find($('.button_youtube_between')).remove();
+                $(current_between).parent().find($('.button_text_and_img_between')).remove();
+                $(current_between).parent().find($('.button_textarea_between')).remove();
+                
+                // set steps 
+                $(current_between).parent().parent().addClass('add_another_textarea');
+                $.each($('.step_lable'), function (index) {
+                $('.step_lable')[index].textContent = (index+1)+' שלב';
+                    })
+                $.each($('form .remove-block'), function (index) {
+                $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"+index+"),'"+upload_array['type_of_steps'][index]+"'")
+                    })
+
+                }, 1000);
+            }
+        else if($(current_between).hasClass('button_youtube_between'))
+            {
+            $( ".button_youtube" ).trigger( "click" );
+            //temp_loop_array['youtube']++;
+
+                $('.add_guide_videos_array').last().appendTo($(current_between).parent());
+                $('.add_guide_videos_array').last().remove();
+                $(current_between).parent().find($('.button_youtube_between')).remove();
+                $(current_between).parent().find($('.button_textarea_between')).remove();
+                $(current_between).parent().find($('.button_text_and_img_between')).remove();
+                
+                // set steps 
+                $(current_between).parent().parent().addClass('add_guide_videos_array');
+                $.each($('.step_lable'), function (index) {
+                $('.step_lable')[index].textContent = (index+1)+' שלב';
+                    })
+                $.each($('form .remove-block'), function (index) {
+                $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"+index+"),'"+upload_array['type_of_steps'][index]+"'")
+                    })
+
+             }
+$('form').on('change','.add-new-step-between .fileToUpload',function(){resetImagesBetween()})
+        
+}
+
+
+
+function resetImagesBetween()
+{
+jQuery.each($('input.fileToUpload'),function(i,val){
+    
+    if($(this).val())
+    {
+        if(!guide_array['guide_images_array'][0])console.log('xxxxxxxxxxxxxxxxxxxxx');
+        
+        // get the images path
+        var str = guide_array['guide_images_array'][0];
+        var str2 = $(this).val();
+        var regexp = /.*(\/)/gi;
+        var regexp2 = /(.*(\\))/gi;
+        var matches_array = str.match(regexp);
+        var regexp3 = /\..*/gi; 
+        var matches_array2 = str2.replace(regexp2,""); 
+        var only_extantion = matches_array2.match(regexp3);
+        var full_image_path ="images/guides/"+current_images_path+"/"+current_images_path+"_"+($('input.fileToUpload').length-2)+only_extantion;
+        matches_array[0]=matches_array[0]+matches_array2;
+        //guide_array['guide_images_array'].push(full_image_path);
+         guide_array['guide_images_array'].splice(i,0,full_image_path);
+
+         $(this).parent().find('label').html('Done');
+         $(this).css('display','none');
+         //$(this).parent().parent().parent().html('Done');
+         //send to end of page of the form upload image add the image with last index
+          $(this).appendTo($('.start_steps'));
+    }
+    temp_arr[i]=$(this).val();
+})
+$('#all_images').val(guide_array['guide_images_array']);
+}
+

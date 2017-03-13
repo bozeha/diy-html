@@ -62,6 +62,12 @@ div.an-add
     height:1000px;
     background-color:gray;
 }
+.add-new-step-between
+{
+    display:inline-block;
+    width:100%;
+}
+
 .add-new-step-between button
 {
     background-color: transparent;

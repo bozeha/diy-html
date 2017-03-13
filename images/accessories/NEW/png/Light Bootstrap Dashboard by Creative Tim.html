@@ -116,11 +116,10 @@
     </div>
   </nav>
 
-  <script>$(document).ready(function(){console.log(top_sub) 
+  <script>$(document).ready(function(){
 
       
 $(top_sub).each(function(index){
-  console.log(index+"s");
       $('#top_main_drop').append("<li><a href='list-of-guides.php?subject="+top_sub_id[index]+"'>"+top_sub[index]+"</a></li>");
 
 })

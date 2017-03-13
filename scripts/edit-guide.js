@@ -5,7 +5,7 @@ var current_images_path = guide_array['guide_key'];
 var temp_loop_array = {'text_and_img':0,'textarea':0,'youtube':0}
 $(document).ready(function(){
     startEnterVal();
-    $('form').on('change','.fileToUpload',function(){resetImages()})
+    $('form').on('change','.fileToUpload:not(.run_reset_images_between)',function(){resetImages()})
     $('#all_images').val(guide_array['guide_images_array']);// add all images to array input
     $('#guide_id').val(guide_array['guide_id']);
 
@@ -15,7 +15,7 @@ $('form').on('change','#guide_title_en',function(){
     
     //replace(/\+/g, ' ');
     current_images_path = $('#guide_title_en').val().replace(/ /g,"_").toLowerCase();
-    resetImages()
+    resetImages();
     
     
 })
@@ -61,7 +61,7 @@ setTimeout(function(){
     $(".cke_button__source").trigger( "click" );
     for(var loop=0;loop!=temp_loop_array['textarea'];loop++){
     $('.add_another_textarea').eq(loop).find('textarea').val(guide_array['guide_textarea_array'][loop]);
-    console.log(guide_array['guide_textarea_array'][0]+"ssssssssss");
+    //console.log(guide_array['guide_textarea_array'][0]+"ssssssssss");
 }
 
 for(var loop2=0;loop2!=temp_loop_array['text_and_img'];loop2++){
@@ -144,7 +144,8 @@ jQuery.each($('input.fileToUpload'),function(i,val){
     if($(this).val())
     {
         if(!guide_array['guide_images_array'][0])console.log('xxxxxxxxxxxxxxxxxxxxx');
-        //console.log(guide_array['guide_images_array'][i]);
+        
+        // get the images path
         var str = guide_array['guide_images_array'][0];
         var str2 = $(this).val();
         var regexp = /.*(\/)/gi;
@@ -166,7 +167,7 @@ $('#all_images').val(guide_array['guide_images_array']);
 function asciiToChar(get_string)
 {
 
-//get_string.replace("Microsoft", "W3Schools");
+
 get_string = get_string.replace(new RegExp("&#41;", "g"),")");
 get_string = get_string.replace(new RegExp("&#40;", "g"),"(");
 get_string = get_string.replace(new RegExp("&#39;", "g"),"'");

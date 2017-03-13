@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
         }
         else{
           $guide_array['guide_videos_array']='';
-          echo "<script>console.log('boaz boz');guide_array['guide_videos_array']=''</script>";
+          echo "<script>guide_array['guide_videos_array']=''</script>";
           }
         
         
@@ -203,6 +203,17 @@ include 'settings/pull_subjects.php';
 
 
     <div style='display:none'>
+
+<!-- this is buttons for between steps -->
+          <div class='col-xs-12 pull-right block-of-between-buttons'>
+              <button type="button" onclick='step_between(this)' class="btn-lg button_youtube_between">צור שלב של סרטון יוטיוב</button>
+              <button type="button" onclick='step_between(this)' class="btn-lg button_textarea_between">קטע טקסט</button>
+              <button type="button" onclick='step_between(this)' class="btn-lg button_text_and_img_between">צור שלב של טקסט ותמונה</button>
+            </div>
+
+
+
+
       <div class="add_another_step">
 <button class="btn remove-block btn-danger" onclick="">x</button>
         <div class="form-group">
