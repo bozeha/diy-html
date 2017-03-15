@@ -153,8 +153,9 @@ function disable_next(current_step)
 function removeBlock(current_div,number_of_step_to_remove,type_of_block)
 {
 
-//if this div with image and text we need to remove the img from images array
-if($(current_div).hasClass('add_another_step'))
+//if this div with image and text we need to remove the img from images array need to work only on edit guide not on new guid page
+var get_url = window.location.href;
+if(($(current_div).hasClass('add_another_step'))&&(get_url.indexOf("new-guide-form") == -1))
 {
   guide_array['guide_images_array'].splice($(current_div).find('.edit_guide_img').attr('data-id-img-div'),1);
   $('#all_images').val(guide_array['guide_images_array']);
@@ -302,7 +303,7 @@ function step_between(current_between)
 
 
              }
-$('form').on('change','.add-new-step-between .fileToUpload',function(){resetImagesBetween()})
+$('form').one('change','.run_reset_images_between',function(){  var x= resetImagesBetween();})
         
 }
 
@@ -311,15 +312,16 @@ $('form').on('change','.add-new-step-between .fileToUpload',function(){resetImag
 function resetImagesBetween()
 {
     var enter_only_ons = 0;
-jQuery.each($('input.fileToUpload'),function(i,val){
-    if($(this).val())
+jQuery.each($('form .start_steps').children('.add_another_step'),function(i,val){
+    if($(this).find('input.run_reset_images_between').val())
     {
+        var temp_this_val =$(this).find('input.run_reset_images_between');
         enter_only_ons =1;
         if(!guide_array['guide_images_array'][0])console.log('xxxxxxxxxxxxxxxxxxxxx');
         
         // get the images path
         var str = guide_array['guide_images_array'][0];
-        var str2 = $(this).val();
+        var str2 = $(temp_this_val).val();
         var regexp = /.*(\/)/gi;
         var regexp2 = /(.*(\\))/gi;
         var matches_array = str.match(regexp);
@@ -329,18 +331,20 @@ jQuery.each($('input.fileToUpload'),function(i,val){
         var full_image_path ="images/guides/"+current_images_path+"/"+current_images_path+"_"+($('input.fileToUpload').length-2)+only_extantion;
         matches_array[0]=matches_array[0]+matches_array2;
         //guide_array['guide_images_array'].push(full_image_path);
-         guide_array['guide_images_array'].splice(i,0,full_image_path);
 
-         $(this).parent().find('label').html('Done');
-         $(this).css('display','none');
+        //enter image src to images array
+         guide_array['guide_images_array'].splice(i+1,0,full_image_path);
+
+         $(temp_this_val).parent().find('label').html('Done');
+         $(temp_this_val).css('display','none');
          //$(this).parent().parent().parent().html('Done');
          //send to end of page of the form upload image add the image with last index
-          $(this).appendTo($('.start_steps'));
-          temp_arr[i]=$(this).val();
+          $(temp_this_val).appendTo($('.start_steps'));
+          temp_arr[i]=$(temp_this_val).val();
           
     }
-// between step need only one element to add so if its enterd exit
-      if(enter_only_ons==1)return false; 
+// between step need only one element to add so if its enterd exit  
+      if(enter_only_ons==1) { return false; } 
       
 })
 $('#all_images').val(guide_array['guide_images_array']);
