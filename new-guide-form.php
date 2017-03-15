@@ -81,6 +81,8 @@ include 'settings/pull_subjects.php';
 
 
     <div style='display:none'>
+
+
       <div class="add_another_step">
 <button class="btn btn-danger" onclick="">x</button>
         <div class="form-group">

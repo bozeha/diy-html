@@ -59,6 +59,10 @@ $(document).ready(function () {
 
   $('.button_textarea').click(function () {
     $('.add_another_textarea').last().clone().appendTo(".start_steps");
+
+    // add option to add new step between 
+    $(".start_steps").append("<div data-between-number='"+upload_array['step_number']+"' class='add-new-step-between' data-current-place='"+upload_array['step_number']+"'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
+
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
     $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+(upload_array['step_number']-1)+"),'textarea'");
 // do the romove bloc option
@@ -76,6 +80,10 @@ $(document).ready(function () {
   })
   $('.button_youtube').click(function () {
     $('.add_guide_videos_array').last().clone().appendTo(".start_steps");
+
+// add step between 
+$(".start_steps").append("<div data-between-number='"+upload_array['step_number']+"' class='add-new-step-between' data-current-place='"+upload_array['step_number']+"'><button type='button' onclick='addStepBetweenButton(this)'>הוסף שלב ביניים</button></div>");
+
     $('form .step_lable').last().html(upload_array['step_number'] + " שלב");
     $('form .btn-danger').last().attr('onclick',"removeBlock($(this).parent(),"+(upload_array['step_number']-1)+"),'youtube'");
     // do the romove bloc option
@@ -145,7 +153,18 @@ function disable_next(current_step)
 function removeBlock(current_div,number_of_step_to_remove,type_of_block)
 {
 
-// console.log(number_of_step_to_remove);
+//if this div with image and text we need to remove the img from images array
+if($(current_div).hasClass('add_another_step'))
+{
+  guide_array['guide_images_array'].splice($(current_div).find('.edit_guide_img').attr('data-id-img-div'),1);
+  $('#all_images').val(guide_array['guide_images_array']);
+}
+
+// remove the option step between 
+$(current_div).next().remove();
+
+
+
  upload_array['type_of_steps'].splice([number_of_step_to_remove],1);
  $(current_div ).remove();
 $("#type_of_steps").val(upload_array['type_of_steps']);
@@ -172,11 +191,8 @@ $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"
 
 function addStepBetweenButton(current_button)
 {
-  //console.log(current_button);
-  /*$(current_button).after($('.button_youtube_between:eq(0)').clone())
-  $(current_button).after($('.button_textarea_between:eq(0)').clone())*/
+  
   $(current_button).after($('.block-of-between-buttons').last().clone())
-
   $(current_button).remove();
 }
 
@@ -192,11 +208,15 @@ function step_between(current_between)
                 temp_loop_array['text_and_img']++;
                 
                 $('form .add_another_step').last().appendTo($(current_between).parent());
-              //  $('.add_another_step').last().remove();
+                
+               /* $('form .add-new-step-between').last().insertAfter($(current_between).parent().parent());
+                $('.add-new-step-between').each(function(i){
+                  $(this).attr('data-between-number',i+1);
+                  $(this).attr('data-current-place',i+1);
+                })*/
 
                 //to block the resetimages i'm adding a class 
                   $(current_between).parent().find('.add_another_Step input.fileToUpload').addClass('run_reset_images_between');
-
 
                 // set steps 
                 $(current_between).parent().parent().addClass('add_another_step');
@@ -206,6 +226,8 @@ function step_between(current_between)
                 $.each($('form .remove-block'), function (index) {
                 $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"+index+"),'"+upload_array['type_of_steps'][index]+"'")
                     })
+
+                    // update the type of step
                     upload_array['type_of_steps'].splice(temp_loop-1,1);
                     upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number'),0,'text_and_img');
                     $('#type_of_steps').val(upload_array['type_of_steps']);
@@ -213,6 +235,7 @@ function step_between(current_between)
                 $(current_between).parent().find($('.button_youtube_between')).remove();
                 $(current_between).parent().find($('.button_textarea_between')).remove();
                 $(current_between).parent().find($('.button_text_and_img_between')).remove();
+              //$('form .add-new-step-between').last().remove();
            //     resetImages();
 
 
@@ -222,12 +245,10 @@ function step_between(current_between)
                 $( ".button_textarea" ).last().trigger( "click" ); 
               //  temp_loop_array['textarea']++;
 
-                setTimeout(function(){
+/*                setTimeout(function(){
                   $('.start_steps .add_another_textarea').last().appendTo($(current_between).parent());
                  // $('.start_steps .add_another_textarea').last().remove();
-                $(current_between).parent().find($('.button_youtube_between')).remove();
-                $(current_between).parent().find($('.button_text_and_img_between')).remove();
-                $(current_between).parent().find($('.button_textarea_between')).remove();
+              
                 
                 // set steps 
                 $(current_between).parent().parent().addClass('add_another_textarea');
@@ -238,19 +259,27 @@ function step_between(current_between)
                 $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"+index+"),'"+upload_array['type_of_steps'][index]+"'")
                     })
 
-                }, 1000);
+                    // update the type of step
+                    upload_array['type_of_steps'].splice(temp_loop-1,1);
+                    upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number'),0,'textarea');
+                    $('#type_of_steps').val(upload_array['type_of_steps']);
+
+
+
+                  $(current_between).parent().find($('.button_youtube_between')).remove();
+                $(current_between).parent().find($('.button_text_and_img_between')).remove();
+                $(current_between).parent().find($('.button_textarea_between')).remove();
+
+                }, 5000);*/
             }
         else if($(current_between).hasClass('button_youtube_between'))
             {
             $( ".button_youtube" ).trigger( "click" );
-            //temp_loop_array['youtube']++;
+            temp_loop_array['youtube']++;
 
-                $('.add_guide_videos_array').last().appendTo($(current_between).parent());
-                $('.add_guide_videos_array').last().remove();
-                $(current_between).parent().find($('.button_youtube_between')).remove();
-                $(current_between).parent().find($('.button_textarea_between')).remove();
-                $(current_between).parent().find($('.button_text_and_img_between')).remove();
-                
+                $('form .add_guide_videos_array').last().appendTo($(current_between).parent());
+               // $('.add_guide_videos_array').last().remove();
+                           
                 // set steps 
                 $(current_between).parent().parent().addClass('add_guide_videos_array');
                 $.each($('.step_lable'), function (index) {
@@ -259,6 +288,18 @@ function step_between(current_between)
                 $.each($('form .remove-block'), function (index) {
                 $('form .remove-block').eq(index).attr('onclick',"removeBlock($(this).parent(),"+index+"),'"+upload_array['type_of_steps'][index]+"'")
                     })
+
+                    // update the type of step
+                    upload_array['type_of_steps'].splice(temp_loop-1,1);
+                    upload_array['type_of_steps'].splice($(current_between).parent().parent().attr('data-between-number'),0,'youtube');
+                    $('#type_of_steps').val(upload_array['type_of_steps']);
+
+                    //remove 3 big buttons
+                $(current_between).parent().find($('.button_textarea_between')).remove();
+                $(current_between).parent().find($('.button_text_and_img_between')).remove();
+                $(current_between).parent().find($('.button_youtube_between')).remove();
+
+
 
              }
 $('form').on('change','.add-new-step-between .fileToUpload',function(){resetImagesBetween()})
@@ -269,10 +310,11 @@ $('form').on('change','.add-new-step-between .fileToUpload',function(){resetImag
 
 function resetImagesBetween()
 {
+    var enter_only_ons = 0;
 jQuery.each($('input.fileToUpload'),function(i,val){
-    
     if($(this).val())
     {
+        enter_only_ons =1;
         if(!guide_array['guide_images_array'][0])console.log('xxxxxxxxxxxxxxxxxxxxx');
         
         // get the images path
@@ -294,9 +336,16 @@ jQuery.each($('input.fileToUpload'),function(i,val){
          //$(this).parent().parent().parent().html('Done');
          //send to end of page of the form upload image add the image with last index
           $(this).appendTo($('.start_steps'));
+          temp_arr[i]=$(this).val();
+          
     }
-    temp_arr[i]=$(this).val();
+// between step need only one element to add so if its enterd exit
+      if(enter_only_ons==1)return false; 
+      
 })
 $('#all_images').val(guide_array['guide_images_array']);
+// this make new between div that need to remove 
+  //$('.add-new-step-between').last().remove();
+
 }
 
