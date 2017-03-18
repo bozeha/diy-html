@@ -246,7 +246,7 @@ include 'settings/pull_subjects.php';
           <div class="row">
             <label for="exampleInputEmail1">הוסף סירטון יוטיוב</label>
             <input type="text" class="col-xs-6 pull-right guide_videos_array" name="guide_videos_array_temp">
-            <button type="button" class="conf-button col-xs-2 btn-md btn btn-primary pull-right" onclick='youtube_options(this)'>אשר</button>
+            <button type="button" class="conf-button col-xs-2 btn-md btn btn-primary pull-right flash" onclick='youtube_options(this)'>אשר</button>
           </div>
 
           <div class="btn-group row" data-toggle="buttons">

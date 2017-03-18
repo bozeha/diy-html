@@ -193,9 +193,19 @@
   
     
   }
-  .snip1570 img
+.snip1570 a h4
+{
+    color: #bbb;
+
+}
+.snip1570 a h3
   {
-    opacity:0.5;
+    color: #fff;
+  }
+
+  body .snip1570 a
+  {
+        background-color: rgba(0,0,0,0.75) !important;
   }
   #log-in-form
   {

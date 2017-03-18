@@ -9,6 +9,9 @@ $(document).ready(function(){
     $('#all_images').val(guide_array['guide_images_array']);// add all images to array input
     $('#guide_id').val(guide_array['guide_id']);
 
+     $('#user_number').val(upload_array['user_number']);
+      $('#subject_number').val(upload_array['subject_number']);
+
     //resave the new file in the array images
 //if we chage the en title the guide key will chage and the file names path will be change
 $('form').on('change','#guide_title_en',function(){

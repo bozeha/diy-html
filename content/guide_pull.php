@@ -142,7 +142,6 @@ foreach($guide_array['type_of_steps_array'] as $val)
             echo "<div class='col-md-6 col-xs-6 step-text-div'><span>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</span></div>";
         }
         else echo "<div class='col-md-12'><span>".$guide_array['guide_text_array'][$array_of_loops['text_img']]."</span></div>";
-            echo "<script>console.log('hhhhhhhhhhhhhhhhhhh')</script>";
         
         echo "</div>";
         echo "</div>";

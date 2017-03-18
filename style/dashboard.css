@@ -46,3 +46,20 @@ color : #B0ABB4;
     text-align: center;
     display: block;
 }
+.selected-guide
+{
+    background-color: rgba(0,0,0,0.1);
+    background-clip: content-box;
+    box-sizing: border-box;
+    margin-top:10px;
+    height:100px;
+    
+}
+.edit-gudie-btn
+{
+
+    height: 27px;
+    line-height: 0px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;;
+}

@@ -2,7 +2,6 @@ var upload_array = {};
 
 upload_array['step_number'] = 1; /// the level place 
 upload_array['type_of_steps'] = [];
-//console.log(upload_array['step_number']+"xxxxxxxxxxxxxxxxxxxxxxxxx");
 
 temp_loop = 0; /// the type_of_steps place
 
@@ -16,14 +15,14 @@ $(document).ready(function () {
   $('#subject_name').change(function () {
     upload_array['subject_number'] = $('#subject_name option:selected').attr('subject-user-id');
     $('#subject_number').val(upload_array['subject_number']);
-    //  console.log(upload_array['subject_number']);
+    
   })
 
 
   $('#nick_name').change(function () {
     upload_array['user_number'] = $('#nick_name option:selected').attr('data-user-id');
     $('#user_number').val(upload_array['user_number']);
-    //console.log(upload_array['subject_number']);
+    
   })
 
 

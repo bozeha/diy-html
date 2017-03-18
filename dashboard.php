@@ -69,6 +69,33 @@ if(isset($_GET['dash'])) {
 <div class="wrapper">
     <div id='resize_div'></div>
 <div id='load_div'></div>
+<div id='pop_message'>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">הודעת הזהרה</h4>
+      </div>
+      <div class="modal-body">
+        <p>האם אתה בטוח שאתה רוצה למחוק את המדריכים המסומנים</p>
+        <button  type="button" class="btn btn-default" onclick=elements_to_remove('guides')>אשר</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">בטל</button>
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</div>
 <?php 
 include 'content/top_main.php';
 

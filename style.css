@@ -37,10 +37,7 @@ body {
 {
     margin-bottom:0px;
 }
-.selected-guide
-{
-    margin-bottom:10px;
-}
+
 /*.card .content
 {
 
@@ -79,3 +76,26 @@ div.an-add
     font-weight:bold;
     color:blue;
 }
+
+@-webkit-keyframes flash {
+    0% {
+        background-color: Yellow;
+        opacity:1;
+    }
+    22% {
+        background-color: Yellow;
+    }
+    77% {
+        background-color: Red;
+    }
+    100% {
+        background-color: #777;
+    }
+}
+
+.flash {
+    -webkit-animation-name: demo;
+    -webkit-animation-duration: 900ms;
+    -webkit-animation-iteration-count: 5;
+    -webkit-animation-timing-function: ease-in-out;
+} 
