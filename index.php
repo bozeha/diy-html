@@ -16,13 +16,8 @@ include 'content/top_main.php';
 
     </div>
     <div id="section2">
-      <div class="row" style="background:#29d846">
-        <div class="text-center">
-          <h4 style="color:#fff;padding-top:10px;padding-bottom:10px">PLACES TO GO</h4>
-        </div>
-      </div>
       <div class="container">
-        <div class="row" style="margin-top:20px">
+        <div class="row" style="margin-top:70px">
           <div id="adds" style="" class="col-md-4 hidden-xs hidden-sm">
             <div class='row'>
               <div class='col-xs-12 an-add' style='background-color:blue;height:200px'>
@@ -83,8 +78,6 @@ include 'content/top_main.php';
     </div>
     </div>
     </div>
-
-
 
 </body>
 

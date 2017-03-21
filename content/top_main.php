@@ -54,7 +54,13 @@ if(isset($_POST['uname'])) {
                         $_SESSION['id'] = session_id();
                           
                           //strat calculate time .. for timeout log in 
-                          if(!$_SESSION['timeout']){$_SESSION['timeout'] = time(); }
+                          if(!isset($_SESSION['timeout']))
+                          {
+                            $_SESSION['timeout'] = time(); 
+                            //echo "<script>alert('".$_SESSION['timeout']."')</script>";
+                          
+                          }
+
                             
           }
           if((isset($_POST['status']))&& ($_POST['status'])=='false') 
