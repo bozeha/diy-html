@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     // this to show messages on hover the images tooltip of bootstrap 
     $('[data-toggle="tooltip"]').tooltip();   
-
+ //start_count_time_login();
 })
 function fullSizeImage(current_img) {
     temp_img['src'] = $(current_img).attr('src');
@@ -26,3 +26,8 @@ function fullSizeImage(current_img) {
 }
 
 
+function start_count_time_login()
+{
+    setTimeout(function(){ $('#myModal2').modal() }, 3000);
+
+}

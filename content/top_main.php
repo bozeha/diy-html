@@ -52,6 +52,10 @@ if(isset($_POST['uname'])) {
 
                       $user['status'] = $_POST['status'];
                         $_SESSION['id'] = session_id();
+                          
+                          //strat calculate time .. for timeout log in 
+                          if(!$_SESSION['timeout']){$_SESSION['timeout'] = time(); }
+                            
           }
           if((isset($_POST['status']))&& ($_POST['status'])=='false') 
           {
@@ -94,7 +98,6 @@ if(isset($_POST['uname'])) {
             <?php
         if(isset($_POST['mess'])) {
     $mess = $_POST['mess'];
-    //   echo $user['uname'];
     echo "<h3 class='message_text'>".$mess."</h3>";
 }
     ?>
@@ -119,6 +122,19 @@ echo <<<BOT
 BOT;
 
               echo "<h5 class='pull-left'>". $_SESSION['uname']."  ברוך הבא   </h5></div>";
+
+              //time out after 10 min (60 sec * 10 )
+
+              if ($_SESSION['timeout'] + 10 * 60 < time()) {   
+                
+                    echo "<script>$('.log_out_button').click()</script>";
+
+              } else {
+                // the page has not pass time so reset time for more 10 minites
+                $_SESSION['timeout'] = time();
+              }
+
+
 
           }
           else {
