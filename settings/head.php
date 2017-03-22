@@ -13,4 +13,5 @@
 <script src="assets/js/bootstrap.min.js"></script>
  <link href="style.css" rel="stylesheet">
  <script src='scripts/main_scripts.js'></script>
+ <script src='scripts/security.js'></script>
  <link rel="apple-touch-icon" href="images/favicon/diy.png">

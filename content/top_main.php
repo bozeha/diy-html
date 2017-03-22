@@ -46,6 +46,7 @@ for($loop2=0;$loop2!=$loop;$loop2++) {
 if(isset($_POST['uname'])) {
     
               $_SESSION['uname'] = $_POST['uname'];
+              $_SESSION['utype'] = $_POST['type'];
               //   echo $user['uname'];
           }
           if((isset($_POST['status']))&& ($_POST['status'])=='true') {
@@ -128,6 +129,11 @@ echo <<<BOT
 BOT;
 
               echo "<h5 class='pull-left'>". $_SESSION['uname']."  ברוך הבא   </h5></div>";
+
+            
+                  echo "<script type='text/javascript'> privileges('".$_SESSION['utype']."')</script>";
+              
+
 
               //time out after 10 min (60 sec * 10 )
 

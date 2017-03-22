@@ -39,9 +39,9 @@ color : #B0ABB4;
     font-size: 20px;
     font-weight: bold;
 }
-#main_php_div .remove_selected_guides
+#main_php_div .remove_selected_guides,body .red-button-remove-user
 {
-    width: 80%;
+    width: 80% !important;
     margin: 0 auto;
     text-align: center;
     display: block;

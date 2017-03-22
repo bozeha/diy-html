@@ -23,6 +23,13 @@ if(isset($_GET['dash'])) {
 } else {
     $current_dash = "new-guide-form.php";
 }
+ 
+ /// remove all admin element to unadmin users like option to delet guides
+ /*if (($_SESSION['utype']!='admin')&&($_SESSION['utype']!='super_admin'))
+ {
+     echo "<script>$('.admin-privileges').remove()</script>";
+
+    } */
 
 
 ?>
@@ -152,7 +159,7 @@ include 'content/top_main.php';
                         <p>הוספת מיצרך</p>
                     </a>
                 </li>
-                <li id='li-manage-users'>
+                <li id='li-manage-users' class='admin-privileges'>
                     <a href="dashboard.php?dash=manage-users">
                         <i class="pe-7s-user"></i>
                         <p>ערוך משתמשים</p>
