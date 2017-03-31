@@ -246,3 +246,7 @@ background-color:#122b40 !important;
         font-size:10px;
     }
 }
+.navbar-left li:nth-of-type(1)
+{
+    padding-top:5px;    
+}

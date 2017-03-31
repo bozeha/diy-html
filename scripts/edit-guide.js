@@ -9,8 +9,10 @@ $(document).ready(function(){
     $('#all_images').val(guide_array['guide_images_array']);// add all images to array input
     $('#guide_id').val(guide_array['guide_id']);
 
-     $('#user_number').val(upload_array['user_number']);
-      $('#subject_number').val(upload_array['subject_number']);
+     $('#user_number').val(guide_array['user']);
+     //$('#user_number').val(upload_array['user_number']);
+      $('#subject_number').val(guide_array['subject']);
+      //$('#subject_number').val(upload_array['subject_number']);
 
     //resave the new file in the array images
 //if we chage the en title the guide key will chage and the file names path will be change
@@ -36,7 +38,8 @@ $("#nick_name").val($("#nick_name [data-user-id="+guide_array['user']+"]").val()
 //$("#nick_name").val($("#nick_name option")[guide_array['user']].value);
 jQuery.each(guide_array['guide_accessories_array'],function(i,val)
     {
-        $('#access [data-user-id='+val+']').addClass('access_select');        
+        //$('#access [data-user-id='+val+']').addClass('access_select');        
+        $('#access [data-user-id='+val+']').trigger( "click" );
 })
 
 jQuery.each(guide_array['type_of_steps_array'],function(i,val)

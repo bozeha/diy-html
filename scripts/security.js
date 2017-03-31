@@ -6,11 +6,12 @@ function privileges(user_type)
     jQuery(function(){
    //dom ready codes
     $('.admin-privileges').remove();
+    $('.super-admin-privileges').remove();
     });
     break;
     case 'admin':
     break;
-    case 'super_admin':
+    case 'super-admin':
     break;
     }
 
