@@ -19,30 +19,26 @@ include 'content/top_main.php';
       <div class="container">
         <div class="row" style="margin-top:70px">
           <div id="adds" style="" class="col-md-4 hidden-xs hidden-sm">
-            <div class='row'>
+          <!--  <div class='row'>
               <div class='col-xs-12 an-add' style='background-color:blue;height:200px'>
-
-
-
-
               </div>
-            </div>
+            </div>-->
             <div class='row'>
-              <div class='col-xs-12  an-add' style='background-color:blue;height:200px'>
+              <div class='col-xs-12  an-add' style=''>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- ads -->
-                <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7763767729656761" data-ad-slot="8145143720"></ins>
+                <!-- left-side-block -->
+                <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7763767729656761" data-ad-slot="1724690129"></ins>
                 <script>
                   (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
 
               </div>
             </div>
-            <div class='row'>
+  <!--          <div class='row'>
               <div class='col-xs-12 an-add' style='background-color:blue;height:200px'>
 
               </div>
-            </div>
+            </div>-->
           </div>
           <?php include 'content/subjects_pull.php'; ?>
         </div>
