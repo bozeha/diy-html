@@ -13,7 +13,7 @@ include 'content/top_main.php';
 ?>
 
   <div class="container">
-      <div class="row" style="margin-top:70px">
+      <div class="row">
         <?php include 'content/guides_pull.php'; ?>
       </div>
 

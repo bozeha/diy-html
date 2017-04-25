@@ -190,3 +190,10 @@ $(top_sub).each(function(index){
 
   
     })</script>
+
+
+    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:80px;margin-bottom:10px'>
+<?php 
+                      include 'ads/top-big-ad.php';
+              ?>
+    </div>

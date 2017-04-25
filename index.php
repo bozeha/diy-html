@@ -17,7 +17,7 @@ include 'content/top_main.php';
     </div>
     <div id="section2">
       <div class="container">
-        <div class="row" style="margin-top:70px">
+        <div class="row" >
           <div id="adds" style="" class="col-md-4 hidden-xs hidden-sm">
           <!--  <div class='row'>
               <div class='col-xs-12 an-add' style='background-color:blue;height:200px'>
@@ -25,12 +25,9 @@ include 'content/top_main.php';
             </div>-->
             <div class='row'>
               <div class='col-xs-12  an-add' style=''>
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- left-side-block -->
-                <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-7763767729656761" data-ad-slot="1724690129"></ins>
-                <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+              <?php 
+                      include 'ads/left-big-ad.php';
+              ?>
 
               </div>
             </div>
@@ -45,7 +42,7 @@ include 'content/top_main.php';
 
       </div>
       <div class="row" style="background:#29d846">
-        <div class="container" style="margin-top:50px">
+        <div class="container">
           <div class="col-md-3">
             <p class="text-center"><a href="#" style="color:#fff">Contact Us</a></p>
             <p class="text-center"><a href="#" style="color:#fff"> Partners</a></p>

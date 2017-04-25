@@ -109,7 +109,7 @@ label {
 }
 
 .top_main_guide {
-    margin-top: 60px;
+    /*margin-top: 60px;*/
 }
 
 .top_main_guide_img {
@@ -120,6 +120,7 @@ label {
 }
 
 #resize_div {
+    top:0px;
     z-index: 1500;
     background-repeat: no-repeat;
     background-position: 50%;
