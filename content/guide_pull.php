@@ -94,7 +94,6 @@ echo "</div></div>";
 //echo $guide_array['type_of_steps_array'];
 
 echo "<div class'row pull_access_div' style='display:inline-block' >";
-echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
 
 
 
@@ -103,6 +102,7 @@ echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
 //$access_loop--;
 if($guide_array['guide_accessories_array'][0][0]!="")
 {
+echo "<h3>רשימת המוצרים שצריך עבור מדריך זה </h3>";
     echo "<div class='access_div'>";
     //for(;$access_loop!=-1;$access_loop--)
     foreach($guide_array['guide_accessories_array'][0] as $key=>$value)
