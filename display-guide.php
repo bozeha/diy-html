@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<?php include_once("ads/analyticstracking.php") ?>
   <?php include 'settings/head.php'; ?>
   
 

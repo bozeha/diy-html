@@ -1,0 +1,33 @@
+
+body
+{
+    direction:rtl;
+}
+.table-responsive > div.container
+{
+    max-width:700px;
+}
+.main-panel
+{
+overflow:visible !important;
+
+}
+
+.red-button-remove-user
+{
+    margin-top:27px;
+}
+.red-button-remove
+{
+    margin-top: -45px;
+    margin-left: 20px;
+}
+.sidebar-wrapper ul.nav
+{
+
+    padding-right:0px ;
+}
+.dis-button
+{
+color : #B0ABB4;
+}
