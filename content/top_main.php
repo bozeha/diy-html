@@ -137,7 +137,7 @@ BOT;
 
               //time out after 10 min (60 sec * 10 )
 
-              if ($_SESSION['timeout'] + 10 * 60 < time()) {   
+              if ($_SESSION['timeout'] + 30 * 60 < time()) {   
                 
                     echo "<script>$('.log_out_button').click()</script>";
 
