@@ -47,6 +47,7 @@ if(isset($_POST['uname'])) {
     
               $_SESSION['uname'] = $_POST['uname'];
               $_SESSION['utype'] = $_POST['type'];
+              
               //   echo $user['uname'];
           }
           if((isset($_POST['status']))&& ($_POST['status'])=='true') {
@@ -131,7 +132,7 @@ BOT;
               echo "<h5 class='pull-left'>". $_SESSION['uname']."  ברוך הבא   </h5></div>";
 
             
-                  echo "<script type='text/javascript'> privileges('".$_SESSION['utype']."')</script>";
+                  echo "<script type='text/javascript'>privileges('".$_SESSION['utype']."')</script>";
               
 
 
