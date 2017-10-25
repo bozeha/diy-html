@@ -75,22 +75,21 @@ if(isset($_POST['uname'])) {
 
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
     <!-- <div class="container"> -->
-      <div class="navbar-header">
+      <!-- <div class="navbar-header"> -->
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">  
         <span class="navbar-toggler-icon "></span>
         </button>
         <a class="navbar-brand text-primary" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav ">
-          <li class="d-flex justify-content-start"><a href="index.php">דף הבית</a></li>
-          <!--<li><a href="#">מדריכים</a></li>-->
-          <li class="d-flex justify-content-start dropdown">
+      <!-- </div> -->
+      <div id="navbar" class="navbar-collapse collapse justify-content-end">
+        <ul class="navbar-nav align-items-center flex-last">
+          <li class="nav-item"><a href="index.php">דף הבית</a></li>
+          <li class="nav-item dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">מדריכים<span class="caret"></span></a>
             <ul class="dropdown-menu" id='top_main_drop'>
             </ul>
           </li>
-          <li class="d-flex justify-content-start">
+          <li class="nav-item">
             <a href="#">הודותינו</a></li>
           
           <?php
@@ -153,7 +152,7 @@ BOT;
 echo <<<BOT
 
       <form id='log-in-form' action="settings/log-in.php" method="post">
-            <ul class="nav navbar-nav navbar-left">
+            <ul class="nav align-items-end navbar-nav navbar-left">
                   <li>
                 <a href="#">
                   <button class='btn'>התחבר</button>
