@@ -14,6 +14,7 @@
  
 <!-- <script src="assets/js/bootstrap.min.js"></script> -->
  <link href="style/style.css" rel="stylesheet">
+ <link href="style/new-styles.css" rel="stylesheet">
  <script src='scripts/main_scripts.js'></script>
  <script src='scripts/security.js'></script>
  <link rel="icon" type="image/png" href="images/web/favicon.ico">
