@@ -73,27 +73,25 @@ if(isset($_POST['uname'])) {
           }
 ?>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <!-- <div class="container"> -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">  
+        <span class="navbar-toggler-icon "></span>
         </button>
-        <a class="navbar-brand" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
+        <a class="navbar-brand text-primary" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav pull-right">
-          <li><a href="index.php">דף הבית</a></li>
+        <ul class="nav navbar-nav ">
+          <li class="d-flex justify-content-start"><a href="index.php">דף הבית</a></li>
           <!--<li><a href="#">מדריכים</a></li>-->
-          <li class="dropdown">
+          <li class="d-flex justify-content-start dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">מדריכים<span class="caret"></span></a>
             <ul class="dropdown-menu" id='top_main_drop'>
             </ul>
           </li>
-          <li><a href="#">הודותינו</a></li>
+          <li class="d-flex justify-content-start">
+            <a href="#">הודותינו</a></li>
           
           <?php
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
@@ -179,7 +177,7 @@ BOT;
     
       </div>
       <!--/.nav-collapse -->
-    </div>
+    <!-- </div> -->
   </nav>
 
   <script>$(document).ready(function(){
