@@ -90,25 +90,17 @@ if(isset($_POST['uname'])) {
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link h4" href="#">הודותינו</a></li>
+            <a class="nav-link h4" href="#">הודותינו</a>
+          </li>
           
           <?php
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
           {
-          echo "<li><a href='dashboard.php'>לוח הבקרה</a></li>";
-
+          echo "<li class='nav-item'><a class='nav-link h4' href='dashboard.php'>לוח הבקרה</a></li>";
+          $class_mess="text-success";
             }
+            else $class_mess="text-warning";
             ?>
-          <li>
-            <?php
-        if(isset($_POST['mess'])) {
-    $mess = $_POST['mess'];
-    echo "<h3 class='message_text'>".$mess."</h3>";
-}
-    ?>
-
-            </li>
-
         </ul>
         <?php
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
@@ -116,10 +108,10 @@ if(isset($_POST['uname'])) {
 
 echo <<<BOT
 
-     <div id='top-main-message'> <form action="index.php" method="post" name='log_out' id='log_out'>
+     <div id='top-main-message' class='d-flex flex-row align-items-center'> <form action="index.php" method="post" name='log_out' id='log_out'>
             
             
-                  <button class='btn log_out_button'>התנתק</button>
+                  <button class='btn btn-outline-warning my-2 my-sm-0'>התנתק</button>
                   <input name='uname' type='hidden' class="form-control">
                   <input name='status' type='hidden' value='false' class="form-control">
           </form>
@@ -147,7 +139,10 @@ BOT;
 
           }
           else {
-
+            if(isset($_POST['mess'])) {
+              $mess = $_POST['mess'];
+              echo "<h3 class='message_text pr-3 ".$class_mess."'>".$mess."</h3>";
+            }
 echo <<<BOT
 
       <form id='log-in-form' action="settings/log-in.php" method="post">
@@ -166,11 +161,10 @@ echo <<<BOT
             </ul>
           </form>
 BOT;
-
-
           }
 
-
+      
+  
 ?>
     
       </div>
@@ -189,7 +183,7 @@ $(top_sub).each(function(index){
     })</script>
 
 
-    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:128px;margin-bottom:10px'>
+    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:80px;margin-bottom:10px'>
 <?php 
                       include 'ads/top-big-ad.php';
               ?>

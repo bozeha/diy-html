@@ -188,14 +188,14 @@ table#youtube_table td {
     display: inline-block;
     float: left;
 }
-#top-main-message button 
+/* #top-main-message button 
 {
 float:none;
 display: table;
     margin: 0 auto;
     border:none;
 
-}
+} */
 .guide-box div,h2,h1
 {
     direction :rtl
