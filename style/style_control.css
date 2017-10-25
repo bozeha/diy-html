@@ -249,5 +249,6 @@ background-color:#122b40 !important;
 }
 .navbar-left li:nth-of-type(1)
 {
-    padding-top:5px;    
+    /* padding-top:5px;     */
+    /* padding-bottom: .425rem; */
 }

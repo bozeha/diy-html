@@ -81,16 +81,16 @@ if(isset($_POST['uname'])) {
         </button>
         <a class="navbar-brand text-primary" href="/"><strong style="color:#29d846">DIY</strong>Guides</a>
       <!-- </div> -->
-      <div id="navbar" class="navbar-collapse collapse justify-content-end">
+      <div id="navbar" class="align-items-center navbar-collapse collapse justify-content-end">
         <ul class="navbar-nav align-items-center flex-last">
-          <li class="nav-item"><a href="index.php">דף הבית</a></li>
+          <li class="nav-item"><a class="nav-link h4" href="index.php">דף הבית</a></li>
           <li class="nav-item dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">מדריכים<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle nav-link h4" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">מדריכים<span class="caret"></span></a>
             <ul class="dropdown-menu" id='top_main_drop'>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#">הודותינו</a></li>
+            <a class="nav-link h4" href="#">הודותינו</a></li>
           
           <?php
           if((isset($_SESSION["id"]))&&($_SESSION["id"]!=''))
@@ -145,7 +145,6 @@ BOT;
               }
 
 
-
           }
           else {
 
@@ -155,14 +154,14 @@ echo <<<BOT
             <ul class="nav align-items-end navbar-nav navbar-left">
                   <li>
                 <a href="#">
-                  <button class='btn'>התחבר</button>
+                  <button class='btn btn-outline-success my-2 my-sm-0'>התחבר</button>
                 </a>
               </li>
-              <li>שם משתמש
-                  <input name='uname' type='text' class="form-control">
+              <li class="navbar-text">
+                  <input name='uname' placeholder="שם משתמש" type='text' class="form-control">
                 </li>
-              <li>סיסמא
-                  <input name='pass' type='text' class="form-control">
+              <li class="navbar-text">
+                  <input name='pass' placeholder="סיסמא" type='text' class="form-control">
                 </li>
             </ul>
           </form>
@@ -182,7 +181,7 @@ BOT;
   <script>$(document).ready(function(){
 
 $(top_sub).each(function(index){
-      $('#top_main_drop').append("<li><a href='list-of-guides.php?subject="+top_sub_id[index]+"'>"+top_sub[index]+"</a></li>");
+      $('#top_main_drop').append("<li class='dropdown-item text-right'><a href='list-of-guides.php?subject="+top_sub_id[index]+"'>"+top_sub[index]+"</a></li>");
 
 })
 
@@ -190,7 +189,7 @@ $(top_sub).each(function(index){
     })</script>
 
 
-    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:80px;margin-bottom:10px'>
+    <div style='height:100px;width:100%;background-color:gray;padding-top:5px;margin-top:128px;margin-bottom:10px'>
 <?php 
                       include 'ads/top-big-ad.php';
               ?>

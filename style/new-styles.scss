@@ -5,6 +5,20 @@ nav
         ul
         {
             direction:rtl;
+            
+        }
+        form#log-in-form{
+            margin-bottom:0px;
+    }
+        #log-in-form
+        {
+            ul
+            {
+                li:nth-of-type(1)
+                {
+                    padding-bottom: .425rem;
+                }
+            }
         }
     }
 }
